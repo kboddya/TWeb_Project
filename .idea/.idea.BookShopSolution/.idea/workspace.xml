@@ -9,197 +9,13 @@
   <component name="ChangeListManager">
     <list default="true" id="cd6fda3c-9c93-42ae-933c-c373f85f201b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BookShopSolution/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BookShopSolution/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/App_Start/BundleConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/App_Start/BundleConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/BookShopProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/BookShopProject.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/BookShopProject.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/BookShopProject.csproj.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/Site.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-grid.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-grid.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-grid.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-reboot.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-reboot.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-reboot.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-utilities.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-utilities.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-utilities.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-utilities.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-utilities.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-utilities.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-utilities.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/bootstrap.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/accordion.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/all.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/autocomplete.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/base.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/button.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/core.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/datepicker.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/dialog.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/draggable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-icons_222222_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-icons_444444_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-icons_454545_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-icons_555555_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-icons_777620_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-icons_777777_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-icons_888888_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-icons_cc0000_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/jquery-ui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/jquery-ui.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/menu.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/progressbar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/resizable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/selectable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/selectmenu.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/slider.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/sortable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/spinner.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/tabs.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/base/tooltip.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/css/ajax-loader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/css/normalize.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/css/vendor.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/icomoon/Read Me.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/icomoon/fonts/icomoon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/icomoon/fonts/icomoon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/icomoon/fonts/icomoon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/icomoon/fonts/icomoon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/icomoon/icomoon.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/icomoon/selection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/app-store.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/chocolat/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/chocolat/fullscreen-black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/chocolat/fullscreen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/chocolat/left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/chocolat/loader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/chocolat/right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/client-image1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/client-image2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/client-image3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/client-image4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/client-image5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/curly-divider.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/device.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/google-play.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/item.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/item1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/item3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/item4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/item5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/leaf.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/main-banner1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/main-banner2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/main-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/ns-arrow-right.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/pattern1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/pattern2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/post-img1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/post-img2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/post-img3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/product-item1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/product-item2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/product-item3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/product-item4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/product-item5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/product-item6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/product-item7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/product-item8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/single-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/tab-item1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/tab-item2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/tab-item3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/tab-item4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/tab-item5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/tab-item6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/tab-item7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/images/tab-item8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/js/jquery-1.11.0.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/js/modernizr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/js/plugins.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/js/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/js/slideNav.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/js/slideNav.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/themes/booksaw-1.0.0/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Global.asax.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/Global.asax.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.esm.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.esm.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/jquery-3.7.1.intellisense.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/jquery-3.7.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/jquery-3.7.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/jquery-3.7.1.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/jquery-3.7.1.slim.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/jquery-3.7.1.slim.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/jquery-3.7.1.slim.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/jquery-ui-1-14.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/jquery-ui-1.14.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Scripts/jquery-ui-1.14.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/Styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/Content/Styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookShopProject/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/Views/Home/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookShopProject/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/Views/Shared/_Layout.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookShopProject/bin/BookShopProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/bin/BookShopProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/bin/BookShopProject.dll.config" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/bin/BookShopProject.dll.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookShopProject/bin/BookShopProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/bin/BookShopProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/bin/Newtonsoft.Json.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/bin/Newtonsoft.Json.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/packages.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/.signature.p7s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/Newtonsoft.Json.5.0.4.nupkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/net20/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/net20/Newtonsoft.Json.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/net35/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/net35/Newtonsoft.Json.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/net40/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/net40/Newtonsoft.Json.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/net45/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/net45/Newtonsoft.Json.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/netcore45/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/netcore45/Newtonsoft.Json.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/portable-net40+sl4+wp7+win8/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/portable-net40+sl4+wp7+win8/Newtonsoft.Json.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/portable-net45+wp80+win8/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/Newtonsoft.Json.5.0.4/lib/portable-net45+wp80+win8/Newtonsoft.Json.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,6 +29,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/BookShopProject/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -276,7 +95,7 @@
       <workItem from="1739899100682" duration="271000" />
       <workItem from="1739899549891" duration="580000" />
       <workItem from="1739909587747" duration="67000" />
-      <workItem from="1740239982557" duration="1818000" />
+      <workItem from="1740239982557" duration="5151000" />
     </task>
     <servers />
   </component>

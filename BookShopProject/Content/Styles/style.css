@@ -795,6 +795,10 @@ form {
   margin-bottom: 2.5rem;
 }
 
+.copy{
+    margin-bottom: 0;
+}
+
 /*------------------------------------------------
 /* 2.8 Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -1773,6 +1777,8 @@ img.post-image {
   text-decoration: none;
   color: var(--body-text-color);
 }
+
+
 
 #header-wrap.show .search-bar {
   width: 300px;
