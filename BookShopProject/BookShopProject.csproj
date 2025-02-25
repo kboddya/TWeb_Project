@@ -149,6 +149,8 @@
     <Content Include="Content\images\tab-item7.jpg" />
     <Content Include="Content\images\tab-item8.jpg" />
     <Content Include="Content\Styles\ajax-loader.gif" />
+    <Content Include="Content\Styles\bootstrap.min.css" />
+    <Content Include="Content\Styles\bootstrap.min.css.map.json" />
     <Content Include="Content\Styles\normalize.css" />
     <Content Include="Content\Styles\style.css" />
     <Content Include="Content\Styles\vendor.css" />
@@ -158,12 +160,16 @@
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
     <Content Include="Global.asax" />
+    <Content Include="Scrips\bootstrap.bundle.min.js" />
     <Content Include="Scrips\jquery-1.11.0.min.js" />
     <Content Include="Scrips\modernizr.js" />
     <Content Include="Scrips\plugins.js" />
     <Content Include="Scrips\script.js" />
     <Content Include="Scrips\slideNav.js" />
     <Content Include="Scrips\slideNav.min.js" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_TopContent.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
