@@ -8,19 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd6fda3c-9c93-42ae-933c-c373f85f201b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BookShopProject/Content/Styles/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookShopProject/Controllers/GenreController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookShopProject/Views/Genre/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BookShopSolution/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BookShopSolution/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/App_Start/BundleConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/App_Start/BundleConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/BookShopProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/BookShopProject.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/Styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/Content/Styles/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/Views/Shared/_Header.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/Views/Shared/_Header.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookShopProject/Content/Styles/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/Content/Styles/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookShopProject/bin/BookShopProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/bin/BookShopProject.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookShopProject/bin/BookShopProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/bin/BookShopProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BookShopProject/obj/Debug/BookShopProject.pdb" afterDir="false" />
     </list>
@@ -105,7 +96,7 @@
       <workItem from="1740239982557" duration="5151000" />
       <workItem from="1740487826554" duration="5033000" />
       <workItem from="1740577000827" duration="243000" />
-      <workItem from="1740656264706" duration="3074000" />
+      <workItem from="1740656264706" duration="4445000" />
     </task>
     <servers />
   </component>
