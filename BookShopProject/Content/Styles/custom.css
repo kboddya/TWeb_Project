@@ -11,3 +11,19 @@
     width: 100%;
     text-align: center;
 }
+
+.article-background {
+    /*background-color: #EFEEE8;*/
+    /*padding: 20px;*/
+    margin-bottom: 20px;
+    /*margin-inside: 10px;*/
+    /*border: 1px solid #EAE8DF;*/
+}
+
+.article-title {
+    margin-top: 0;
+}
+
+.article-image{
+    margin-bottom: 20px;
+}

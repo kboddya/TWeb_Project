@@ -8,9 +8,10 @@ namespace BookShopProject
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/bundles/styles").Include("~/Content/Styles/bootstrap.min.css",
+            bundles.Add(new StyleBundle("~/bundles/styles").Include("~/Content/Styles/custom.css",
+                "~/Content/Styles/bootstrap.min.css",
                 "~/Content/Styles/normalize.css", "~/Content/Styles/style.css", "~/Content/Styles/vendor.css",
-                "~/Content/Styles/custom.css", "~/Content/Styles/icomoon.css"));
+                "~/Content/Styles/icomoon.css"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/scrips").Include("~/Scrips/bootstrap.bundle.min.js",
