@@ -10,7 +10,7 @@ namespace BookShopProject
         {
             bundles.Add(new StyleBundle("~/bundles/styles").Include("~/Content/Styles/bootstrap.min.css",
                 "~/Content/Styles/normalize.css", "~/Content/Styles/style.css", "~/Content/Styles/vendor.css",
-                "~/Content/Styles/custom.css"));
+                "~/Content/Styles/custom.css", "~/Content/Styles/icomoon.css"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/scrips").Include("~/Scrips/bootstrap.bundle.min.js",
