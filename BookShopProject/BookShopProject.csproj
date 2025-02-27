@@ -150,16 +150,22 @@
     <Content Include="Content\images\tab-item8.jpg" />
     <Content Include="Content\Styles\ajax-loader.gif" />
     <Content Include="Content\Styles\bootstrap.min.css" />
-    <Content Include="Content\Styles\bootstrap.min.css.map.json" />
+    <Content Include="Content\Styles\bootstrap.min.css.map" />
     <Content Include="Content\Styles\custom.css" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Styles\fonts\FontAwesome.otf" />
+    <Content Include="Content\Styles\fonts\icomoon.eot" />
+    <Content Include="Content\Styles\fonts\icomoon.svg" />
+    <Content Include="Content\Styles\fonts\icomoon.ttf" />
+    <Content Include="Content\Styles\fonts\icomoon.woff" />
+    <Content Include="Content\Styles\icomoon.css" />
     <Content Include="Content\Styles\normalize.css" />
     <Content Include="Content\Styles\style.css" />
     <Content Include="Content\Styles\vendor.css" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\icomoon.eot" />
-    <Content Include="fonts\icomoon.svg" />
-    <Content Include="fonts\icomoon.ttf" />
-    <Content Include="fonts\icomoon.woff" />
     <Content Include="Global.asax" />
     <Content Include="Scrips\bootstrap.bundle.min.js" />
     <Content Include="Scrips\jquery-1.11.0.min.js" />
@@ -187,11 +193,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
