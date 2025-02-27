@@ -1,0 +1,12 @@
+.copy{
+    margin-bottom: 0;
+}
+
+.genres{
+    backgoround: #EFEEE8;
+    padding: 15%;
+    border: 1px solid #EAE8DF;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}

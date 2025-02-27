@@ -151,6 +151,7 @@
     <Content Include="Content\Styles\ajax-loader.gif" />
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="Content\Styles\bootstrap.min.css.map.json" />
+    <Content Include="Content\Styles\custom.css" />
     <Content Include="Content\Styles\normalize.css" />
     <Content Include="Content\Styles\style.css" />
     <Content Include="Content\Styles\vendor.css" />
@@ -167,6 +168,7 @@
     <Content Include="Scrips\script.js" />
     <Content Include="Scrips\slideNav.js" />
     <Content Include="Scrips\slideNav.min.js" />
+    <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_TopContent.cshtml" />
@@ -176,6 +178,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
