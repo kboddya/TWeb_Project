@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "ArticlesList";
+    Layout = "../Shared/_HeaderLayout.cshtml";
 }
 <section class="py-5 my-5">
     <div class="container">
@@ -11,14 +12,14 @@
             </div>
             <div class="col-md-3 article-background">
                 <figure class="article-image">
-                    <a href="#" >
+                    <a href="@Url.Action("ArticleDetails", "Articles")" >
                         <img src="~/Content/images/post-img1.jpg" alt="post" class="post-image">
                     </a>
                 </figure>
 
                 <div class="post-item">
                     <div class="meta-date">Mar 30, 2021</div>
-                    <h3 class="article-title"><a href="#">Reading books always makes the moments happy</a></h3>
+                    <h3 class="article-title"><a href="@Url.Action("ArticleDetails", "Articles")">Reading books always makes the moments happy</a></h3>
                 </div>
             </div>
             <div class="col-md-3 article-background">

@@ -9,5 +9,10 @@ namespace BookShopProject.Controllers
         {
             return View();
         }
+        
+        public ActionResult ArticleDetails()
+        {
+            return View();
+        }
     }
 }

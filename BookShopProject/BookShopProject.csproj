@@ -176,10 +176,12 @@
     <Content Include="Scrips\slideNav.js" />
     <Content Include="Scrips\slideNav.min.js" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Articles\ArticleDetails.cshtml" />
     <Content Include="Views\Articles\ArticlesList.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_HeaderLayout.cshtml" />
     <Content Include="Views\Shared\_TopContent.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>

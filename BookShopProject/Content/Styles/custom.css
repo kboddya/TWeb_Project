@@ -27,3 +27,24 @@
 .article-image{
     margin-bottom: 20px;
 }
+
+.article-title-full{
+    width: 75%;
+    height: 75%;
+    margin: 0;
+    font-size: 30px;
+    text-align: justify;
+}
+
+.article-text{
+    width: 75%;
+    height: 75%;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.article-image-full{
+    width: 75%;
+    height: 75%;
+}
