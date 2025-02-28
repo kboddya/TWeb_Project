@@ -8,19 +8,15 @@ namespace BookShopProject
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/bundles/normalize/css").Include("~/Content/Styles/normalize.css",
-                new CssRewriteUrlTransform()));
-            bundles.Add(new StyleBundle("~/bundles/style/css").Include("~/Content/Styles/style.css",
-                new CssRewriteUrlTransform()));
-            bundles.Add(new StyleBundle("~/bundles/vendor/css").Include("~/Content/Styles/vendor.css",
-                new CssRewriteUrlTransform()));
-            
-            bundles.Add(new ScriptBundle("~/bundles/jquery/js").Include("~/Scrips/jquery-1.11.0.min.js"));
-            bundles.Add(new ScriptBundle("~/bundles/modernizr/js").Include("~/Scrips/modernizr.js"));
-            bundles.Add(new ScriptBundle("~/bundles/plugins/js").Include("~/Scrips/plugins.js"));
-            bundles.Add(new ScriptBundle("~/bundles/script/js").Include("~/Scrips/script.js"));
-            bundles.Add(new ScriptBundle("~/bundles/slideNav/js").Include("~/Scrips/slideNav.js"));
-            bundles.Add(new ScriptBundle("~/bundles/slideNav/min/js").Include("~/Scrips/slideNav.min.js"));
+            bundles.Add(new StyleBundle("~/bundles/styles").Include("~/Content/Styles/custom.css",
+                "~/Content/Styles/bootstrap.min.css",
+                "~/Content/Styles/normalize.css", "~/Content/Styles/style.css", "~/Content/Styles/vendor.css",
+                "~/Content/Styles/icomoon.css"));
+
+
+            bundles.Add(new ScriptBundle("~/bundles/scrips").Include("~/Scrips/bootstrap.bundle.min.js",
+                "~/Scrips/jquery-1.11.0.min.js", "~/Scrips/modernizr.js", "~/Scrips/plugins.js", "~/Scrips/script.js",
+                "~/Scrips/slideNav.js", "~/Scrips/slideNav.min.js"));
         }
     }
 }
