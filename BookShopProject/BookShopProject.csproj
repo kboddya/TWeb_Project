@@ -148,6 +148,7 @@
     <Content Include="Content\images\tab-item6.jpg" />
     <Content Include="Content\images\tab-item7.jpg" />
     <Content Include="Content\images\tab-item8.jpg" />
+    <Content Include="Content\Styles\about.css" />
     <Content Include="Content\Styles\ajax-loader.gif" />
     <Content Include="Content\Styles\normalize.css" />
     <Content Include="Content\Styles\style.css" />
@@ -169,6 +170,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -190,6 +192,7 @@
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
