@@ -175,6 +175,7 @@
     <Content Include="Scrips\script.js" />
     <Content Include="Scrips\slideNav.js" />
     <Content Include="Scrips\slideNav.min.js" />
+    <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Articles\ArticlesList.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
@@ -185,11 +186,8 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-<<<<<<< HEAD
     <Compile Include="Controllers\AboutController.cs" />
-=======
     <Compile Include="Controllers\ArticlesController.cs" />
->>>>>>> main
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -206,12 +204,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\About\Index.cshtml" />
-=======
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
->>>>>>> main
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
