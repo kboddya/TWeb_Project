@@ -1,7 +1,28 @@
+/*Global*/
+.zero-margin-button {
+    margin-bottom: 0;
+}
+
+.margin-button-10 {
+    margin-bottom: 10px;
+}
+
+.rounded-corners {
+    border-radius: 8px;
+}
+
+.no-tocheble {
+    pointer-events: none;
+}
+
+
+/*Footer*/
 .copy {
     margin-bottom: 0;
 }
 
+
+/*Genres*/
 .genres {
     background-clip: content-box;
     box-shadow: inset 0 0 0 100px #EFEEE8;
@@ -12,23 +33,21 @@
     text-align: center;
 }
 
+
+/*Article*/
 .article-background {
-    /*background-color: #EFEEE8;*/
-    /*padding: 20px;*/
     margin-bottom: 20px;
-    /*margin-inside: 10px;*/
-    /*border: 1px solid #EAE8DF;*/
 }
 
 .article-title {
     margin-top: 0;
 }
 
-.article-image{
+.article-image {
     margin-bottom: 20px;
 }
 
-.article-title-full{
+.article-title-full {
     width: 75%;
     height: 75%;
     margin: 0;
@@ -36,7 +55,7 @@
     text-align: justify;
 }
 
-.article-text{
+.article-text {
     width: 75%;
     height: 75%;
     text-align: justify;
@@ -44,11 +63,46 @@
     margin-right: auto;
 }
 
-.article-image-full{
+.article-image-full {
     width: 75%;
     height: 75%;
 }
 
-.book-image{
-    align-items: center;
+
+/*Book info*/
+.book-description {
+    margin-top: 10px;
+}
+
+.book-image {
+    display: block;
+}
+
+.book-name {
+    margin-bottom: 0;
+}
+
+.count-of-available-books {
+    margin-top: 33px;
+}
+
+.book-parameters {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tags-of-parameters {
+    margin-top: 10px;
+    background-clip: content-box;
+    box-shadow: inset 0 0 0 100px #EFEEE8;
+    padding: 10%;
+    border: 1px solid #EAE8DF;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+
+}
+
+.want-be-normal-left-margin-book-only-on-pc{
+    margin-left: 3%;
 }
