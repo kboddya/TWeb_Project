@@ -71,7 +71,7 @@
 
 /*Book info*/
 .book-description {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .book-image {
@@ -104,5 +104,5 @@
 }
 
 .want-be-normal-left-margin-book-only-on-pc{
-    margin-left: 3%;
+    margin-left: 0%;
 }
