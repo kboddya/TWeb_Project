@@ -6,14 +6,10 @@ using System.Web.Mvc;
 
 namespace BookShopProject.Controllers
 {
-    public class AuthController : Controller
+    public class AccountController : Controller
     {
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        public ActionResult Register()
+        // GET: Account
+        public ActionResult Index()
         {
             return View();
         }

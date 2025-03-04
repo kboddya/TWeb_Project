@@ -1,16 +1,70 @@
-﻿
-
-@{
+﻿@{
     ViewBag.Title = "Register";
+    Layout = "/Views/Shared/_LoginLayout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Register your ass</title>
-</head>
-<body>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-5" style="width: 100%; max-width: 500px; background-color: #f8f9fa; border-radius: 15px;">
+        <form class="mx-3">
+            <h3 class="text-center mb-5">Create Account</h3>
 
-</body>
-</html>
+            <!-- Name Input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="registerName" class="form-control form-control-lg"
+                       placeholder="Full name"
+                       style="border-radius: 10px;">
+            </div>
+
+            <!-- Email Input -->
+            <div class="form-outline mb-4">
+                <input type="email" id="registerEmail" class="form-control form-control-lg"
+                       placeholder="Email address"
+                       style="border-radius: 10px;">
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-outline mb-4">
+                <input type="password" id="registerPassword" class="form-control form-control-lg"
+                       placeholder="Create password"
+                       style="border-radius: 10px;">
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="form-outline mb-4">
+                <input type="password" id="registerConfirmPassword" class="form-control form-control-lg"
+                       placeholder="Confirm password"
+                       style="border-radius: 10px;">
+            </div>
+
+            <!-- Sign Up Button -->
+            <div class="d-flex justify-content-center mt-4">
+                <button type="button" class="btn btn-primary btn-lg px-5 py-3"
+                        style="border-radius: 25px;">
+                    Sign Up
+                </button>
+            </div>
+
+            <!-- Login Prompt -->
+            <p class="text-body text-center text-decoration-none" style="font-size: 15px; font-weight: 400; padding: 3px 0">
+                    Already have an account? <a href="@Url.Action("Login", "Auth")" class="link-danger">Login here</a>
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- Optional Matching Styles -->
+<style>
+    .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    .btn, .form-control {
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+    }
+</style>
