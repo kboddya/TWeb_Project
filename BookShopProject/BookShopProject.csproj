@@ -148,17 +148,25 @@
     <Content Include="Content\images\tab-item6.jpg" />
     <Content Include="Content\images\tab-item7.jpg" />
     <Content Include="Content\images\tab-item8.jpg" />
+    <Content Include="Content\Styles\about.css" />
     <Content Include="Content\Styles\ajax-loader.gif" />
     <Content Include="Content\Styles\bootstrap.min.css" />
-    <Content Include="Content\Styles\bootstrap.min.css.map.json" />
+    <Content Include="Content\Styles\bootstrap.min.css.map" />
+    <Content Include="Content\Styles\custom.css" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Styles\fonts\FontAwesome.otf" />
+    <Content Include="Content\Styles\fonts\icomoon.eot" />
+    <Content Include="Content\Styles\fonts\icomoon.svg" />
+    <Content Include="Content\Styles\fonts\icomoon.ttf" />
+    <Content Include="Content\Styles\fonts\icomoon.woff" />
+    <Content Include="Content\Styles\icomoon.css" />
     <Content Include="Content\Styles\normalize.css" />
     <Content Include="Content\Styles\style.css" />
     <Content Include="Content\Styles\vendor.css" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\icomoon.eot" />
-    <Content Include="fonts\icomoon.svg" />
-    <Content Include="fonts\icomoon.ttf" />
-    <Content Include="fonts\icomoon.woff" />
     <Content Include="Global.asax" />
     <Content Include="Scrips\bootstrap.bundle.min.js" />
     <Content Include="Scrips\jquery-1.11.0.min.js" />
@@ -167,18 +175,33 @@
     <Content Include="Scrips\script.js" />
     <Content Include="Scrips\slideNav.js" />
     <Content Include="Scrips\slideNav.min.js" />
+<<<<<<< HEAD
     <None Include="Views\Account\Index.cshtml" />
+=======
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Articles\ArticleDetails.cshtml" />
+    <Content Include="Views\Articles\ArticlesList.cshtml" />
+    <Content Include="Views\Genre\Index.cshtml" />
+>>>>>>> f0dc079d847f3db55697a6dd66588db9b38bae0e
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_HeaderLayout.cshtml" />
     <Content Include="Views\Shared\_TopContent.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+=======
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
+>>>>>>> f0dc079d847f3db55697a6dd66588db9b38bae0e
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -187,11 +210,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

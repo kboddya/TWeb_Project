@@ -1,0 +1,50 @@
+.copy {
+    margin-bottom: 0;
+}
+
+.genres {
+    background-clip: content-box;
+    box-shadow: inset 0 0 0 100px #EFEEE8;
+    padding: 15%;
+    border: 1px solid #EAE8DF;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.article-background {
+    /*background-color: #EFEEE8;*/
+    /*padding: 20px;*/
+    margin-bottom: 20px;
+    /*margin-inside: 10px;*/
+    /*border: 1px solid #EAE8DF;*/
+}
+
+.article-title {
+    margin-top: 0;
+}
+
+.article-image{
+    margin-bottom: 20px;
+}
+
+.article-title-full{
+    width: 75%;
+    height: 75%;
+    margin: 0;
+    font-size: 30px;
+    text-align: justify;
+}
+
+.article-text{
+    width: 75%;
+    height: 75%;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.article-image-full{
+    width: 75%;
+    height: 75%;
+}
