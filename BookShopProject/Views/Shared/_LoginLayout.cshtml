@@ -1,0 +1,29 @@
+﻿@using System.Web.Optimization
+@using BookShopProject.Controllers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta author="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/bundles/styles")
+
+
+</head>
+<body>
+<div id="header-wrap">
+
+    @Html.Partial("_TopContent") @*Top content*@
+
+</div>
+
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+    @Html.Partial("_Footer") @*Footer*@
+</div>
+
+@Scripts.Render("~/bundles/scrips")
+
+</body>
+</html>
