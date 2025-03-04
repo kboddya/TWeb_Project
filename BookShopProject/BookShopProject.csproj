@@ -179,8 +179,6 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Articles\ArticleDetails.cshtml" />
     <Content Include="Views\Articles\ArticlesList.cshtml" />
-    <Content Include="Views\Auth\Login.cshtml" />
-    <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Book\BookInfo.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
