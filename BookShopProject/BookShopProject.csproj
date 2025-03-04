@@ -175,14 +175,14 @@
     <Content Include="Scrips\script.js" />
     <Content Include="Scrips\slideNav.js" />
     <Content Include="Scrips\slideNav.min.js" />
-<<<<<<< HEAD
-    <None Include="Views\Account\Index.cshtml" />
-=======
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Articles\ArticleDetails.cshtml" />
     <Content Include="Views\Articles\ArticlesList.cshtml" />
+    <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
->>>>>>> f0dc079d847f3db55697a6dd66588db9b38bae0e
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_HeaderLayout.cshtml" />
@@ -192,16 +192,12 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-<<<<<<< HEAD
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AuthController.cs" />
-    <Compile Include="Controllers\CartController.cs" />
-=======
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
->>>>>>> f0dc079d847f3db55697a6dd66588db9b38bae0e
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -217,7 +213,6 @@
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
