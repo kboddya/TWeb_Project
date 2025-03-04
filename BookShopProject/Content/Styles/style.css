@@ -2406,7 +2406,7 @@ footer#footer {
   text-align: center;
 }
 
-.product-item figcaption>h3 {
+.product-item figcaption>h3, figcaption>a>h3 {
   font-size: 1.4em;
   font-weight: 500;
   color: #74642F;
