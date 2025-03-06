@@ -1,10 +1,70 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kboddya\\Project\\TWeb_Project\\",
+  "WorkspaceRootPath": "C:\\Users\\alina\\source\\repos\\kboddya\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|c:\\users\\kboddya\\project\\tweb_project\\bookshopproject\\content\\styles\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\shared\\_loginlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\shared\\_loginlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|c:\\users\\alina\\source\\repos\\kboddya\\bookshopproject\\content\\styles\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\content\\styles\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|c:\\users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\content\\styles\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\content\\styles\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|c:\\users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\genre\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\genre\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\book\\bookinfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\book\\bookinfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\articles\\articleslist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\articles\\articleslist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\articles\\articledetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\articles\\articledetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|C:\\Users\\alina\\source\\repos\\kboddya\\bookshopproject\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,20 +74,207 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Genre\\Index.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Genre\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Genre\\Index.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\Genre\\Index.cshtml",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAUwHkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T21:25:42.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Cart\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\Cart\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T21:24:58.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Account\\Index.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Account\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Account\\Index.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\Account\\Index.cshtml",
+              "ViewState": "AgIAAHMAAAAAAAAAAADwv4wAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T21:17:38.274Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Auth\\Register.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Auth\\Register.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Auth\\Register.cshtml*",
+              "RelativeToolTip": "BookShopProject\\Views\\Auth\\Register.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAUwBgAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T10:12:50.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Auth\\Login.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Auth\\Login.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Auth\\Login.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\Auth\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T10:12:44.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_LoginLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Shared\\_LoginLayout.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Shared\\_LoginLayout.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Shared\\_LoginLayout.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\Shared\\_LoginLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T10:35:23.371Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-06T07:54:16.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "bootstrap.min.css",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Content\\Styles\\bootstrap.min.css",
+              "RelativeDocumentMoniker": "BookShopProject\\Content\\Styles\\bootstrap.min.css",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Content\\Styles\\bootstrap.min.css",
+              "RelativeToolTip": "BookShopProject\\Content\\Styles\\bootstrap.min.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABJpwIAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-06T08:11:44.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ArticleDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Articles\\ArticleDetails.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Articles\\ArticleDetails.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Articles\\ArticleDetails.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\Articles\\ArticleDetails.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAADwv0AAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T21:18:58.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ArticlesList.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Articles\\ArticlesList.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Articles\\ArticlesList.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Articles\\ArticlesList.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\Articles\\ArticlesList.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T21:20:21.999Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "custom.css",
-              "DocumentMoniker": "C:\\Users\\kboddya\\Project\\TWeb_Project\\BookShopProject\\Content\\Styles\\custom.css",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Content\\Styles\\custom.css",
               "RelativeDocumentMoniker": "BookShopProject\\Content\\Styles\\custom.css",
-              "ToolTip": "C:\\Users\\kboddya\\Project\\TWeb_Project\\BookShopProject\\Content\\Styles\\custom.css",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Content\\Styles\\custom.css",
               "RelativeToolTip": "BookShopProject\\Content\\Styles\\custom.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-02-27T18:24:29.799Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BookInfo.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Book\\BookInfo.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Book\\BookInfo.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Book\\BookInfo.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\Book\\BookInfo.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAG0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T21:24:18.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\About\\Index.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\About\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\About\\Index.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\About\\Index.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T21:17:04.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_Footer.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Shared\\_Footer.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Shared\\_Footer.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Shared\\_Footer.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\Shared\\_Footer.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T21:14:50.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "BookShopProject\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAAAJ8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T21:14:05.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "BundleConfig.cs",
+              "DocumentMoniker": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\App_Start\\BundleConfig.cs",
+              "RelativeDocumentMoniker": "BookShopProject\\App_Start\\BundleConfig.cs",
+              "ToolTip": "C:\\Users\\alina\\source\\repos\\kboddya\\BookShopProject\\App_Start\\BundleConfig.cs",
+              "RelativeToolTip": "BookShopProject\\App_Start\\BundleConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T10:31:22.367Z"
             }
           ]
         }

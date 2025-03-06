@@ -3,9 +3,9 @@
     Layout = "/Views/Shared/_LoginLayout.cshtml";
 }
 
-<div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="card p-5" style="width: 100%; max-width: 500px; background-color: #f8f9fa; border-radius: 15px;">
-        <form class="mx-3">
+<div class="d-flex justify-content-center align-items-center min-vh-100;" >
+    <div class="register-padding" style="width: 100%; margin: 10%; padding-top:50px; padding-bottom: 5px; max-height: 650px; max-width: 500px; background-color: #f8f9fa; border-radius: 15px;">
+        <form class=mx-3 d-flex flex-column" style="gap: 1.5rem">
             <h3 class="text-center mb-5">Create Account</h3>
 
             <!-- Name Input -->
@@ -46,25 +46,9 @@
 
             <!-- Login Prompt -->
             <p class="text-body text-center text-decoration-none" style="font-size: 15px; font-weight: 400; padding: 3px 0">
-                    Already have an account? <a href="@Url.Action("Login", "Auth")" class="link-danger">Login here</a>
+                Already have an account? <a href="@Url.Action("Login", "Auth")" class="link-danger">Login here</a>
             </p>
         </form>
     </div>
 </div>
 
-<!-- Optional Matching Styles -->
-<style>
-    .form-control:focus {
-        border-color: #0d6efd;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-    }
-
-    .btn, .form-control {
-        transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover {
-        opacity: 0.9;
-        transform: translateY(-1px);
-    }
-</style>
