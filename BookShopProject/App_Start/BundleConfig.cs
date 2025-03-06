@@ -14,9 +14,9 @@ namespace BookShopProject
                 "~/Content/Styles/icomoon.css"));
 
 
-            bundles.Add(new ScriptBundle("~/bundles/scrips").Include("~/Scrips/bootstrap.bundle.min.js",
-                "~/Scrips/jquery-1.11.0.min.js", "~/Scrips/modernizr.js", "~/Scrips/plugins.js", "~/Scrips/script.js",
-                "~/Scrips/slideNav.js", "~/Scrips/slideNav.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/scripts").Include("~/Scripts/bootstrap.bundle.min.js",
+                "~/Scripts/jquery-1.11.0.min.js", "~/Scripts/modernizr.js", "~/Scripts/plugins.js", "~/Scripts/script.js",
+                "~/Scripts/slideNav.js", "~/Scripts/slideNav.min.js", "~/Scripts/favicon.js", "~/Scripts/favicon.min.js"));
         }
     }
 }
