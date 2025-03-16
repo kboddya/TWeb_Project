@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kboddya\\Project\\TWeb_Project\\",
+  "WorkspaceRootPath": "C:\\Users\\AsusVivoBook\\source\\repos\\kboddya\\TWeb_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kboddya\\Project\\TWeb_Project\\BookShopProject\\Content\\Styles\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookShopProject\\Content\\Styles\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|c:\\users\\asusvivobook\\source\\repos\\kboddya\\tweb_project\\bookshopproject\\content\\styles\\about.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\content\\styles\\about.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|c:\\users\\asusvivobook\\source\\repos\\kboddya\\tweb_project\\bookshopproject\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "custom.css",
-              "DocumentMoniker": "C:\\Users\\kboddya\\Project\\TWeb_Project\\BookShopProject\\Content\\Styles\\custom.css",
-              "RelativeDocumentMoniker": "BookShopProject\\Content\\Styles\\custom.css",
-              "ToolTip": "C:\\Users\\kboddya\\Project\\TWeb_Project\\BookShopProject\\Content\\Styles\\custom.css",
-              "RelativeToolTip": "BookShopProject\\Content\\Styles\\custom.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Title": "about.css",
+              "DocumentMoniker": "C:\\Users\\AsusVivoBook\\source\\repos\\kboddya\\TWeb_Project\\BookShopProject\\Content\\Styles\\about.css",
+              "RelativeDocumentMoniker": "BookShopProject\\Content\\Styles\\about.css",
+              "ToolTip": "C:\\Users\\AsusVivoBook\\source\\repos\\kboddya\\TWeb_Project\\BookShopProject\\Content\\Styles\\about.css*",
+              "RelativeToolTip": "BookShopProject\\Content\\Styles\\about.css*",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-02-27T18:24:29.799Z",
+              "WhenOpened": "2025-03-16T18:35:17.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\AsusVivoBook\\source\\repos\\kboddya\\TWeb_Project\\BookShopProject\\Views\\About\\Index.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\About\\Index.cshtml",
+              "ToolTip": "C:\\Users\\AsusVivoBook\\source\\repos\\kboddya\\TWeb_Project\\BookShopProject\\Views\\About\\Index.cshtml*",
+              "RelativeToolTip": "BookShopProject\\Views\\About\\Index.cshtml*",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAAAI8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-16T14:46:43.363Z",
               "EditorCaption": ""
             }
           ]

@@ -8,24 +8,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @Styles.Render("~/bundles/styles")
 
-
 </head>
 <body>
-<div id="header-wrap">
 
-   @Html.Partial("_TopContent") @*Top content*@
+    <div id="header-wrap">
 
-   @Html.Partial("_Header") @*Header*@
+        @Html.Partial("_TopContent") @*Top content*@
 
-</div>
+        @Html.Partial("_Header") @*Header*@
 
-<div class="container body-content">
-    @RenderBody()
-    <hr/>
-    @Html.Partial("_Footer") @*Footer*@
-</div>
+    </div>
 
-@Scripts.Render("~/bundles/scrips")
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        @Html.Partial("_Footer") @*Footer*@
+    </div>
+
+    @Scripts.Render("~/bundles/scrips")
+
+
 
 </body>
 </html>
+

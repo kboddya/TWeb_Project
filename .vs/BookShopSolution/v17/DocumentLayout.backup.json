@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kboddya\\Project\\TWeb_Project\\",
+  "WorkspaceRootPath": "C:\\Users\\AsusVivoBook\\source\\repos\\kboddya\\TWeb_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|c:\\users\\kboddya\\project\\tweb_project\\bookshopproject\\content\\styles\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\content\\styles\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|c:\\users\\asusvivobook\\source\\repos\\kboddya\\tweb_project\\bookshopproject\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "custom.css",
-              "DocumentMoniker": "C:\\Users\\kboddya\\Project\\TWeb_Project\\BookShopProject\\Content\\Styles\\custom.css",
-              "RelativeDocumentMoniker": "BookShopProject\\Content\\Styles\\custom.css",
-              "ToolTip": "C:\\Users\\kboddya\\Project\\TWeb_Project\\BookShopProject\\Content\\Styles\\custom.css",
-              "RelativeToolTip": "BookShopProject\\Content\\Styles\\custom.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-02-27T18:24:29.799Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\AsusVivoBook\\source\\repos\\kboddya\\TWeb_Project\\BookShopProject\\Views\\About\\Index.cshtml",
+              "RelativeDocumentMoniker": "BookShopProject\\Views\\About\\Index.cshtml",
+              "ToolTip": "C:\\Users\\AsusVivoBook\\source\\repos\\kboddya\\TWeb_Project\\BookShopProject\\Views\\About\\Index.cshtml*",
+              "RelativeToolTip": "BookShopProject\\Views\\About\\Index.cshtml*",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAAAI4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-16T14:46:43.363Z",
               "EditorCaption": ""
             }
           ]

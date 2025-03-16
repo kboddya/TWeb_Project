@@ -1,0 +1,26 @@
+﻿.universal-blocks-content {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.img-responsive {
+    flex: 0 0 40%;
+    max-width: 320px;
+    display: flex;
+    align-items: center;
+}
+
+.book-image {
+    width: 100%; 
+    height: auto; 
+    max-height: 300px; 
+    object-fit: cover; 
+}
+
+.book-info {
+    flex: 1; 
+    min-width: 280px; 
+}
+
+
