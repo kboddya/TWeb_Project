@@ -175,6 +175,7 @@
     <Content Include="Content\Styles\offer.css" />
     <Content Include="Content\Styles\vendor.css" />
     <Content Include="Global.asax" />
+<<<<<<< HEAD
     <Content Include="Scrips\bootstrap.bundle.min.js" />
     <Content Include="Scrips\jquery-1.11.0.min.js" />
     <Content Include="Scrips\modernizr.js" />
@@ -184,12 +185,21 @@
     <Content Include="Scrips\slideNav.min.js" />
     <Content Include="Scrips\about.js" />
     <Content Include="Scrips\slick.min.js" />
+=======
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\favico.js" />
+    <Content Include="Scripts\favico.min.js" />
+    <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\modernizr.js" />
+    <Content Include="Scripts\plugins.js" />
+    <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\slideNav.js" />
+    <Content Include="Scripts\slideNav.min.js" />
+>>>>>>> 883fbf349b9e918f813100faa9a5a3a1285159d4
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Articles\ArticleDetails.cshtml" />
     <Content Include="Views\Articles\ArticlesList.cshtml" />
-    <Content Include="Views\Auth\Login.cshtml" />
-    <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Book\BookInfo.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
