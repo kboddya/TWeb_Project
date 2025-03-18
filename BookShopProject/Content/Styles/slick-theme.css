@@ -1,0 +1,23 @@
+﻿.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 10px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.slick-dots li button {
+    background-color: #ddd;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    border: none;
+}

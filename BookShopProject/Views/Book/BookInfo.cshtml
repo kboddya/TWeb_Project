@@ -6,13 +6,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
+                <div class="rating disabled star5" style="margin-bottom: 10px;">
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                </div>
                 <div class="book-image">
                     <img src="~/Content/images/tab-item1.jpg" alt="book" class="img-fluid">
                 </div>
             </div>
 
             <div class="col-md-9">
-                
+
                 <div class="product-style want-be-normal-left-margin-book-only-on-pc">
                     <figcaption>
                         <h3 class="book-name">Portrait photography</h3>
@@ -47,7 +54,8 @@
 
             </div>
             <div>
-                <p class="book-description">Dive into the transformative world of portrait photography with Adam Silber, an
+                <p class="book-description">
+                    Dive into the transformative world of portrait photography with Adam Silber, an
                     acclaimed
                     photographer
                     whose work transcends mere imagery to reveal the profound essence of his subjects. In *Portrait
@@ -103,7 +111,17 @@
                     a
                     fleeting moment, *Portrait Photography* will be your trusted companion on the journey to creating
                     images
-                    that speak volumes. Let Adam Silber guide you in transforming your vision into art.<br></p>
+                    that speak volumes. Let Adam Silber guide you in transforming your vision into art.<br>
+                </p>
+
+                <form id="review-form">
+                    <div class="form-group">
+                        <label for="review-text">Your review:</label>
+                        <textarea id="review-text" class="form-control" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="rounded-corners">Send</button>
+                </form>
+
             </div>
         </div>
     </div>
