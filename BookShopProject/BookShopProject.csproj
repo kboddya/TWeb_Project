@@ -201,12 +201,14 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IArticleRepository.cs" />
     <Compile Include="Repositories\IBookRepository.cs" />
@@ -230,6 +232,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Login\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookShopProject.Domain\BookShopProject.Domain.csproj">
+      <Project>{d26e2e6b-341b-4c1b-825e-8acb810b52e9}</Project>
+      <Name>BookShopProject.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eUseControl.BusinessLogic\BookShopProject.BusinessLogic.csproj">
+      <Project>{2d134af3-c861-4647-a1f6-651248691ac7}</Project>
+      <Name>BookShopProject.BusinessLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
