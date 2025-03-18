@@ -11,27 +11,20 @@
 </head>
 <body>
 
-    <div id="header-wrap">
+<div id="header-wrap">
 
-        @Html.Partial("_TopContent") @*Top content*@
+    @Html.Partial("_TopContent") @*Top content*@
 
-        @Html.Partial("_Header") @*Header*@
+    @Html.Partial("_Header") @*Header*@
 
-    </div>
+</div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        @Html.Partial("_Footer") @*Footer*@
-    </div>
-
-    @Scripts.Render("~/bundles/scrips")
-
-
-<<<<<<< HEAD
-=======
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+    @Html.Partial("_Footer") @*Footer*@
+</div>
 @Scripts.Render("~/bundles/scripts")
->>>>>>> 883fbf349b9e918f813100faa9a5a3a1285159d4
 
 </body>
 </html>
