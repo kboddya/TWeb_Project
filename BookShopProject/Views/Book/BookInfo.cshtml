@@ -1,12 +1,13 @@
 ﻿@{
     ViewBag.Title = "BookInfo";
 }
+@model BookShopProject.Models.Book
 
 <section class="my-5 py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <div class="rating disabled star5" style="margin-bottom: 10px;">
+                <div class="rating disabled star5" style="margin-bottom: 0px;">
                     <a href="#">★</a>
                     <a href="#">★</a>
                     <a href="#">★</a>
@@ -14,7 +15,7 @@
                     <a href="#">★</a>
                 </div>
                 <div class="book-image">
-                    <img src="~/Content/images/tab-item1.jpg" alt="book" class="img-fluid">
+                    <img src="@Model.Image" alt="book" class="img-fluid">
                 </div>
             </div>
 
@@ -22,96 +23,40 @@
 
                 <div class="product-style want-be-normal-left-margin-book-only-on-pc">
                     <figcaption>
-                        <h3 class="book-name">Portrait photography</h3>
-                        <span>Adam Silber</span>
-                        <div class="item-price">$ 40.00</div>
+                        <h3 class="book-name">@Model.Title</h3>
+                        <span>@Model.Author</span>
+                        <div class="item-price">$ @Model.Price</div>
                     </figcaption>
                 </div>
 
                 <div class="row">
                     <div class="col-md-3 book-parameters">
                         <p class="margin-button-10">Genre</p>
-                        <a href="#" class="tags-of-parameters rounded-corners">Self-development</a>
+                        <a href="#" class="tags-of-parameters rounded-corners">@Model.Genre</a>
                     </div>
                     <div class="col-md-3 book-parameters">
                         <p class="margin-button-10">Language</p>
-                        <a href="#" class="tags-of-parameters rounded-corners">English</a>
+                        <a href="#" class="tags-of-parameters rounded-corners">@Model.Language</a>
                     </div>
 
                     <div class="col-md-3 book-parameters">
                         <p class="margin-button-10">Year</p>
-                        <a href="#" class="tags-of-parameters rounded-corners">2021</a>
+                        <a href="#" class="tags-of-parameters rounded-corners">@Model.Year</a>
                     </div>
                     <div class="col-md-3 book-parameters">
                         <p class="margin-button-10">Publisher</p>
-                        <a href="#" class="tags-of-parameters rounded-corners">Pop</a>
+                        <a href="#" class="tags-of-parameters rounded-corners">@Model.Publisher</a>
                     </div>
 
 
                 </div>
                 <button class="rounded-corners">Add to cart</button>
-                <span>100+ available</span>
+                <span>@Model.Count available</span>
 
             </div>
             <div>
                 <p class="book-description">
-                    Dive into the transformative world of portrait photography with Adam Silber, an
-                    acclaimed
-                    photographer
-                    whose work transcends mere imagery to reveal the profound essence of his subjects. In *Portrait
-                    Photography: Capturing the Soul Through the Lens*, Silber distills decades of expertise into a
-                    comprehensive guide that bridges technical mastery with the art of emotional storytelling.<br>
-                    <br>
-                    Whether you're an aspiring photographer or a seasoned professional, this book offers a wealth of
-                    knowledge to elevate your craft. Silber demystifies complex techniques, from mastering natural and
-                    studio lighting to selecting the perfect lens and composing dynamic frames. Learn to navigate the
-                    subtleties of directing subjects, whether in candid moments or meticulously posed studio sessions,
-                    and
-                    discover how to harness color theory, black-and-white contrasts, and environmental context to
-                    amplify
-                    narrative depth.<br>
-                    <br>
-                    Beyond the camera, the book delves into post-processing finesse, offering tips on enhancing
-                    portraits
-                    using tools like Lightroom and Photoshop while preserving authenticity. Each chapter is enriched
-                    with
-                    real-world case studies, personal anecdotes, and practical exercises designed to challenge and
-                    inspire.
-                    Silber’s unique approach emphasizes the psychological connection between photographer and subject,
-                    empowering you to capture not just faces, but the stories they hold.<br>
-                    <br>
-                    *Portrait Photography* is more than a manual—it’s an invitation to see the world through a lens of
-                    empathy and artistry. Equip yourself with the skills to create timeless portraits that resonate
-                    deeply,
-                    and transform fleeting moments into enduring legacies.<br>
-                    <br>
-                    **What’s Inside:**<br>
-                    - **Lighting Mastery:** Harness natural light, studio setups, and creative lighting techniques to
-                    sculpt
-                    your subject.<br>
-                    - **Composition & Framing:** Learn to create visually compelling portraits that draw the viewer
-                    in.<br>
-                    - **Subject Connection:** Build trust and rapport to capture authentic emotions and expressions.<br>
-                    - **Post-Processing Secrets:** Enhance your images while maintaining their natural essence.<br>
-                    - **Inspiration & Case Studies:** Explore real-world examples and behind-the-scenes insights from
-                    Silber’s own portfolio.<br>
-                    <br>
-                    **Ideal for:** Photographers of all levels, enthusiasts seeking to refine their technique, and
-                    anyone
-                    passionate about the power of human expression through imagery.<br>
-                    <br>
-                    **Unlock your potential. Frame the soul. Redefine your vision.**<br>
-                    <br>
-                    **Bonus Features:**<br>
-                    - Exclusive access to online resources, including video tutorials and printable cheat sheets.<br>
-                    - A curated list of recommended gear and tools for portrait photographers.<br>
-                    - Interactive exercises to practice and refine your skills.<br>
-                    <br>
-                    Whether you’re capturing the quiet vulnerability of a child, the strength of a leader, or the joy of
-                    a
-                    fleeting moment, *Portrait Photography* will be your trusted companion on the journey to creating
-                    images
-                    that speak volumes. Let Adam Silber guide you in transforming your vision into art.<br>
+                    @Model.Description
                 </p>
 
                 <form id="review-form">

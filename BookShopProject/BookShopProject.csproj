@@ -218,7 +218,7 @@
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\UserLogin.cs" />
-    <Compile Include="Models\bookInfo.cs" />
+    <Compile Include="Models\UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

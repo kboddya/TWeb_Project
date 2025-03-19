@@ -15,47 +15,69 @@ namespace BookShopProject.Controllers
             var data = new userData
             {
                 Username = "customer",
-                Products = new List<bookInfo>
+                Products = new List<Book>
                 {
-                    new bookInfo
+                    new Book()
                     {
                         Title = "Portrait photography",
                         Author = "Adam Silber",
                         Genre = "Photography",
-                        Price = 40.00,
+                        Price = (decimal)40.00,
                         Description = "A comprehensive guide to portrait photography.",
-                        Image = "Content/images/tab-item1.jpg"
+                        Image = "Content/images/tab-item1.jpg",
+                        Count = 10,
+                        Language = "English",
+                        Year = 2021,
+                        Publisher = "PhotoBooks Publishing",
+                        ISBN = "978-3-16-148410-0"
                     },
-                    new bookInfo
+                    new Book()
                     {
                         Title = "Once upon a time",
                         Author = "Klien Marry",
                         Genre = "Fiction",
-                        Price = 35.00,
+                        Price = (decimal)35.00,
                         Description = "A captivating tale of adventure and mystery.",
-                        Image = "Content/images/tab-item2.jpg"
+                        Image = "Content/images/tab-item2.jpg",
+                        Count = 15,
+                        Language = "English",
+                        Year = 2019,
+                        Publisher = "StoryBooks Publishing",
+                        ISBN = "978-1-23-456789-0"
                     },
-                    new bookInfo
+                    new Book()
                     {
                         Title = "Tips of simple lifestyle",
                         Author = "Bratt Smith",
                         Genre = "Lifestyle",
-                        Price = 40.00,
+                        Price = (decimal)40.00,
                         Description = "Practical tips for living a simple and fulfilling life.",
-                        Image = "Content/images/tab-item3.jpg"
+                        Image = "Content/images/tab-item3.jpg",
+                        Count = 20,
+                        Language = "English",
+                        Year = 2020,
+                        Publisher = "LifeBooks Publishing",
+                        ISBN = "978-0-12-345678-9"
                     },
-                    new bookInfo
+                    new Book()
                     {
                         Title = "Just felt from outside",
                         Author = "Nicole Wilson",
                         Genre = "Fiction",
-                        Price = 40.00,
+                        Price = (decimal)40.00,
                         Description = "An intriguing story of self-discovery and adventure.",
-                        Image = "Content/images/tab-item4.jpg"
+                        Image = "Content/images/tab-item4.jpg",
+                        Count = 5,
+                        Language = "English",
+                        Year = 2022,
+                        Publisher = "AdventureBooks Publishing",
+                        ISBN = "978-9-87-654321-0"
                     }
                 }
             };
             return View(data);
         }
+
+        
     }
 }
