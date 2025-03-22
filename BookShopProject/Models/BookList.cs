@@ -2,7 +2,7 @@
 
 namespace BookShopProject.Models
 {
-    public class UserData
+    public class BookList
     {
         public string NameOfList { get; set; }
         public List<Book> Products { get; set; }

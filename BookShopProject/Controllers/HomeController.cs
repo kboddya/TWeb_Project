@@ -12,7 +12,7 @@ namespace BookShopProject.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var data = new UserData
+            var data = new BookList
             {
                 Products = new List<Book>
                 {

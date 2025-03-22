@@ -76,7 +76,7 @@ namespace BookShopProject.Controllers
                     ISBN = "978-9-87-654321-0"
                 }
             };
-            var List = new UserData()
+            var List = new BookList()
             {
                 NameOfList = genre,
                 Products = new List<Book>()
