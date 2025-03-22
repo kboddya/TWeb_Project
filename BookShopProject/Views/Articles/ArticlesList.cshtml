@@ -2,6 +2,7 @@
     ViewBag.Title = "ArticlesList";
     Layout = "../Shared/_HeaderLayout.cshtml";
 }
+@model BookShopProject.Models.ArticleList
 <section class="py-5 my-5">
     <div class="container">
         <div class="row">
@@ -10,80 +11,22 @@
                     <h2 class="section-title">Articles</h2>
                 </div>
             </div>
-            <div class="col-md-3 article-background">
-                <figure class="article-image">
-                    <a href="@Url.Action("ArticleDetails", "Articles")" >
-                        <img src="~/Content/images/post-img1.jpg" alt="post" class="post-image">
+            @foreach (var art in Model.Articles)
+            {
+                <div class="col-md-3 article-background">
+                    <a href="@Url.Action("ArticleDetails")?Id=@art.Id">
+                        <figure class="article-image">
+                            <img src="@art.Image" alt="post" class="post-image">
+                        </figure>
                     </a>
-                </figure>
+                    <div class="post-item">
+                        <div id="article-date">@art.PublishedDate</div>
+                        <a href="@Url.Action("ArticleDetails")?Id=@art.Id">
+                            <h3 class="article-title">@art.Title</h3></a>
+                    </div>
 
-                <div class="post-item">
-                    <div class="meta-date">Mar 30, 2021</div>
-                    <h3 class="article-title"><a href="@Url.Action("ArticleDetails", "Articles")">Reading books always makes the moments happy</a></h3>
                 </div>
-            </div>
-            <div class="col-md-3 article-background">
-                <figure class="article-image">
-                    <a href="#" >
-                        <img src="~/Content/images/post-img2.jpg" alt="post" class="post-image">
-                    </a>
-                </figure>
-            
-                <div class="post-item">
-                    <div class="meta-date">Apr 15, 2021</div>
-                    <h3 class="article-title"><a href="#">Exploring the world through books</a></h3>
-                </div>
-            </div>
-            
-            <div class="col-md-3 article-background">
-                <figure class="article-image">
-                    <a href="#" >
-                        <img src="~/Content/images/post-img3.jpg" alt="post" class="post-image">
-                    </a>
-                </figure>
-            
-                <div class="post-item">
-                    <div class="meta-date">May 10, 2021</div>
-                    <h3 class="article-title"><a href="#">The joy of reading in the digital age</a></h3>
-                </div>
-            </div>
-            <div class="col-md-3 article-background">
-                <figure class="article-image">
-                    <a href="#">
-                        <img src="~/Content/images/post-img1.jpg" alt="post" class="post-image">
-                    </a>
-                </figure>
-
-                <div class="post-item">
-                    <div class="meta-date">Mar 30, 2021</div>
-                    <h3 class="article-title"><a href="#">Reading books always makes the moments happy</a></h3>
-                </div>
-            </div>
-            <div class="col-md-3 article-background">
-                <figure class="article-image">
-                    <a href="#" >
-                        <img src="~/Content/images/post-img2.jpg" alt="post" class="post-image">
-                    </a>
-                </figure>
-
-                <div class="post-item">
-                    <div class="meta-date">Apr 15, 2021</div>
-                    <h3 class="article-title"><a href="#">Exploring the world through books</a></h3>
-                </div>
-            </div>
-
-            <div class="col-md-3 article-background">
-                <figure class="article-image">
-                    <a href="#" >
-                        <img src="~/Content/images/post-img3.jpg" alt="post" class="post-image">
-                    </a>
-                </figure>
-
-                <div class="post-item">
-                    <div class="meta-date">May 10, 2021</div>
-                    <h3 class="article-title"><a href="#">The joy of reading in the digital age</a></h3>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </section>
