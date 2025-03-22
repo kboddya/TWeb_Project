@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
-@model BookShopProject.Models.userData
+@model BookShopProject.Models.UserData
 
 <section id="popular-books" class="bookshelf py-5 my-5">
     <div class="container">
@@ -28,8 +28,9 @@
                                         </button>
                                     </figure>
                                     <figcaption>
-                                        <a href="@Url.Action("BookInfo", "Book", prod.ISBN)">
-                                            <h3>@prod.Title</h3></a>
+                                        <a href="@Url.Action("BookInfo", "Book")?ISBN=@prod.ISBN">
+                                            <h3>@prod.Title</h3>
+                                        </a>
                                         <span>@prod.Author</span>
                                         <div class="item-price">$ @prod.Price</div>
                                     </figcaption>

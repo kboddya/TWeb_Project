@@ -12,9 +12,8 @@ namespace BookShopProject.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var data = new userData
+            var data = new UserData
             {
-                Username = "customer",
                 Products = new List<Book>
                 {
                     new Book()
