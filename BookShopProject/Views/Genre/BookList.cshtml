@@ -22,7 +22,9 @@
                         <div class="col-md-3">
                             <div class="product-item">
                                 <figure class="product-style">
-                                    <img src="@prod.Image" alt="Books" class="product-item">
+                                    <a href="@Url.Action("BookInfo", "Book")?ISBN=@prod.ISBN">
+                                        <img src="@prod.Image" alt="Books" class="product-item">
+                                    </a>
                                     <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
                                         Cart
                                     </button>
@@ -31,7 +33,13 @@
                                     <a href="@Url.Action("BookInfo", "Book")?ISBN=@prod.ISBN">
                                         <h3>@prod.Title</h3></a>
                                     <span>@prod.Author</span>
-                                    <div class="item-price">$ @prod.Price</div>
+                                    <div class="item-price">
+                                        @if(prod.DiscountedPrice != decimal.MinusOne)
+                                        {
+                                            <span class="prev-price">$ @prod.DiscountedPrice</span>
+                                        }
+                                        $ @prod.Price
+                                    </div>
                                 </figcaption>
                             </div>
 
