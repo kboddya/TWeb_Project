@@ -1,7 +1,7 @@
 ﻿using System;
-using BookShopProject.Domain.Entities.User;
 using BookShopProject.BusinessLogic.Core;
 using BookShopProject.BusinessLogic.Interfaces;
+using BookShopProject.Domain.Entities.User;
 
 namespace BookShopProject.BusinessLogic
 {

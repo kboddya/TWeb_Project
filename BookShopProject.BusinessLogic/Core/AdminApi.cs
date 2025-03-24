@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookShopProject.BusinessLogic.Core
 {
-    class UserApi
+    public class AdminApi
     {
     }
 }

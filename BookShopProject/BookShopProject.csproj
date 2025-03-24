@@ -235,13 +235,13 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BookShopProject.BusinessLogic\BookShopProject.BusinessLogic.csproj">
+      <Project>{2fb3feeb-6726-4bb8-87e9-69599747052d}</Project>
+      <Name>BookShopProject.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BookShopProject.Domain\BookShopProject.Domain.csproj">
       <Project>{d26e2e6b-341b-4c1b-825e-8acb810b52e9}</Project>
       <Name>BookShopProject.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\eUseControl.BusinessLogic\BookShopProject.BusinessLogic.csproj">
-      <Project>{2d134af3-c861-4647-a1f6-651248691ac7}</Project>
-      <Name>BookShopProject.BusinessLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
