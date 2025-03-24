@@ -236,7 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookShopProject.BusinessLogic\BookShopProject.BusinessLogic.csproj">
-      <Project>{2fb3feeb-6726-4bb8-87e9-69599747052d}</Project>
+      <Project>{09c75ff2-1567-4cd7-972e-0d2b7034106c}</Project>
       <Name>BookShopProject.BusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\BookShopProject.Domain\BookShopProject.Domain.csproj">

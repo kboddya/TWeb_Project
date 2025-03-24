@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopProject.Domain", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopProject.Helpers", "BookShopProject.Helpers\BookShopProject.Helpers.csproj", "{1CDA2E8C-AFED-4B66-AF30-A3EC44119A20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopProject.BusinessLogic", "BookShopProject.BusinessLogic\BookShopProject.BusinessLogic.csproj", "{2FB3FEEB-6726-4BB8-87E9-69599747052D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopProject.BusinessLogic", "BookShopProject.BusinessLogic\BookShopProject.BusinessLogic.csproj", "{09C75FF2-1567-4CD7-972E-0D2B7034106C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{1CDA2E8C-AFED-4B66-AF30-A3EC44119A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CDA2E8C-AFED-4B66-AF30-A3EC44119A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CDA2E8C-AFED-4B66-AF30-A3EC44119A20}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2FB3FEEB-6726-4BB8-87E9-69599747052D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2FB3FEEB-6726-4BB8-87E9-69599747052D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2FB3FEEB-6726-4BB8-87E9-69599747052D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2FB3FEEB-6726-4BB8-87E9-69599747052D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09C75FF2-1567-4CD7-972E-0D2B7034106C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09C75FF2-1567-4CD7-972E-0D2B7034106C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09C75FF2-1567-4CD7-972E-0D2B7034106C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09C75FF2-1567-4CD7-972E-0D2B7034106C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

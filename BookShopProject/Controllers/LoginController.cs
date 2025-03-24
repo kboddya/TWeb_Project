@@ -15,7 +15,7 @@ namespace BookShopProject.Controllers
         private readonly ISession _session;
         public LoginController()
         {
-            var bl = new BusinessLogic();
+            var bl = new BusinessLogic.BusinessLogic();
             _session = bl.GetSessionBL();
         }
 
