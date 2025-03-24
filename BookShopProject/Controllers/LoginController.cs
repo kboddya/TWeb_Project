@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using BookShopProject.Models;
 using BookShopProject.Domain.Entities.User;
-using eUseControl.BusinessLogic.Interfaces;
-using eUseControl.BusinessLogic;
+using BookShopProject.BusinessLogic.Interfaces;
+using BookShopProject.BusinessLogic;
 
 namespace BookShopProject.Controllers
 {
@@ -21,7 +21,7 @@ namespace BookShopProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(UserLogin login)
+        public ActionResult Login(UserLogin login)
         {
             if (ModelState.IsValid)
             {
@@ -40,10 +40,10 @@ namespace BookShopProject.Controllers
                 else
                 {
                     ModelState.AddModelError("", userLogin.StatusMsg);
-                    return View();
+                    return View("~/Views/Auth/Login.cshtml");
                 }
             }
-            return View();
+            return View("~/Views/Auth/Login.cshtml");
         }
     }
 }

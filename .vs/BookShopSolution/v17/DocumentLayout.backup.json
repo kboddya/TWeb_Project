@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|c:\\users\\alina\\source\\repos\\tweb_project\\bookshopproject\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|c:\\users\\alina\\source\\repos\\tweb_project\\bookshopproject\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A96F87E-2DCA-4B1E-99B7-26750AC25949}|BookShopProject\\BookShopProject.csproj|solutionrelative:bookshopproject\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -91,6 +95,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "BookShopProject\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "BookShopProject\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T09:02:02.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "BookShopProject\\Controllers\\AuthController.cs",
@@ -107,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ULoginData.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject.Domain\\Entities\\User\\ULoginData.cs",
               "RelativeDocumentMoniker": "BookShopProject.Domain\\Entities\\User\\ULoginData.cs",
@@ -119,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ISession.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\eUseControl.BusinessLogic\\Interfaces\\ISession.cs",
               "RelativeDocumentMoniker": "eUseControl.BusinessLogic\\Interfaces\\ISession.cs",
@@ -131,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AdminApi.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\eUseControl.BusinessLogic\\Core\\AdminApi.cs",
               "RelativeDocumentMoniker": "eUseControl.BusinessLogic\\Core\\AdminApi.cs",
@@ -143,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UserApi.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\eUseControl.BusinessLogic\\Core\\UserApi.cs",
               "RelativeDocumentMoniker": "eUseControl.BusinessLogic\\Core\\UserApi.cs",
@@ -155,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Article.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\models\\Article.cs",
               "RelativeDocumentMoniker": "BookShopProject\\models\\Article.cs",
@@ -167,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "SessionBL.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\eUseControl.BusinessLogic\\SessionBL.cs",
               "RelativeDocumentMoniker": "eUseControl.BusinessLogic\\SessionBL.cs",
@@ -179,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject.Helpers\\Class1.cs",
               "RelativeDocumentMoniker": "BookShopProject.Helpers\\Class1.cs",
@@ -191,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\models\\Book.cs",
               "RelativeDocumentMoniker": "BookShopProject\\models\\Book.cs",
@@ -203,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject.Domain\\Class1.cs",
               "RelativeDocumentMoniker": "BookShopProject.Domain\\Class1.cs",
@@ -215,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "BusinessLogic.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\eUseControl.BusinessLogic\\BusinessLogic.cs",
               "RelativeDocumentMoniker": "eUseControl.BusinessLogic\\BusinessLogic.cs",
@@ -227,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "BookShopProject\\Controllers\\HomeController.cs",
@@ -239,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "GenreController.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\Controllers\\GenreController.cs",
               "RelativeDocumentMoniker": "BookShopProject\\Controllers\\GenreController.cs",
@@ -251,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "BookShopProject\\Controllers\\CartController.cs",
@@ -263,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "BookController.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\Controllers\\BookController.cs",
               "RelativeDocumentMoniker": "BookShopProject\\Controllers\\BookController.cs",
@@ -275,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "ArticlesController.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\Controllers\\ArticlesController.cs",
               "RelativeDocumentMoniker": "BookShopProject\\Controllers\\ArticlesController.cs",
@@ -287,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "BookShopProject\\Controllers\\AccountController.cs",
@@ -299,7 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "AboutController.cs",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\Controllers\\AboutController.cs",
               "RelativeDocumentMoniker": "BookShopProject\\Controllers\\AboutController.cs",
@@ -311,7 +328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "custom.css",
               "DocumentMoniker": "C:\\Users\\Alina\\source\\repos\\TWeb_Project\\BookShopProject\\Content\\Styles\\custom.css",
               "RelativeDocumentMoniker": "BookShopProject\\Content\\Styles\\custom.css",

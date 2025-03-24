@@ -1,9 +1,9 @@
 ﻿using System;
 using BookShopProject.Domain.Entities.User;
-using eUseControl.BusinessLogic.Core;
-using eUseControl.BusinessLogic.Interfaces;
+using BookShopProject.BusinessLogic.Core;
+using BookShopProject.BusinessLogic.Interfaces;
 
-namespace eUseControl.BusinessLogic
+namespace BookShopProject.BusinessLogic
 {
     class SessionBL : UserApi, ISession
     {
