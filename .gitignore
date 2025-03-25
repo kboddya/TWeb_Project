@@ -2,3 +2,6 @@
 BookShopProject/obj/
 .idea/
 BookShopProject.BusinessLogic/obj/
+BookShopProject.Domain/obj/
+BookShopProject/bin/
+BookShopProject.BusinessLogic/bin/
