@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using eUseControl.BusinessLogic.Interfaces;
+using BookShopProject.BusinessLogic.Interfaces;
 
-namespace eUseControl.BusinessLogic
+namespace BookShopProject.BusinessLogic
 {
     public class BusinessLogic
     {

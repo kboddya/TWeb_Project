@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BookShopProject.BusinessLogic.Core;
+using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.User;
-using eUseControl.BusinessLogic.Core;
-using eUseControl.BusinessLogic.Interfaces;
 
-namespace eUseControl.BusinessLogic
+namespace BookShopProject.BusinessLogic
 {
     class SessionBL : UserApi, ISession
     {

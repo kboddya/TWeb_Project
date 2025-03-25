@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BookShopProject.Domain.Entities.User;
 
-namespace eUseControl.BusinessLogic.Interfaces
+namespace BookShopProject.BusinessLogic.Interfaces
 {
     public interface ISession
     {
