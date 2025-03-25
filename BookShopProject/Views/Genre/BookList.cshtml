@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "BookList";
+}
+
+@model BookShopProject.Models.BookList
+
+<section id="popular-books" class="bookshelf py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+
+                <div class="section-header align-center">
+                    <div>
+                        <h2 class="section-title">@Model.NameOfList</h2>
+                    </div>
+                </div>
+                <div class="row">
+
+                    @foreach (var prod in Model.Products)
+                    {
+                        <div class="col-md-3">
+                            <div class="product-item">
+                                <figure class="product-style">
+                                    <a href="@Url.Action("BookInfo", "Book")?ISBN=@prod.ISBN">
+                                        <img src="@prod.Image" alt="Books" class="product-item">
+                                    </a>
+                                    <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+                                        Cart
+                                    </button>
+                                </figure>
+                                <figcaption>
+                                    <a href="@Url.Action("BookInfo", "Book")?ISBN=@prod.ISBN">
+                                        <h3>@prod.Title</h3></a>
+                                    <span>@prod.Author</span>
+                                    <div class="item-price">
+                                        @if(prod.DiscountedPrice != decimal.MinusOne)
+                                        {
+                                            <span class="prev-price">$ @prod.DiscountedPrice</span>
+                                        }
+                                        $ @prod.Price
+                                    </div>
+                                </figcaption>
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

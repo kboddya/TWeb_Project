@@ -79,6 +79,7 @@
 }
 
 .book-name {
+    margin-top: 30px;
     margin-bottom: 0;
 }
 
@@ -103,6 +104,24 @@
 
 }
 
-.want-be-normal-left-margin-book-only-on-pc{
+.want-be-normal-left-margin-book-only-on-pc {
     margin-left: 0%;
+}
+
+
+/*Errors*/
+.error-code {
+    height: 100%;
+    text-align: center;
+    margin-top: 166px;
+    margin-bottom: 166px;
+}
+
+.error-code-h{
+    margin-bottom: 0px;
+    font-size: 100px;
+}
+
+.error-code-p{
+    font-size: 25px;
 }
