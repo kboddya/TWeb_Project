@@ -9,10 +9,10 @@ namespace BookShopProject.BusinessLogic.Interfaces
 {
     public interface ISession
     {
-        UserLoginResult UserLogin(ULoginData data);
+        UserRegisterResult UserRegister(UDbTable data);
     }
 
-    public class UserLoginResult
+    public class UserRegisterResult
     {
         public bool Status { get; set; }
         public string StatusMsg { get; set; }

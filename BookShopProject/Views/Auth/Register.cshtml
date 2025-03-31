@@ -2,53 +2,79 @@
     ViewBag.Title = "Register";
     Layout = "/Views/Shared/_LoginLayout.cshtml";
 }
+@model BookShopProject.Models.User
 
-<div class="d-flex justify-content-center align-items-center min-vh-100;" >
-    <div class="register-padding" style="width: 100%; margin: 10%; padding-top:50px; padding-bottom: 5px; max-height: 650px; max-width: 500px; background-color: #f8f9fa; border-radius: 15px;">
-        <form class="mx-3 d-flex flex-column" style="gap: 1.5rem">
-            <h3 class="text-center mb-5">Create Account</h3>
+<div class="d-flex justify-content-center align-items-center min-vh-100;">
+    <div class="register-padding"
+         style="width: 100%; margin: 10%; padding-top:50px; padding-bottom: 5px; max-height: 650px; max-width: 500px; background-color: #f8f9fa; border-radius: 15px;">
+        @Html.ValidationSummary(true)
+        @using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { @id = "registerForm" }))
+        {
+            @Html.AntiForgeryToken()
 
-            <!-- Name Input -->
-            <div class="form-outline mb-4">
-                <input type="text" id="registerName" class="form-control form-control-lg"
-                       placeholder="Full name"
-                       style="border-radius: 10px;">
-            </div>
+            <form class="mx-3 d-flex flex-column" style="gap: 1.5rem" action="/" novalidate>
+                <h3 class="text-center mb-5">Create Account</h3>
 
-            <!-- Email Input -->
-            <div class="form-outline mb-4">
-                <input type="email" id="registerEmail" class="form-control form-control-lg"
-                       placeholder="Email address"
-                       style="border-radius: 10px;">
-            </div>
 
-            <!-- Password Input -->
-            <div class="form-outline mb-4">
-                <input type="password" id="registerPassword" class="form-control form-control-lg"
-                       placeholder="Create password"
-                       style="border-radius: 10px;">
-            </div>
+                <!-- Name Input -->
+                <div class="form-outline mb-4">
+                    @Html.LabelFor(m => m.Name, new { @class = "form-label form-control-lg" })
+                    @Html.TextBoxFor(m => m.Name, new
+                    {
+                        @class = "form-control form-control-lg",
+                        placeholder = "Full Name",
+                        style = "border-radius: 10px;",
+                        id = "Name",
+                        name = "Name"
+                    })
+                </div>
 
-            <!-- Confirm Password Input -->
-            <div class="form-outline mb-4">
-                <input type="password" id="registerConfirmPassword" class="form-control form-control-lg"
-                       placeholder="Confirm password"
-                       style="border-radius: 10px;">
-            </div>
+                <!-- Email Input -->
+                <div class="form-outline mb-4">
+                    @Html.LabelFor(m => m.Email, new { @class = "form-label form-control-lg" })
+                    @Html.TextBoxFor(m => m.Email, new
+                    {
+                        @class = "form-control form-control-lg",
+                        placeholder = "Email address",
+                        style = "border-radius: 10px;",
+                        id = "Email",
+                        name = "Email"
+                    })
+                </div>
 
-            <!-- Sign Up Button -->
-            <div class="d-flex justify-content-center mt-4">
-                <button type="button" class="btn btn-primary btn-lg px-5 py-3"
-                        style="border-radius: 25px;">
-                    Sign Up
-                </button>
-            </div>
+                <!-- Password Input -->
+                <div class="form-outline mb-4">
+                    @Html.LabelFor(m => m.Password, new { @class = "form-label form-control-lg" })
+                    @Html.PasswordFor(m => m.Password, new
+                    {
+                        @class = "form-control form-control-lg",
+                        placeholder = "Create password",
+                        style = "border-radius: 10px;",
+                        id = "registerPassword",
+                        name = "Password"
+                    })
+                </div>
 
-            <!-- Login Prompt -->
-            <p class="text-body text-center text-decoration-none" style="font-size: 15px; font-weight: 400; padding: 3px 0">
-                Already have an account? <a href="@Url.Action("Login", "Auth")" class="link-danger">Login here</a>
-            </p>
-        </form>
+
+                <!-- Sign Up Button -->
+                <div class="d-flex justify-content-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg px-5 py-3"
+                            style="border-radius: 25px;">
+                        Sign Up
+                    </button>
+                </div>
+
+                <div class="validation-summary-error text-danger">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- Login Prompt -->
+                <p class="text-body text-center text-decoration-none"
+                   style="font-size: 15px; font-weight: 400; padding: 3px 0">
+                    Already have an account? <a href="@Url.Action("Login", "Auth")" class="link-danger">Login here</a>
+                </p>
+            </form>
+        }
     </div>
 </div>
 

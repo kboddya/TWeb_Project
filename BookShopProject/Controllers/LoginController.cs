@@ -21,28 +21,28 @@ namespace BookShopProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(UserLogin login)
+        public ActionResult Login(User login)
         {
-            if (ModelState.IsValid)
-            {
-                ULoginData data = new ULoginData
-                {
-                    Credential = login.Credential,
-                    Password = login.Password,
-                    LoginIp = Request.UserHostAddress,
-                    LoginDateTime = DateTime.Now
-                };
-                var userLogin = _session.UserLogin(data);
-                if (userLogin.Status)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", userLogin.StatusMsg);
-                    return View("~/Views/Auth/Login.cshtml");
-                }
-            }
+            // if (ModelState.IsValid)
+            // {
+            //     UDbTable data = new UDbTable
+            //     {
+            //         Credential = login.Credential,
+            //         Password = login.Password,
+            //         LoginIp = Request.UserHostAddress,
+            //         LoginDateTime = DateTime.Now
+            //     };
+            //     var userLogin = _session.UserLogin(data);
+            //     if (userLogin.Status)
+            //     {
+            //         return RedirectToAction("Index", "Home");
+            //     }
+            //     else
+            //     {
+            //         ModelState.AddModelError("", userLogin.StatusMsg);
+            //         return View("~/Views/Auth/Login.cshtml");
+            //     }
+            // }
             return View("~/Views/Auth/Login.cshtml");
         }
     }

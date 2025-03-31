@@ -11,24 +11,34 @@ namespace BookShopProject.BusinessLogic
 {
     class SessionBL : UserApi, ISession
     {
-        public UserLoginResult UserLogin(ULoginData data)
+        public UserRegisterResult UserRegister(UDbTable data)
         {
-            if (data.Credential == "admin" && data.Password == "password")
+            UserRegisterResult result = new UserRegisterResult();
+            UDbTable user;
+            using (var db = new UserContext())
             {
-                return new UserLoginResult
-                {
-                    Status = true,
-                    StatusMsg = "Login successful"
-                };
+                user = db.Users.FirstOrDefault(u => u.Email == data.Email);
             }
-            else
+
+            if (user!=null)
             {
-                return new UserLoginResult
-                {
-                    Status = false,
-                    StatusMsg = "Invalid credentials"
-                };
+                result.Status = false;
+                result.StatusMsg = "User already exists";
+                return result;
             }
+            
+            data.RegisterTime = DateTime.Now;
+            data.LastLoginTime = DateTime.Now;
+            
+            using (var db = new UserContext())
+            {
+                db.Users.Add(data);
+                db.SaveChanges();
+            }
+            result.Status = true;
+            result.StatusMsg = "User registered successfully";
+            
+            return result;
         }
     }
 }
