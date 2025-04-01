@@ -10,6 +10,7 @@ namespace BookShopProject.BusinessLogic.Interfaces
     public interface ISession
     {
         UserRegisterResult UserRegister(UDbTable data);
+        UserRegisterResult UserLogin(UDbTable data);
     }
 
     public class UserRegisterResult

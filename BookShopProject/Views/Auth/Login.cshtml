@@ -3,59 +3,85 @@
     Layout = "/Views/Shared/_LoginLayout.cshtml";
 }
 
+@model BookShopProject.Models.User
+
 <div class="d-flex justify-content-center align-items-center min-vh-100 py-5">
     <div class="card p-5" style="width: 100%; max-width: 500px; background-color: #f8f9fa; border-radius: 15px;">
-        <form class="mx-3 d-flex flex-column" style="gap: 1.5rem">
-            <!-- Title with balanced margin -->
-            <h3 class="text-center mb-0">Be welcomed</h3>
+        @Html.ValidationSummary(true)
+        @using (Html.BeginForm("Login", "Auth", FormMethod.Post, new { @id = "registerForm" }))
+        {
+            @Html.AntiForgeryToken()
 
-            <!-- Email Input -->
-            <div class="form-outline">
-                <input type="email" id="form3Example3" class="form-control form-control-lg"
-                       placeholder="Enter a valid email address"
-                       style="border-radius: 10px;">
-            </div>
+            <form class="mx-3 d-flex flex-column" style="gap: 1.5rem" action="/" novalidate>
+                <h1 class="text-center mb-3">Be Welcomed</h1>
 
-            <!-- Password Input -->
-            <div class="form-outline">
-                <input type="password" id="form3Example4" class="form-control form-control-lg"
-                       placeholder="Enter password"
-                       style="border-radius: 10px;">
-            </div>
+                <!-- Email Input -->
+                <div class="form-outline">
+                    @Html.LabelFor(m => m.Email, new { @class = "form-label form-control-lg form-l" })
+                    <div class="d-flex justify-content-center">
+                        @Html.TextBoxFor(m => m.Email, new
+                        {
+                            @class = "form-control-lg form-text-box",
+                            placeholder = "Email address",
+                            style = "border-radius: 10px;",
+                            id = "Email",
+                            name = "Email"
+                        })
+                    </div>
+                </div>
 
-            <div class="d-flex justify-content-between align-items-center">
-                <!-- Checkbox -->
-                <div class="form-check d-flex align-items-center flex-shrink-0">
-                    <input class="form-check-input m-0" type="checkbox" id="form2Example3">
-                    <label class="form-check-label text-body ms-2 m-0"
+
+                <!-- Password Input -->
+                <div class="form-outline">
+                    @Html.LabelFor(m => m.Password, new { @class = "form-label form-control-lg form-l" })
+                    <div class="d-flex justify-content-center">
+                        @Html.PasswordFor(m => m.Password, new
+                        {
+                            @class = "form-control-lg form-text-box",
+                            placeholder = "Enter password",
+                            style = "border-radius: 10px;",
+                            id = "registerPassword",
+                        })
+                    </div>
+                </div>
+                
+                @Html.ValidationMessageFor(m => m.Name)
+
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <!-- Checkbox -->
+                    <div class="form-check d-flex align-items-center flex-shrink-0">
+                        <input class="form-check-input m-0" type="checkbox" id="form2Example3">
+                        <label class="form-check-label text-body ms-2 m-0"
+                               style="font-size: 15px; font-weight: 400; padding: 3px 0">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <!-- Forgot Password -->
+                    <div class="flex-shrink-0">
+                        <a href="@Url.Action("ForgotPassword", "Auth")"
+                           class="text-body text-decoration-none"
                            style="font-size: 15px; font-weight: 400; padding: 3px 0">
-                        Remember me
-                    </label>
+                            Forgot password?
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Forgot Password -->
-                <div class="flex-shrink-0">
-                    <a href="@Url.Action("ForgotPassword", "Auth")"
-                       class="text-body text-decoration-none"
-                       style="font-size: 15px; font-weight: 400; padding: 3px 0">
-                        Forgot password?
-                    </a>
+                <!-- Login Button -->
+                <div class="d-flex justify-content-center mt-auto">
+                    <button type="submit" class="btn btn-primary btn-lg px-5 py-3"
+                            style="border-radius: 25px;">
+                        Login
+                    </button>
                 </div>
-            </div>
 
-            <!-- Login Button -->
-            <div class="d-flex justify-content-center mt-auto">
-                <button type="button" class="btn btn-primary btn-lg px-5 py-3"
-                        style="border-radius: 25px;">
-                    Login
-                </button>
-            </div>
-
-            <!-- Registration Link -->
-            <p class="text-body text-center text-decoration-none mb-0"
-               style="font-size: 15px; font-weight: 400; padding: 3px 0">
-                Don't have an account? <a href="@Url.Action("Register", "Auth")" class="link-danger">Register</a>
-            </p>
-        </form>
+                <!-- Registration Link -->
+                <p class="text-body text-center text-decoration-none mb-0"
+                   style="font-size: 15px; font-weight: 400; padding: 3px 0">
+                    Don't have an account? <a href="@Url.Action("Register", "Auth")" class="link-danger">Login</a>
+                </p>
+            </form>
+        }
     </div>
 </div>

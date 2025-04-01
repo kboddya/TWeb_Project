@@ -18,21 +18,22 @@ namespace BookShopProject.Controllers
         public ActionResult Register(User user)
         {
             if (!ModelState.IsValid) return View(user);
+
             var userData = new Domain.Entities.User.UDbTable
             {
-                LastIp = "localhost",
+                LastIp = Request.UserHostAddress,
                 Name = user.Name,
                 Email = user.Email,
                 Password = user.Password
             };
+
             var bl = new BusinessLogic.BusinessLogic();
             var sessionBL = bl.GetSessionBL();
+
             var result = sessionBL.UserRegister(userData);
 
-            if (result.Status)
-            {
-                return RedirectToAction("WelcomeToFamily");
-            }
+            if (result.Status) return RedirectToAction("WelcomeToFamily");
+
 
             ModelState.AddModelError(result.StatusKey, result.StatusMsg);
 
@@ -42,6 +43,30 @@ namespace BookShopProject.Controllers
         public ActionResult Login()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(User user)
+        {
+            if (!ModelState.IsValid) return View(user);
+
+            var userData = new Domain.Entities.User.UDbTable
+            {
+                LastIp = Request.UserHostAddress,
+                Name = user.Name,
+                Email = user.Email,
+                Password = user.Password
+            };
+
+            var bl = new BusinessLogic.BusinessLogic();
+            var sessionBL = bl.GetSessionBL();
+
+            var result = sessionBL.UserLogin(userData);
+
+            if (result.Status) return RedirectToAction("Index", "Home");
+
+            ModelState.AddModelError(result.StatusKey, result.StatusMsg);
+            return View(user);
         }
 
         public ActionResult WelcomeToFamily()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -66,6 +67,55 @@ namespace BookShopProject.BusinessLogic
             result.Status = true;
             result.StatusMsg = "User registered successfully";
 
+            return result;
+        }
+
+        public UserRegisterResult UserLogin(UDbTable data)
+        {
+            UserRegisterResult result = new UserRegisterResult();
+            if (data.Password.Length < 8 || !data.Email.Contains("@"))
+            {
+                result.Status = false;
+                result.StatusMsg = "Email or Password is not valid";
+                result.StatusKey = "Name";
+                return result;
+            }
+            
+            UDbTable user;
+
+            using (var db = new UserContext())
+            {
+                user = db.Users.FirstOrDefault(u => u.Email == data.Email);
+            }
+
+            if (user == null)
+            {
+                result.Status = false;
+                result.StatusMsg = "User not found";
+                result.StatusKey = "Name";
+                return result;
+            }
+            
+            if (user.Password != data.Password)
+            {
+                result.Status = false;
+                result.StatusMsg = "Email or Password is not valid";
+                result.StatusKey = "Name";
+                return result;
+            }
+            
+            user.LastLoginTime = DateTime.Now;
+            user.LastIp = data.LastIp;
+
+            using (var db = new UserContext())
+            {
+                db.Users.AddOrUpdate(user);
+                db.SaveChanges();
+            }
+            
+            result.Status = true;
+            result.StatusMsg = "User logged in successfully";
+            result.StatusKey = "Name";
             return result;
         }
     }
