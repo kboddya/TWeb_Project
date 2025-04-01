@@ -15,6 +15,16 @@
     pointer-events: none;
 }
 
+.beauty-button {
+    padding: 6px;
+    background-color: #C5A992;
+    border-radius: 9px;
+    border: 1px solid #C5A992;
+    color: white;
+}
+
+
+
 
 /*Footer*/
 .copy {
@@ -101,7 +111,6 @@
     cursor: pointer;
     width: 100%;
     text-align: center;
-
 }
 
 .want-be-normal-left-margin-book-only-on-pc {
@@ -117,11 +126,46 @@
     margin-bottom: 166px;
 }
 
-.error-code-h{
+.error-code-h {
     margin-bottom: 0px;
     font-size: 100px;
 }
 
-.error-code-p{
+.error-code-p {
     font-size: 25px;
+}
+
+
+/*Register/Login*/
+.register-login-background {
+    width: 100%;
+    margin: 15%;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    max-height: 650px;
+    max-width: 500px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    align-content: center
+}
+
+.field-validation-error {
+    color: #C5A992;
+    width: 85%;
+    margin-left: 7.5%;
+}
+
+.form-text-box {
+    margin-bottom: 3px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-l {
+    width: 85% !important;
+    margin-left: 7.5%;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    margin-top: 5px !important;
 }

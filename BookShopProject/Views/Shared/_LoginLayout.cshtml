@@ -11,15 +11,9 @@
 
 </head>
 <body>
-<div id="header-wrap">
-
-    @Html.Partial("_TopContent") @*Top content*@
-
-</div>
 
 <div class="container body-content">
     @RenderBody()
-    @Html.Partial("_Footer") @*Footer*@
 </div>
 
 @Scripts.Render("~/bundles/scripts")

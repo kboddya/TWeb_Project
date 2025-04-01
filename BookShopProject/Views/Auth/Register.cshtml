@@ -5,54 +5,64 @@
 @model BookShopProject.Models.User
 
 <div class="d-flex justify-content-center align-items-center min-vh-100;">
-    <div class="register-padding"
-         style="width: 100%; margin: 10%; padding-top:50px; padding-bottom: 5px; max-height: 650px; max-width: 500px; background-color: #f8f9fa; border-radius: 15px;">
+    <div class="register-padding register-login-background">
         @Html.ValidationSummary(true)
         @using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { @id = "registerForm" }))
         {
             @Html.AntiForgeryToken()
 
             <form class="mx-3 d-flex flex-column" style="gap: 1.5rem" action="/" novalidate>
-                <h3 class="text-center mb-5">Create Account</h3>
+                <h1 class="text-center mb-3">Create Account</h1>
 
 
                 <!-- Name Input -->
-                <div class="form-outline mb-4">
-                    @Html.LabelFor(m => m.Name, new { @class = "form-label form-control-lg" })
-                    @Html.TextBoxFor(m => m.Name, new
-                    {
-                        @class = "form-control form-control-lg",
-                        placeholder = "Full Name",
-                        style = "border-radius: 10px;",
-                        id = "Name",
-                        name = "Name"
-                    })
+                <div class="form-outline">
+                    @Html.LabelFor(m => m.Name, new { @class = "form-label form-control-lg form-l" })
+                    <div class="d-flex justify-content-center">
+                        @Html.TextBoxFor(m => m.Name, new
+                        {
+                            @class = "form-control-lg form-text-box",
+                            placeholder = "Full Name",
+                            style = "border-radius: 10px;",
+                            id = "Name",
+                            name = "Name"
+                        })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Name)
                 </div>
+
 
                 <!-- Email Input -->
-                <div class="form-outline mb-4">
-                    @Html.LabelFor(m => m.Email, new { @class = "form-label form-control-lg" })
-                    @Html.TextBoxFor(m => m.Email, new
-                    {
-                        @class = "form-control form-control-lg",
-                        placeholder = "Email address",
-                        style = "border-radius: 10px;",
-                        id = "Email",
-                        name = "Email"
-                    })
+                <div class="form-outline">
+                    @Html.LabelFor(m => m.Email, new { @class = "form-label form-control-lg form-l" })
+                    <div class="d-flex justify-content-center">
+                        @Html.TextBoxFor(m => m.Email, new
+                        {
+                            @class = "form-control-lg form-text-box",
+                            placeholder = "Email address",
+                            style = "border-radius: 10px;",
+                            id = "Email",
+                            name = "Email"
+                        })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Email)
                 </div>
 
+
                 <!-- Password Input -->
-                <div class="form-outline mb-4">
-                    @Html.LabelFor(m => m.Password, new { @class = "form-label form-control-lg" })
-                    @Html.PasswordFor(m => m.Password, new
-                    {
-                        @class = "form-control form-control-lg",
-                        placeholder = "Create password",
-                        style = "border-radius: 10px;",
-                        id = "registerPassword",
-                        name = "Password"
-                    })
+                <div class="form-outline">
+                    @Html.LabelFor(m => m.Password, new { @class = "form-label form-control-lg form-l" })
+                    <div class="d-flex justify-content-center">
+                        @Html.PasswordFor(m => m.Password, new
+                        {
+                            @class = "form-control-lg form-text-box",
+                            placeholder = "Create password",
+                            style = "border-radius: 10px;",
+                            id = "registerPassword",
+                            name = "Password"
+                        })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Password)
                 </div>
 
 
@@ -62,10 +72,6 @@
                             style="border-radius: 25px;">
                         Sign Up
                     </button>
-                </div>
-
-                <div class="validation-summary-error text-danger">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 </div>
 
                 <!-- Login Prompt -->

@@ -1,0 +1,11 @@
+﻿@using BookShopProject.Controllers
+@{
+    ViewBag.Title = "WelcomeToFamily";
+    Layout = "../Shared/_LoginLayout.cshtml";
+}
+
+<div class="welcome-to-family d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <h1>Welcome to our reading family</h1>
+    <p>We are glad to have you here. Explore our collection and find your next favorite book!</p>
+    <a href="@Url.Action("Index", "Home")" class="beauty-button">Go to the shop</a>
+</div>

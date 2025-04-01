@@ -15,6 +15,9 @@ namespace BookShopProject.BusinessLogic.Interfaces
     public class UserRegisterResult
     {
         public bool Status { get; set; }
+
+        public string StatusKey { get; set; }
+
         public string StatusMsg { get; set; }
     }
 }

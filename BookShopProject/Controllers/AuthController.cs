@@ -9,40 +9,44 @@ namespace BookShopProject.Controllers
 {
     public class AuthController : Controller
     {
-
         public ActionResult Register()
         {
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult Register(User user)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View(user);
+            var userData = new Domain.Entities.User.UDbTable
             {
-                var userData = new Domain.Entities.User.UDbTable
-                {
-                    LastIp = "localhost",
-                    Name = user.Name,
-                    Email = user.Email,
-                    Password = user.Password
-                };
-                var bl = new BusinessLogic.BusinessLogic();
-                var sessionBL = bl.GetSessionBL();
-                var result = sessionBL.UserRegister(userData);
-                
-                if (result.Status)
-                {
-                    // Registration successful, redirect to success page
-                    return RedirectToAction("Success");
-                }
-                else
-                {
-                    // Registration failed, show error message
-                    ModelState.AddModelError("", result.StatusMsg);
-                }
+                LastIp = "localhost",
+                Name = user.Name,
+                Email = user.Email,
+                Password = user.Password
+            };
+            var bl = new BusinessLogic.BusinessLogic();
+            var sessionBL = bl.GetSessionBL();
+            var result = sessionBL.UserRegister(userData);
+
+            if (result.Status)
+            {
+                return RedirectToAction("WelcomeToFamily");
             }
+
+            ModelState.AddModelError(result.StatusKey, result.StatusMsg);
+
             return View(user);
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult WelcomeToFamily()
+        {
+            return View();
         }
     }
 }

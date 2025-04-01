@@ -195,6 +195,7 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Articles\ArticleDetails.cshtml" />
     <Content Include="Views\Articles\ArticlesList.cshtml" />
+    <Content Include="Views\Auth\WelcomeToFamily.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Book\BookInfo.cshtml" />
     <Content Include="Views\Errors\er404.cshtml" />
@@ -220,7 +221,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
