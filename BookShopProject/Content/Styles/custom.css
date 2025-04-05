@@ -169,3 +169,74 @@
     margin-bottom: 0 !important;
     margin-top: 5px !important;
 }
+
+
+/* Admin Dashboard Layout */
+.admin-dashboard-container {
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.admin-main-card {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 3rem;
+}
+
+/* Sidebar Styles */
+.admin-sidebar {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.sidebar-heading {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-link {
+    color: var(--bs-body-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sidebar-link:hover {
+    color: #0d6efd;
+    transform: translateX(5px);
+}
+
+.signout-btn {
+    border-radius: 25px;
+    padding: 0.5rem 0;
+}
+
+/* Content Area Styles */
+.management-card {
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-table {
+    --bs-table-hover-bg: rgba(13, 110, 253, 0.05);
+}
+
+.admin-table th {
+    font-weight: 500;
+}
+
+.action-buttons .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Badge Styles */
+.status-badge {
+    font-size: 0.85em;
+    padding: 0.5em 0.75em;
+}
+
