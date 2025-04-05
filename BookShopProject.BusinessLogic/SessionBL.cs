@@ -13,9 +13,9 @@ namespace BookShopProject.BusinessLogic
 {
     class SessionBL : UserApi, ISession
     {
-        public UserRegisterResult UserRegister(UDbTable data)
+        public UserAuthResult UserRegister(UDbTable data)
         {
-            UserRegisterResult result = new UserRegisterResult();
+            UserAuthResult result = new UserAuthResult();
             if (data.Password.Length < 8)
             {
                 result.Status = false;
@@ -70,9 +70,9 @@ namespace BookShopProject.BusinessLogic
             return result;
         }
 
-        public UserRegisterResult UserLogin(UDbTable data)
+        public UserAuthResult UserLogin(UDbTable data)
         {
-            UserRegisterResult result = new UserRegisterResult();
+            UserAuthResult result = new UserAuthResult();
             if (data.Password.Length < 8 || !data.Email.Contains("@"))
             {
                 result.Status = false;
