@@ -24,8 +24,6 @@
 }
 
 
-
-
 /*Footer*/
 .copy {
     margin-bottom: 0;
@@ -168,4 +166,55 @@
     padding: 0 !important;
     margin-bottom: 0 !important;
     margin-top: 5px !important;
+}
+
+
+/*Admin*/
+.body-admin-content {
+    margin-left: 25%;
+    padding: 1px 16px;
+    height: 1000px;
+}
+
+.sidebar-menu-admin {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    border: 1px solid #EAE8DF;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-menu-admin li a {
+    display: block;
+    color: black;
+    padding: 4px 30px;
+    text-decoration: none;
+}
+
+.sidebar-menu-admin h2 {
+    display: flex;
+    color: black;
+    padding: 4px 16px;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.sidebar-menu-admin button {
+    display: block;
+    color: gray;
+    padding: 2px 16px;
+    text-decoration: none;
+    background-color: #EAE8DF;
+    border: none;
+}
+
+.sidebar-menu-admin div {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
 }
