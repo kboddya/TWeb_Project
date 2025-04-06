@@ -193,6 +193,7 @@
     <Content Include="Scripts\slideNav.min.js" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Articles\ArticleDetails.cshtml" />
     <Content Include="Views\Articles\ArticlesList.cshtml" />
     <Content Include="Views\Auth\WelcomeToFamily.cshtml" />
@@ -201,6 +202,8 @@
     <Content Include="Views\Errors\er404.cshtml" />
     <Content Include="Views\Genre\BookList.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_AdminSideBar.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_HeaderLayout.cshtml" />
@@ -212,6 +215,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\CartController.cs" />

@@ -7,6 +7,8 @@ namespace BookShopProject.Models
 {
     public class Book
     {
+        public ulong ISBN { get; set; } = 9780000000000;
+        
         public string Title { get; set; }
 
         public string Author { get; set; }
@@ -28,8 +30,7 @@ namespace BookShopProject.Models
         public uint Year { get; set; }
 
         public string Publisher { get; set; }
-
-        public string ISBN { get; set; }
+        
 
         public DateTime PublishDate { get; set; }
     }

@@ -31,7 +31,7 @@ namespace BookShopProject.Controllers
                     Language = "English",
                     Year = 2021,
                     Publisher = "PhotoBooks Publishing",
-                    ISBN = "978-3-16-148410-0"
+                    ISBN = 9783161484100
                 },
                 new Book()
                 {
@@ -45,7 +45,7 @@ namespace BookShopProject.Controllers
                     Language = "English",
                     Year = 2019,
                     Publisher = "StoryBooks Publishing",
-                    ISBN = "978-1-23-456789-0"
+                    ISBN = 9781234567890
                 },
                 new Book()
                 {
@@ -59,7 +59,7 @@ namespace BookShopProject.Controllers
                     Language = "English",
                     Year = 2020,
                     Publisher = "LifeBooks Publishing",
-                    ISBN = "978-0-12-345678-9"
+                    ISBN = 9780123456789
                 },
                 new Book()
                 {
@@ -73,7 +73,7 @@ namespace BookShopProject.Controllers
                     Language = "English",
                     Year = 2022,
                     Publisher = "AdventureBooks Publishing",
-                    ISBN = "978-9-87-654321-0"
+                    ISBN = 9789876543210
                 }
             };
             var List = new BookList()

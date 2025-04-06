@@ -8,7 +8,7 @@ namespace BookShopProject.Controllers
     {
         public ActionResult BookInfo()
         {
-            var b = Request.QueryString["ISBN"];
+            var b =  Request.QueryString["ISBN"];
 
             var book = new Book()
             {
@@ -22,10 +22,10 @@ namespace BookShopProject.Controllers
                 Language = "English",
                 Year = 2021,
                 Publisher = "PhotoBooks Publishing",
-                ISBN = "978-1-23-456789-0"
+                ISBN = 9781234567890
             };
 
-            return b == book.ISBN ? (ActionResult)View(book) : RedirectToAction("er404", "Errors");
+            return b == book.ISBN.ToString() ? (ActionResult)View(book) : RedirectToAction("er404", "Errors");
         }
     }
 }
