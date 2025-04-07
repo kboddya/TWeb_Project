@@ -16,6 +16,10 @@
                 <div class="want-be-normal-left-margin-book-only-on-pc author-parameters">
                     <figcaption>
                         <h3 class="author-full-name" style="margin-bottom: 5px">@Model.Name</h3>
+                        @if (!Model.Wiki.IsEmpty())
+                        {
+                            <a href="@Model.Wiki"><b>Biography</b></a>
+                        }
                         @{
                             string MonthToString(int month)
                             {
@@ -56,10 +60,6 @@
 
                                 <text>@age</text>
                             }</p>
-                        @if (!Model.Wiki.IsEmpty())
-                        {
-                            <a href="@Model.Wiki"><b>Biography</b></a>
-                        }
                     </figcaption>
                     <p><b>Genres:</b></p>
                     <div class="row">
