@@ -1,0 +1,107 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@model BookShopProject.Models.Author
+
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="author-full-photo">
+                    <img src="@Model.Image" alt="Author photo" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="want-be-normal-left-margin-book-only-on-pc author-parameters">
+                    <figcaption>
+                        <h3 class="author-full-name" style="margin-bottom: 5px">@Model.Name</h3>
+                        @{
+                            string MonthToString(int month)
+                            {
+                                return Model.BirthDate.Month switch
+                                {
+                                    1 => "January",
+                                    2 => "February",
+                                    3 => "March",
+                                    4 => "April",
+                                    5 => "May",
+                                    6 => "June",
+                                    7 => "July",
+                                    8 => "August",
+                                    9 => "September",
+                                    10 => "October",
+                                    11 => "November",
+                                    12 => "December",
+                                    _ => ""
+                                };
+                            }
+                        }
+                        <p>
+                            <b>Born:</b> @MonthToString(Model.BirthDate.Month) @Model.BirthDate.Day, @Model.BirthDate.Year
+                        </p>
+                        @if (@Model.DeathDate.Date.Year != 1)
+                        {
+                            <p>
+                                <b>Dead:</b> @MonthToString(Model.DeathDate.Month) @Model.DeathDate.Day, @Model.DeathDate.Year
+                            </p>
+                        }
+                        <p><b>Age:</b>
+                            @{
+                                var age = DateTime.Now.Year - Model.BirthDate.Year;
+                                if (Model.DeathDate.Year != 1)
+                                {
+                                    age = Model.DeathDate.Year - Model.BirthDate.Year;
+                                }
+
+                                <text>@age</text>
+                            }</p>
+                        @if (!Model.Wiki.IsEmpty())
+                        {
+                            <a href="@Model.Wiki"><b>Biography</b></a>
+                        }
+                    </figcaption>
+                    <p><b>Genres:</b></p>
+                    <div class="row">
+                        @foreach (var genre in Model.Genres)
+                        {
+                            <div class="col-md-3" style="margin-bottom: 15px;">
+                                <a href="@Url.Action("BookList", "Genre")?Genre=@genre"
+                                   class="tags-of-parameters rounded-corners" id="author">@genre</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            @foreach (var book in Model.Books)
+            {
+                <div class="col-md-3">
+                    <div class="product-item">
+                        <figure class="product-style">
+                            <a href="@Url.Action("BookInfo", "Book")?ISBN=@book.ISBN">
+                                <img src="@book.Image" alt="Books" class="product-item">
+                            </a>
+                            <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+                                Cart
+                            </button>
+                        </figure>
+                        <figcaption>
+                            <a href="@Url.Action("BookInfo", "Book")?ISBN=@book.ISBN">
+                                <h3>@book.Title</h3>
+                            </a>
+                            <span>@book.Author</span>
+                            <div class="item-price">
+                                @if(book.DiscountedPrice != decimal.MinusOne)
+                                {
+                                    <span class="prev-price">$ @book.DiscountedPrice</span>
+                                }
+                                $ @book.Price
+                            </div>
+                        </figcaption>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</section>

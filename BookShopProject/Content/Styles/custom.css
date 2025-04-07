@@ -82,11 +82,11 @@
     margin-top: 20px;
 }
 
-.book-image {
+.book-image .author-full-photo {
     display: block;
 }
 
-.book-name {
+.book-name .author-full-name {
     margin-top: 30px;
     margin-bottom: 0;
 }
@@ -217,4 +217,10 @@
     display: flex;
     justify-content: center;
     margin-top: auto;
+}
+
+
+/*Author*/
+.author-parameters p{
+    margin: 0;
 }

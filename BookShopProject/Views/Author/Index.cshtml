@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@model BookShopProject.Models.AuthorList
+
+<section id="popular-books" class="bookshelf py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+
+                <div class="section-header align-center">
+                    <div>
+                        <h2 class="section-title">Authors</h2>
+                    </div>
+                </div>
+                <div class="row">
+
+                    @foreach (var author in Model.Authors)
+                        {
+                            <div class="col-md-3 article-background">
+                                <div class="product-item">
+                                    <figure class="article-image">
+                                        <a href="@Url.Action("Details")?Id=@author.Id">
+                                            <img src="@author.Image" alt="Author photo" class="post-image">
+                                        </a>
+                                    </figure>
+                                    <figcaption style="margin-top:0;">
+                                        <a href="@Url.Action("Details")?Id=@author.Id">
+                                            <h3>@author.Name</h3>
+                                        </a>
+                                    </figcaption>
+                                </div>
+
+                            </div>
+                            }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

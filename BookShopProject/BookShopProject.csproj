@@ -196,6 +196,8 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Articles\ArticleDetails.cshtml" />
     <Content Include="Views\Articles\ArticlesList.cshtml" />
+    <Content Include="Views\Author\Details.cshtml" />
+    <Content Include="Views\Author\Index.cshtml" />
     <Content Include="Views\Auth\WelcomeToFamily.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Book\BookInfo.cshtml" />
@@ -218,6 +220,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
@@ -229,6 +232,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\User.cs" />
