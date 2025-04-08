@@ -7,8 +7,19 @@ namespace BookShopProject.Models
 {
     public class Review
     {
-        public uint ISBN { get; set; }
+        public string BookName { get; set; }
 
-        public string Title { get; set; }
+        public string Author { get; set; }
+
+        public string Comment { get; set; }
+
+        public string Image { get; set; }
+
+        public int CountOfMark { get; set; }
+
+        public ulong ISBN { get; set; } = 9780000000000;
+
+        public DateTime PublishDate { get; set; }
+
     }
 }
