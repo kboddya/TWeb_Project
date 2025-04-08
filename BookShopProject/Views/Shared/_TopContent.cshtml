@@ -2,16 +2,21 @@
     <div class="container-fluid">
 
         <div class="right-element">
+             @*If in accout now*@
             <a href="@Url.Action("Index", "Account")" class="user-account for-buy">
                 <i class="icon icon-user"></i><span>Account</span>
             </a>
-            <a href="@Url.Action("Index","Cart")" class="cart for-buy">
-                <i class="icon icon-clipboard"></i><span>
+            <a href="@Url.Action("Index", "Cart")" class="cart for-buy">
+                <i class="icon icon-clipboard"></i>
+                <span>
                     Cart:(0
                     $)
                 </span>
             </a>
-            <a href="@Url.Action("Login", "Auth")" class="account"><i class="icon icon-user"></i><span>Sign in</span></a>
+            
+            @*If not in account now*@
+            <a href="@Url.Action("Login", "Auth")" class="for-buy"><span>Sign in</span></a>
+            <a href="@Url.Action("Register", "Auth")" class="for-buy"><span>Register</span></a>
 
 
             <div class="action-menu">
@@ -20,7 +25,7 @@
                     <a href="#" class="search-button search-toggle" data-selector="#header-wrap">
                         <i class="icon icon-search"></i>
                     </a>
-                    <form role="search" method="get" class="search-box">
+                    <form role="search" method="post" class="search-box">
                         <input class="search-field text search-input" placeholder="Search"
                                type="search">
                     </form>

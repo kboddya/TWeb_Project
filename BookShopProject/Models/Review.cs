@@ -5,9 +5,10 @@ using System.Web;
 
 namespace BookShopProject.Models
 {
-    public class CartItem
+    public class Review
     {
-        public Book Book { get; set; }
-        public int Quantity { get; set; }
+        public uint ISBN { get; set; }
+
+        public string Title { get; set; }
     }
 }

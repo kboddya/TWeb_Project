@@ -212,6 +212,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -227,6 +228,8 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\Review.cs" />
+    <Compile Include="Models\ReviewList.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\BookList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -251,8 +254,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
