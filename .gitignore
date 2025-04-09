@@ -3,5 +3,6 @@ BookShopProject/obj/
 .idea/
 BookShopProject.BusinessLogic/obj/
 BookShopProject.Domain/obj/
+BookShopProject.Domain/bin/
 BookShopProject/bin/
 BookShopProject.BusinessLogic/bin/
