@@ -235,6 +235,8 @@
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\Review.cs" />
+    <Compile Include="Models\ReviewList.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\BookList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
