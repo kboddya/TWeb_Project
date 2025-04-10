@@ -12,13 +12,4 @@ namespace BookShopProject.BusinessLogic.Interfaces
         UserAuthResult UserRegister(UDbTable data);
         UserAuthResult UserLogin(UDbTable data);
     }
-
-    public class UserAuthResult
-    {
-        public bool Status { get; set; }
-
-        public string StatusKey { get; set; }
-
-        public string StatusMsg { get; set; }
-    }
 }

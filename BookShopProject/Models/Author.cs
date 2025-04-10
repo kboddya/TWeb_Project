@@ -7,7 +7,9 @@ namespace BookShopProject.Models
     {
         public int Id { get; set; }
         
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        
+        public string LastName { get; set; }
         
         public string Image { get; set; }
         
@@ -17,13 +19,13 @@ namespace BookShopProject.Models
         
         public string Wiki { get; set; }
         
-        public List<string> Genres { get; set; }
-        
-        public List<Book> Books { get; set; }
+        public List<string> Genres { get; set; } = new List<string>();
+
+        public List<Book> Books { get; set; } = new List<Book>();
     }
     
     public class AuthorList
     {
-        public List<Author> Authors { get; set; }
+        public List<Author> Authors { get; set; } = new List<Author>();
     }
 }
