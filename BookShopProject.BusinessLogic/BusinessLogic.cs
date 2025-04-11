@@ -16,7 +16,12 @@ namespace BookShopProject.BusinessLogic
         
         public IAuthorUser GetAuthorUserBL()
         {
-            return new AuthorBL();
+            return new AuthorUserBL();
+        }
+
+        public IAuthorAdmin GetAuthorAdminBL()
+        {
+            return new AuthorAdminBL();
         }
     }
 }

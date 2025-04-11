@@ -4,7 +4,7 @@ using BookShopProject.Domain.Entities.Author;
 
 namespace BookShopProject.BusinessLogic
 {
-    class AuthorBL: UserApi, IAuthorUser
+    class AuthorUserBL: UserApi, IAuthorUser
     {
         public AuthorDbTable GetAuthorById(int id)
         {

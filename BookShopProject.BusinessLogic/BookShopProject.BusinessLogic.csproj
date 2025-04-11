@@ -52,16 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthorBL.cs" />
-    <Compile Include="AuthorContext.cs" />
+    <Compile Include="AuthorAdminBL.cs" />
+    <Compile Include="AuthorUserBL.cs" />
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="Core\AdminApi.cs" />
     <Compile Include="Core\UserApi.cs" />
+    <Compile Include="DBModel\AuthorContext.cs" />
+    <Compile Include="DBModel\UserContext.cs" />
+    <Compile Include="Interfaces\IAuthorAdmin.cs" />
     <Compile Include="Interfaces\IAuthorUser.cs" />
     <Compile Include="Interfaces\ISession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionBL.cs" />
-    <Compile Include="UserContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookShopProject.Domain\BookShopProject.Domain.csproj">
