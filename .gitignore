@@ -4,5 +4,7 @@ BookShopProject/obj/
 BookShopProject.BusinessLogic/obj/
 BookShopProject.Domain/obj/
 BookShopProject.Domain/bin/
+BookShopProject.Helpers/obj/
+BookShopProject.Helpers/bin/
 BookShopProject/bin/
 BookShopProject.BusinessLogic/bin/

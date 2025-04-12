@@ -63,7 +63,13 @@ namespace BookShopProject.Controllers
 
             var result = sessionBL.UserLogin(userData);
 
-            if (result.Status) return RedirectToAction("Index", "Home");
+            if (result.Status)
+            {
+                var cookie = sessionBL.GenCookie(userData.Email);
+                Response.Cookies.Add(cookie);
+                
+                return RedirectToAction("Index", "Home");
+            }
 
             ModelState.AddModelError(result.StatusKey, result.StatusMsg);
             return View(user);

@@ -3,15 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BookShopProject.Domain.Entities.User;
+using BookShopProject.Extension;
 using BookShopProject.Models;
 
 namespace BookShopProject.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: Home
         public ActionResult Index()
         {
+            SessionStatus();
+            if (System.Web.HttpContext.Current.Session["LoginStatus"] == "true")
+            {
+                ViewBag.loginStatus = "true";
+                var user = System.Web.HttpContext.Current.GetMySessionObject();
+                if (user != null)
+                {
+                    ViewBag.userName = user.Name;
+                    ViewBag.userEmail = user.Email;
+                    ViewBag.userRole = user.Role;
+                }
+                else
+                {
+                    ViewBag.loginStatus = "false";
+                }
+            }
+            else
+            {
+                ViewBag.loginStatus = "false";
+            }
+            
             var data = new BookList
             {
                 Products = new List<Book>

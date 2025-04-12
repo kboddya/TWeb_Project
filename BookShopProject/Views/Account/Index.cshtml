@@ -20,7 +20,12 @@
                             <a href="#" class="text-decoration-none text-body">Settings</a>
                         </div>
                     </div>
-                    <button class="btn btn-danger w-100 py-2" style="border-radius: 25px;">Sign Out</button>
+                    <form action="@Url.Action("Index", "Account")" method="post" style="margin: 0;">
+                        <input type="hidden" name="idOfAction" value="1" />
+                        <button type="submit" value="1" class="btn btn-danger w-100 py-2" style="border-radius: 25px;">
+                            Sign Out
+                        </button>
+                    </form>
                 </div>
             </div>
 
@@ -32,28 +37,28 @@
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label style="font-size: 14px; color: #6c757d;">Full Name</label>
-                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">Burt Macklin</p>
+                                <label style="font-size: 14px; color: #6c757d;">Name</label>
+                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">@ViewBag.userName</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label style="font-size: 14px; color: #6c757d;">Email</label>
-                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">abc@gmail.com</p>
+                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">@ViewBag.userEmail</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label style="font-size: 14px; color: #6c757d;">Phone</label>
-                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">00923468974656</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label style="font-size: 14px; color: #6c757d;">Address</label>
-                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">street no4, xyz</p>
-                            </div>
-                        </div>
+                        @* <div class="col-md-6"> *@
+                        @*     <div class="form-group"> *@
+                        @*         <label style="font-size: 14px; color: #6c757d;">Phone</label> *@
+                        @*         <p class="mb-0" style="font-size: 15px; font-weight: 500;">00923468974656</p> *@
+                        @*     </div> *@
+                        @* </div> *@
+                        @* <div class="col-md-6"> *@
+                        @*     <div class="form-group"> *@
+                        @*         <label style="font-size: 14px; color: #6c757d;">Address</label> *@
+                        @*         <p class="mb-0" style="font-size: 15px; font-weight: 500;">street no4, xyz</p> *@
+                        @*     </div> *@
+                        @* </div> *@
                     </div>
                 </div>
 
@@ -123,7 +128,7 @@
     }
 
     .card {
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .form-control:focus {
@@ -135,7 +140,7 @@
         transition: all 0.3s ease;
     }
 
-        .btn:hover {
-            transform: translateY(-1px);
-        }
+    .btn:hover {
+        transform: translateY(-1px);
+    }
 </style>

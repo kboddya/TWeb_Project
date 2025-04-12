@@ -215,6 +215,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Extension\HttpContextExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
