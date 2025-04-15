@@ -16,6 +16,8 @@ namespace BookShopProject.BusinessLogic.Interfaces
         HttpCookie GenCookie(string mail);
         
         UserMinimal GetUserByCookie(string httpCookieValue);
+        
+        bool SignOut(string httpCookieValue);
     }
 
     public class UserAuthResult

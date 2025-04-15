@@ -17,6 +17,17 @@ namespace BookShopProject.Controllers
 
         public void DestroySession()
         {
+            var httpCookie = Request.Cookies["WNCNN"];
+            
+            if (httpCookie != null)
+            {
+                var user = _session.GetUserByCookie(httpCookie.Value);
+                if (user != null)
+                {
+                    _session.SignOut(httpCookie.Value);
+                }
+            }
+            
             System.Web.HttpContext.Current.Session.Clear();
 
             if (ControllerContext.HttpContext.Request.Cookies.AllKeys.Contains("WNCNN"))
@@ -43,13 +54,10 @@ namespace BookShopProject.Controllers
                     System.Web.HttpContext.Current.SetMySessionObject(user);
                     return;
                 }
-                else
-                {
-                    System.Web.HttpContext.Current.Session.Clear();
 
-                    if (ControllerContext.HttpContext.Request.Cookies.AllKeys.Contains("WNCNN")) DestroySession();
-                    
-                }
+                System.Web.HttpContext.Current.Session.Clear();
+                
+                if (ControllerContext.HttpContext.Request.Cookies.AllKeys.Contains("WNCNN")) DestroySession();
             }
 
             System.Web.HttpContext.Current.Session["LoginStatus"] = "false";

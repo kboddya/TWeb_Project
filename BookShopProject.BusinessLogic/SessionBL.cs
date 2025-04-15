@@ -33,5 +33,10 @@ namespace BookShopProject.BusinessLogic
         {
             return UserCookie(httpCookieValue);
         }
+        
+        public bool SignOut(string httpCookieValue)
+        {
+            return SignOutAction(httpCookieValue);
+        }
     }
 }

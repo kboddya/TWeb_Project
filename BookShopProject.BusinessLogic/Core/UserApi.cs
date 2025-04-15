@@ -166,16 +166,35 @@ namespace BookShopProject.BusinessLogic.Core
             return httpCookie;
         }
 
+        internal bool SignOutAction(string cookie)
+        {
+            using (var db = new SessionContext())
+            {
+                var session = db.Sessions.FirstOrDefault(s => s.CookieString == cookie);
+                if (session == null) return false;
+                db.Sessions.Remove(session);
+                db.SaveChanges();
+                return true;
+            }
+        }
+        
         internal UserMinimal UserCookie(string cookie)
         {
             Session session;
             
             using (var db = new SessionContext())
             {
-                session = db.Sessions.FirstOrDefault(s => s.CookieString == cookie && s.ExpireTime > DateTime.Now);
+                session = db.Sessions.FirstOrDefault(s => s.CookieString == cookie);
             }
 
+            
             if (session == null) return null;
+            
+            if(session.ExpireTime < DateTime.Now)
+            {
+                SignOutAction(cookie);
+                return null;
+            }
             
             UDbTable user;
             using (var db = new UserContext())
