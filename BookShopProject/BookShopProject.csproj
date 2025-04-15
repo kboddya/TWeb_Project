@@ -196,6 +196,8 @@
     <Content Include="Scripts\slideNav.min.js" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Admin\AuthorDetails.cshtml" />
+    <Content Include="Views\Admin\AuthorList.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Articles\ArticleDetails.cshtml" />
     <Content Include="Views\Articles\ArticlesList.cshtml" />

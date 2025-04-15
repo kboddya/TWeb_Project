@@ -23,7 +23,8 @@ namespace BookShopProject.BusinessLogic.Core
                 {
                     return false;
                 }
-
+                author.LastUpdateTime = DateTime.Now;
+                
                 db.Authors.AddOrUpdate(author);
                 db.SaveChanges();
             }

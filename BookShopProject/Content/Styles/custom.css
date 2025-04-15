@@ -171,7 +171,7 @@
 
 /*Admin*/
 .body-admin-content {
-    margin-left: 25%;
+    margin-left: 20% !important;
     padding: 1px 16px;
     height: 1000px;
 }
@@ -217,6 +217,15 @@
     display: flex;
     justify-content: center;
     margin-top: auto;
+}
+
+.go-back-button {
+    height: 35px;
+    width: 35px;
+}
+
+.form-readonly {
+    color: gray;
 }
 
 
