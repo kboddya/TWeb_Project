@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Entities.Author;
 using BookShopProject.Domain.Enums.User;
 
@@ -81,6 +82,70 @@ namespace BookShopProject.BusinessLogic.Core
             }
 
             return a;
+        }
+        
+        internal bool UpdateBookAction(BookDbTable book)
+        {
+            using (var db = new BookContext())
+            {
+                if (db.Books.FirstOrDefault(x => x.Id == book.Id) == null) return false;
+                
+                book.LastUpdateTime = DateTime.Now;
+                
+                db.Books.AddOrUpdate(book);
+                db.SaveChanges();
+            }
+
+            return true;
+        }
+        
+        internal bool DeleteBookAction(int Id)
+        {
+            using (var db = new BookContext())
+            {
+                var book = db.Books.FirstOrDefault(x => x.Id == Id);
+                if (book == null) return false;
+                
+                db.Books.Remove(book);
+                db.SaveChanges();
+            }
+
+            return true;
+        }
+        
+        internal bool CreateBookAction(BookDbTable book)
+        {
+            using (var db = new BookContext())
+            {
+                if (db.Books.FirstOrDefault(x => x.ISBN == book.ISBN) != null) return false;
+                
+                db.Books.Add(book);
+                db.SaveChanges();
+            }
+
+            return true;
+        }
+        
+        internal BookDbTable BookByIdAction(int id)
+        {
+            BookDbTable b;
+            using (var db = new BookContext())
+            {
+                b = db.Books.FirstOrDefault(x => x.Id == id);
+            }
+
+            return b;
+        }
+        
+        internal BookList BooksListAction()
+        {
+            var b = new BookList();
+            using (var db = new BookContext())
+            {
+                b.Books = db.Books.ToList();
+            }
+
+            return b;
         }
     }
 }

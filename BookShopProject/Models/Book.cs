@@ -11,7 +11,9 @@ namespace BookShopProject.Models
         
         public string Title { get; set; }
 
-        public string Author { get; set; }
+        public string AuthorFirstName { get; set; }
+        
+        public string AuthorLastName { get; set; }
 
         public string Genre { get; set; }
 
@@ -27,11 +29,13 @@ namespace BookShopProject.Models
 
         public string Language { get; set; }
 
-        public uint Year { get; set; }
+        public DateTime Year { get; set; }
 
         public string Publisher { get; set; }
         
 
         public DateTime PublishDate { get; set; }
+        
+        public int CountOfOrders { get; set; } = -1;
     }
 }

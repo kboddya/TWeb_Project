@@ -23,5 +23,10 @@ namespace BookShopProject.BusinessLogic
         {
             return new AuthorAdminBL();
         }
+
+        public IBookAdmin GetBookAdminBL()
+        {
+            return new BookAdminBL();
+        }
     }
 }

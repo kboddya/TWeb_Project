@@ -56,12 +56,10 @@ namespace BookShopProject.Controllers
             var bl = new BusinessLogic.BusinessLogic();
             var authorBL = bl.GetAuthorAdminBL();
             
-            var authorDbTable = authorBL.GetAuthorById(author.Id);
-            
-            authorDbTable.Image = author.Image;
-            authorDbTable.BirthDate = author.BirthDate;
-            authorDbTable.DeathDate = author.DeathDate;
-            authorDbTable.Wiki = author.Wiki;
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Models.Author, Domain.Entities.Author.AuthorDbTable>());
+            var mapper = config.CreateMapper();
+            var authorDbTable = mapper.Map<Domain.Entities.Author.AuthorDbTable>(author);
 
             var result = authorBL.UpdateAuthor(authorDbTable);
 
