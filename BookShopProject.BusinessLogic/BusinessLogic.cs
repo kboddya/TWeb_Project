@@ -13,5 +13,10 @@ namespace BookShopProject.BusinessLogic
         {
             return new SessionBL();
         }
+
+        public IOrder GetOrderAdminBL()
+        {
+            return new OrderAdminBL();
+        }
     }
 }

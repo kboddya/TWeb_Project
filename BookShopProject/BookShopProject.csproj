@@ -231,6 +231,7 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\ReviewList.cs" />
     <Compile Include="Models\User.cs" />
@@ -248,6 +249,8 @@
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Review\Index.cshtml" />
     <Content Include="Views\Offer\Index.cshtml" />
+    <Content Include="Views\Admin\Order.cshtml" />
+    <Content Include="Views\Admin\OrderDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
