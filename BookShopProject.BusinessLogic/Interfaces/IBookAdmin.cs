@@ -1,4 +1,6 @@
-﻿using BookShopProject.Domain.Entities.Book;
+﻿using System.Globalization;
+using BookShopProject.Domain.Entities.Book;
+using BookShopProject.Domain.Enums.Book;
 
 namespace BookShopProject.BusinessLogic.Interfaces
 {
@@ -7,7 +9,7 @@ namespace BookShopProject.BusinessLogic.Interfaces
         bool CreateBook(BookDbTable book);
         bool UpdateBook(BookDbTable book);
         bool DeleteBook(int id);
-        BookDbTable GetBookById(int id);
-        BookList GetBooks();
+        BookDbTable GetBookById(long ISBN);
+        BookListDb GetBooks(string parameter = "None", BSearchParameter type = 0);
     } 
 }

@@ -6,11 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Author;
+using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Entities.User;
 
 namespace BookShopProject.BusinessLogic.Core
 {
-    public class UserApi
+    public class UserApi: BaseApi
     {
         internal UserAuthResult UserRegisterAction(UDbTable data)
         {
@@ -138,5 +139,7 @@ namespace BookShopProject.BusinessLogic.Core
 
             return a;
         }
+        
+        
     }
 }

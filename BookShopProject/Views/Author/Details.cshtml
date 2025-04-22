@@ -89,7 +89,7 @@
                             <a href="@Url.Action("BookInfo", "Book")?ISBN=@book.ISBN">
                                 <h3>@book.Title</h3>
                             </a>
-                            <span>@book.Author</span>
+                            <span>@book.AuthorFirstName @book.AuthorLastName</span>
                             <div class="item-price">
                                 @if(book.DiscountedPrice != decimal.MinusOne)
                                 {

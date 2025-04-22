@@ -23,16 +23,26 @@
 
                 <div class="product-style want-be-normal-left-margin-book-only-on-pc">
                     <figcaption>
-                        <h3 class="book-name">@Model.Title</h3>
-                        <span>@Model.Author</span>
-                        <div class="item-price">$ @Model.Price</div>
+                        <h3 class="book-name" style="margin-bottom: 0;">@Model.Title</h3>
+                        <a href="@Url.Action("Details", "Author")?Id=@Model.AuthorId"><span>@Model.AuthorFirstName @Model.AuthorLastName</span></a>
+                        <div class="item-price">
+                            @if (Model.DiscountedPrice != decimal.MinusOne)
+                            {
+                                <span class="prev-price">$ @Model.Price</span>
+                                <span>$ @Model.DiscountedPrice</span>
+                            }
+                            @if (Model.DiscountedPrice == decimal.MinusOne)
+                            {
+                                <span>$ @Model.Price</span>
+                            }
+                        </div>
                     </figcaption>
                 </div>
 
                 <div class="row">
                     <div class="col-md-3 book-parameters">
                         <p class="margin-button-10">Genre</p>
-                        <a href="@Url.Action("BookList", "Genre")?Genre=@Model.Genre" class="tags-of-parameters rounded-corners">@Model.Genre</a>
+                        <a href="@Url.Action("BookList")?Genre=@Model.Genre" class="tags-of-parameters rounded-corners">@Model.Genre</a>
                     </div>
                     <div class="col-md-3 book-parameters">
                         <p class="margin-button-10">Language</p>
@@ -41,7 +51,7 @@
 
                     <div class="col-md-3 book-parameters">
                         <p class="margin-button-10">Year</p>
-                        <a href="#" class="tags-of-parameters rounded-corners">@Model.Year</a>
+                        <a href="#" class="tags-of-parameters rounded-corners">@Model.PublishDate.Year</a>
                     </div>
                     <div class="col-md-3 book-parameters">
                         <p class="margin-button-10">Publisher</p>
@@ -56,7 +66,17 @@
             </div>
             <div>
                 <p class="book-description">
-                    @Model.Description
+                    @foreach (var c in Model.Description)
+                    {
+                        if(c == '\n')
+                        {
+                            <br>
+                        }
+                        else
+                        {
+                            @c
+                        }
+                    }
                 </p>
 
                 <form id="review-form">

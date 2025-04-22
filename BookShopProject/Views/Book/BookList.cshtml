@@ -32,13 +32,17 @@
                                 <figcaption>
                                     <a href="@Url.Action("BookInfo", "Book")?ISBN=@prod.ISBN">
                                         <h3>@prod.Title</h3></a>
-                                    <span>@prod.Author</span>
+                                    <span>@prod.AuthorFirstName @prod.AuthorLastName</span>
                                     <div class="item-price">
-                                        @if(prod.DiscountedPrice != decimal.MinusOne)
+                                        @if (prod.DiscountedPrice != decimal.MinusOne)
                                         {
-                                            <span class="prev-price">$ @prod.DiscountedPrice</span>
+                                            <span class="prev-price">$ @prod.Price</span>
+                                            <span>$ @prod.DiscountedPrice</span>
                                         }
-                                        $ @prod.Price
+                                        @if (prod.DiscountedPrice == decimal.MinusOne)
+                                        {
+                                            <span>$ @prod.Price</span>
+                                        }
                                     </div>
                                 </figcaption>
                             </div>

@@ -1,6 +1,7 @@
 ﻿using BookShopProject.BusinessLogic.Core;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Book;
+using BookShopProject.Domain.Enums.Book;
 
 namespace BookShopProject.BusinessLogic
 {
@@ -21,14 +22,14 @@ namespace BookShopProject.BusinessLogic
             return DeleteBookAction(id);
         }
         
-        public BookDbTable GetBookById(int id)
+        public BookDbTable GetBookById(long ISBN)
         {
-            return BookByIdAction(id);
+            return BookByIdAction(ISBN);
         }
         
-        public BookList GetBooks()
+        public BookListDb GetBooks(string parameter = "None", BSearchParameter type = BSearchParameter.All)
         {
-            return GetBooks();
+            return BooksListAction(parameter, type);
         }
     }
 }

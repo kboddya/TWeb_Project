@@ -1,0 +1,253 @@
+﻿@{
+    ViewBag.Title = "BookDetails";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model BookShopProject.Models.Book
+
+<section class="my-5 py-5">
+    <div class="container">
+        <div>
+            <figure class="go-back-button">
+                <a href="@Url.Action("BookList")"><img src="~/Content/images/left.png" class="img-fluid"></a>
+            </figure>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="rating disabled star5" style="margin-bottom: 0px;">
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                </div>
+                <div class="book-image">
+                    <img src="@Model.Image" alt="book" class="img-fluid">
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="product-style want-be-normal-left-margin-book-only-on-pc">
+                    <figcaption>
+                        <h3 class="book-name" style="margin-bottom: 0;">@Model.Title</h3>
+                        <a href="@Url.Action("Details", "Author")?Id=@Model.AuthorId"><span>@Model.AuthorFirstName @Model.AuthorLastName</span></a>
+                        <div class="item-price">
+                            @if (Model.DiscountedPrice != decimal.MinusOne)
+                            {
+                                <span class="prev-price">$ @Model.Price</span>
+                                <span>$ @Model.DiscountedPrice</span>
+                            }
+                            @if (Model.DiscountedPrice == decimal.MinusOne)
+                            {
+                                <span>$ @Model.Price</span>
+                            }
+                        </div>
+                    </figcaption>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 book-parameters">
+                        <p class="margin-button-10">Genre</p>
+                        <a href="@Url.Action("BookList")?Genre=@Model.Genre"
+                           class="tags-of-parameters rounded-corners">@Model.Genre</a>
+                    </div>
+                    <div class="col-md-3 book-parameters">
+                        <p class="margin-button-10">Language</p>
+                        <a href="#" class="tags-of-parameters rounded-corners">@Model.Language</a>
+                    </div>
+
+                    <div class="col-md-3 book-parameters">
+                        <p class="margin-button-10">Year</p>
+                        <a href="#" class="tags-of-parameters rounded-corners">@Model.PublishDate.Year</a>
+                    </div>
+                    <div class="col-md-3 book-parameters">
+                        <p class="margin-button-10">Publisher</p>
+                        <a href="#" class="tags-of-parameters rounded-corners">@Model.Publisher</a>
+                    </div>
+
+
+                </div>
+                <button class="rounded-corners">Add to cart</button>
+                <span>@Model.Count available</span>
+
+            </div>
+            <div>
+                <p class="book-description">
+                    @foreach (var c in Model.Description)
+                    {
+                        if(c == '\n')
+                        {
+                            <br>
+                        }
+                        else
+                        {
+                            @c
+                        }
+                    }
+                </p>
+            </div>
+            <hr>
+            <h3 class="align-center">Editing book details</h3>
+            @Html.ValidationSummary(true)
+            @using (Html.BeginForm("BookDetails", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <form class="mx-3 d-flex flex-column justify-content-between align-items-center">
+                    @Html.AntiForgeryToken()
+                    <div class="row align-content-center">
+                        @Html.TextBoxFor(m => m.Id, new
+                        {
+                            @hidden = true
+                        })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Title, new
+                            {
+                                @class = "form-control-lg form-text-box w-100 form-readonly",
+                                placeholder = "Title",
+                                style = "border-radius: 10px; height: 15px;",
+                                id = "Title",
+                                name = "Title",
+                                @readonly = true
+                            })
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.ISBN, new
+                            {
+                                @class = "form-control-lg form-text-box w-100 form-readonly",
+                                placeholder = "ISBN",
+                                style = "border-radius: 10px; height: 15px;",
+                                id = "ISBN",
+                                name = "ISBN",
+                                @readonly = true
+                            })
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.AuthorFirstName, new
+                            {
+                                @class = "form-control-lg form-text-box w-100 form-readonly",
+                                placeholder = "Author First Name",
+                                style = "border-radius: 10px; height: 15px;",
+                                @readonly = true
+                            })
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.AuthorLastName, new
+                            {
+                                @class = "form-control-lg form-text-box w-100 form-readonly",
+                                placeholder = "Author Last Name",
+                                style = "border-radius: 10px; height: 15px;",
+                                @readonly = true
+                            })
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.Publisher, new
+                            {
+                                @class = "form-control-lg form-text-box w-100",
+                                placeholder = "Publisher",
+                                style = "border-radius: 10px; height: 15px;",
+                                id = "Publisher",
+                                name = "Publisher"
+                            })
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.Genre, new
+                            {
+                                @class = "form-control-lg form-text-box w-100 form-readonly",
+                                placeholder = "Genre",
+                                style = "border-radius: 10px; height: 15px;",
+                                id = "Title",
+                                name = "Title",
+                                @readonly = true
+                            })
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.Language, new
+                            {
+                                @class = "form-control-lg form-text-box w-100 form-readonly",
+                                placeholder = "Language",
+                                style = "border-radius: 10px; height: 15px;",
+                                @readonly = true
+                            })
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.Image, new
+                            {
+                                @class = "form-control-lg form-text-box w-100",
+                                placeholder = "Image URL",
+                                style = "border-radius: 10px; height: 15px;",
+                                id = "Image",
+                                name = "Image"
+                            })
+                        </div>
+
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(m => m.PublishDate, new
+                            {
+                                @class = "form-control-lg form-text-box w-100",
+                                placeholder = "Publish Date",
+                                style = "border-radius: 10px; height: 15px;",
+                                id = "Year",
+                                name = "Year"
+                            })
+                        </div>
+
+
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(m => m.Price, new
+                            {
+                                @class = "form-control-lg form-text-box w-100",
+                                placeholder = "Price",
+                                style = "border-radius: 10px; height: 15px;",
+                                id = "Price",
+                                name = "Price"
+                            })
+                        </div>
+
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(m => m.DiscountedPrice, new
+                            {
+                                @class = "form-control-lg form-text-box w-100",
+                                placeholder = "Discount price",
+                                style = "border-radius: 10px; height: 15px;"
+                            })
+                        </div>
+
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(m => m.Count, new
+                            {
+                                @class = "form-control-lg form-text-box w-100",
+                                placeholder = "Count",
+                                style = "border-radius: 10px; height: 15px;"
+                            })
+                        </div>
+
+
+                        <div class="col-md-12">
+                            @Html.TextAreaFor(m => m.Description, new
+                            {
+                                @class = "form-control-lg form-text-box w-100",
+                                placeholder = "Description",
+                                style = "border-radius: 10px; height: 500px;",
+                                id = "Description",
+                                name = "Description"
+                            })
+                        </div>
+
+                        <div class="col-md-7"></div>
+                        <button type="submit" , class="rounded-corners col-md-2">Update Book</button>
+                        <button class="col-md-2 rounded-corners delete-button"><a
+                                href="@Url.Action("DeleteBook")?ISBN=@Model.ISBN">Delete</a></button>
+
+                    </div>
+
+                </form>
+            }
+        </div>
+    </div>
+</section>

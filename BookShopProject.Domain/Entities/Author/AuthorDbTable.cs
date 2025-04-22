@@ -22,12 +22,10 @@ namespace BookShopProject.Domain.Entities.Author
         
         [Display(Name = "Image")]
         public string Image { get; set; }
-        
-        [Display(Name = "Birth Date")]
-        public DateTime BirthDate { get; set; }
-        
-        [Display(Name = "Death Date")]
-        public DateTime DeathDate { get; set; }
+
+        [Display(Name = "Birth Date")] public DateTime BirthDate { get; set; } = new DateTime(1753,01,01);
+
+        [Display(Name = "Death Date")] public DateTime DeathDate { get; set; } = new DateTime(1753,01,01);
         
         [Display(Name = "Wiki")]
         public string Wiki { get; set; }
@@ -35,7 +33,7 @@ namespace BookShopProject.Domain.Entities.Author
         [Display(Name = "Genres")]
         public List<string> Genres { get; set; }
         
-        public DateTime LastUpdateTime { get; set; }
+        public DateTime LastUpdateTime { get; set; } = DateTime.Now;
     }
 
     public class AuthorsList

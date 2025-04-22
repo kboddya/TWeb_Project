@@ -11,6 +11,8 @@ namespace BookShopProject.Domain.Entities.Book
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         
+        public int AuthorId { get; set; }
+        
         [Required]
         [StringLength(100)]
         public string Title { get; set; }
@@ -23,7 +25,7 @@ namespace BookShopProject.Domain.Entities.Book
         [StringLength(100)]
         public string AuthorLastName { get; set; }
 
-        [Required] public ulong ISBN { get; set; } = 9780000000000;
+        [Required] public long ISBN { get; set; } = 9780000000000;
         
         [Required]
         public decimal Price { get; set; }
@@ -49,18 +51,18 @@ namespace BookShopProject.Domain.Entities.Book
         public string Publisher { get; set; }
         
         [Required]
+        public int PublisherId { get; set; }
+        
+        [Required]
         public DateTime PublishDate { get; set; }
         
         [Required]
         public DateTime LastUpdateTime { get; set; }
         
-        [Required]
-        public DateTime Year { get; set; }
-        
         public int CountOfOrders { get; set; } = -1;
     }
     
-    public class BookList
+    public class BookListDb
     {
         public List<BookDbTable> Books { get; set; }
     }
