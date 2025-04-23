@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BookShopProject.Models;
 
 namespace BookShopProject.Controllers
 {
-    public class AboutController : Controller
+    public class AboutController : BaseController
     {
         public ActionResult Index()
         {
-            return View();
+            var user = new UserMinimal();
+            user.SetSession(SessionStatus());;
+            
+            return View(user);
         }
 
         [HttpPost]

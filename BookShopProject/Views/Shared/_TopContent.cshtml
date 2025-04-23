@@ -4,12 +4,12 @@
 
         <div class="right-element">
             @*If in accout now*@
-            @if (ViewBag.loginStatus == "true")
+            @if (Model.IsAuthenticated)
             {
                 <a href="@Url.Action("Index", "Account")" class="user-account for-buy">
                     <i class="icon icon-user"></i><span>Account</span>
                 </a>
-                if (ViewBag.UserRole == URole.admin)
+                if (Model.Role == URole.admin)
                 {
                     <a href="@Url.Action("Index", "Admin")" class="user-account for-buy">
                         <i class="icon icon-user"></i><span>Admin panel</span>
@@ -24,7 +24,7 @@
                 </a>
             }
 
-            @if (ViewBag.loginStatus == "false")
+            @if (!Model.IsAuthenticated)
             {
                 <a href="@Url.Action("Login", "Auth")" class="for-buy"><span>Sign in</span></a>
                 <a href="@Url.Action("Register", "Auth")" class="for-buy"><span>Register</span></a>

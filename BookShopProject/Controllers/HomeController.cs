@@ -14,28 +14,7 @@ namespace BookShopProject.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            SessionStatus();
-            if (System.Web.HttpContext.Current.Session["LoginStatus"] == "true")
-            {
-                ViewBag.loginStatus = "true";
-                var user = System.Web.HttpContext.Current.GetMySessionObject();
-                if (user != null)
-                {
-                    ViewBag.userName = user.Name;
-                    ViewBag.userEmail = user.Email;
-                    ViewBag.userRole = user.Role;
-                }
-                else
-                {
-                    ViewBag.loginStatus = "false";
-                }
-            }
-            else
-            {
-                ViewBag.loginStatus = "false";
-            }
-            
-            var data = new BookList
+                        var data = new BookList
             {
                 Products = new List<Book>
                 {
@@ -97,6 +76,9 @@ namespace BookShopProject.Controllers
                     }
                 }
             };
+            SessionStatus();
+            data.SetSession(System.Web.HttpContext.Current);
+
             return View(data);
         }
 

@@ -41,7 +41,7 @@ namespace BookShopProject.Controllers
             }
         }
 
-        public void SessionStatus()
+        public System.Web.HttpContext SessionStatus()
         {
             var httpCookie = Request.Cookies["WNCNN"];
             if (httpCookie != null)
@@ -52,7 +52,7 @@ namespace BookShopProject.Controllers
                 {
                     System.Web.HttpContext.Current.Session["LoginStatus"] = "true";
                     System.Web.HttpContext.Current.SetMySessionObject(user);
-                    return;
+                    return System.Web.HttpContext.Current;
                 }
 
                 System.Web.HttpContext.Current.Session.Clear();
@@ -61,6 +61,8 @@ namespace BookShopProject.Controllers
             }
 
             System.Web.HttpContext.Current.Session["LoginStatus"] = "false";
+            
+            return System.Web.HttpContext.Current;
         }
     }
 }

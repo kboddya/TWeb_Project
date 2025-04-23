@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BookShopProject.Domain.Entities.User;
 using BookShopProject.Domain.Enums.User;
 using BookShopProject.Extension;
+using BookShopProject.Models;
 
 namespace BookShopProject.Controllers
 {
@@ -14,15 +15,12 @@ namespace BookShopProject.Controllers
         // GET: Account
         public ActionResult Index()
         {
-            SessionStatus();
-            var user = System.Web.HttpContext.Current.GetMySessionObject();
-            if ((string)System.Web.HttpContext.Current.Session["LoginStatus"] == "false" || user == null) return RedirectToAction("Login", "Auth");
-            
-            ViewBag.userName = user.Name;
-            ViewBag.userEmail = user.Email;
+            var user = new Models.User();
+            user.SetSession(SessionStatus());;
+            if (!user.IsAuthenticated) return RedirectToAction("Login", "Auth");
 
             //TODO: Here must be cart logic
-            return View();
+            return View(user);
         }
 
         [HttpPost]

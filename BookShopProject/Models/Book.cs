@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BookShopProject.Models
 {
-    public class Book
+    public class Book: UserMinimal
     {
         public int Id { get; set; }
         public string Title { get; set; }

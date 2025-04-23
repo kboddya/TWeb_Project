@@ -2,7 +2,7 @@
     ViewBag.Title = "Index";
     Layout = "/Views/Shared/_LoginLayout.cshtml";
 }
-
+@model BookShopProject.Models.UserMinimal
 <div class="d-flex justify-content-center align-items-center min-vh-100 py-5">
     <div class="card p-5" style="width: 100%; max-width: 1200px; background-color: #f8f9fa; border-radius: 15px;">
         <div class="row g-5">
@@ -38,13 +38,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label style="font-size: 14px; color: #6c757d;">Name</label>
-                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">@ViewBag.userName</p>
+                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">@Model.Name</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label style="font-size: 14px; color: #6c757d;">Email</label>
-                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">@ViewBag.userEmail</p>
+                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">@Model.Email</p>
                             </div>
                         </div>
                         @* <div class="col-md-6"> *@
