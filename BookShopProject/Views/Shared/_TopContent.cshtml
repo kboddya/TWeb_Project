@@ -1,22 +1,35 @@
+@using BookShopProject.Domain.Enums.User
 <div class="top-content">
     <div class="container-fluid">
 
         <div class="right-element">
-             @*If in accout now*@
-            <a href="@Url.Action("Index", "Account")" class="user-account for-buy">
-                <i class="icon icon-user"></i><span>Account</span>
-            </a>
-            <a href="@Url.Action("Index", "Cart")" class="cart for-buy">
-                <i class="icon icon-clipboard"></i>
-                <span>
-                    Cart:(0
-                    $)
-                </span>
-            </a>
-            
-            @*If not in account now*@
-            <a href="@Url.Action("Login", "Auth")" class="for-buy"><span>Sign in</span></a>
-            <a href="@Url.Action("Register", "Auth")" class="for-buy"><span>Register</span></a>
+            @*If in accout now*@
+            @if (Model.IsAuthenticated)
+            {
+                <a href="@Url.Action("Index", "Account")" class="user-account for-buy">
+                    <i class="icon icon-user"></i><span>Account</span>
+                </a>
+                if (Model.Role == URole.admin)
+                {
+                    <a href="@Url.Action("Index", "Admin")" class="user-account for-buy">
+                        <i class="icon icon-user"></i><span>Admin panel</span>
+                    </a>
+                }
+
+                <a href="@Url.Action("Index", "Cart")" class="cart for-buy">
+                    <i class="icon icon-clipboard"></i>
+                    <span>
+                        Cart:(0 $)
+                    </span>
+                </a>
+            }
+
+            @if (!Model.IsAuthenticated)
+            {
+                <a href="@Url.Action("Login", "Auth")" class="for-buy"><span>Sign in</span></a>
+                <a href="@Url.Action("Register", "Auth")" class="for-buy"><span>Register</span></a>
+            }
+
 
 
             <div class="action-menu">

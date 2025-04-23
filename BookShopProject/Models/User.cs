@@ -5,10 +5,8 @@ using System.Web;
 
 namespace BookShopProject.Models
 {
-	public class User
+	public class User: UserMinimal
     {
-        public string Name { get; set; }
-        public string Email { get; set; }
         public string Password { get; set; }
     }
 }

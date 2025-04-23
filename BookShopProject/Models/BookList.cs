@@ -2,7 +2,7 @@
 
 namespace BookShopProject.Models
 {
-    public class BookList
+    public class BookList: UserMinimal
     {
         public string NameOfList { get; set; }
         public List<Book> Products { get; set; }

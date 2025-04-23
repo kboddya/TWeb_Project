@@ -27,7 +27,7 @@ namespace BookShopProject.Domain.Entities.User
         
         [Required]
         [Display(Name = "password")]
-        [StringLength(30, MinimumLength = 8)]
+        [StringLength(50, MinimumLength = 8)]
         public string Password { get; set; }
         
         [StringLength(30)]
