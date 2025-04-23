@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BookShopProject.Domain.Entities.Author;
 using BookShopProject.Domain.Enums.User;
+using BookShopProject.Domain.Enums.Order;
 
 namespace BookShopProject.BusinessLogic.Core
 {
@@ -104,7 +105,7 @@ namespace BookShopProject.BusinessLogic.Core
                 var order = db.Orders.FirstOrDefault(x => x.Id == Id);
                 if (order == null) return false;
 
-                order.Status = newStatus;
+                order.Status = OrderStatus.Pending;
                 order.LastUpdateTime = DateTime.Now;
                 db.SaveChanges();
                 return true;

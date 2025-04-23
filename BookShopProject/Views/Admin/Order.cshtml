@@ -2,7 +2,7 @@
     Layout = "../Shared/_AdminLayout.cshtml";
 }
 
-@model BookShopProject.Models.Order
+@model BookShopProject.Models.OrderList
 
 <div class="admin-orders-container">
     <div class="admin-orders-header">
@@ -32,7 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var order in Model)
+                @foreach (var order in Model.Orders)
                 {
                     <tr>
                         <td>@order.UserId</td>

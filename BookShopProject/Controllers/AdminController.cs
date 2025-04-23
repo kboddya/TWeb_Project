@@ -10,7 +10,7 @@ namespace BookShopProject.Controllers
             return View();
         }
 
-        public ActionResult OrderList()
+        public ActionResult Order()
         {
             var bl = new BusinessLogic.BusinessLogic();
             var orderBL = bl.GetOrderAdminBL();
@@ -29,10 +29,13 @@ namespace BookShopProject.Controllers
         }
 
         public ActionResult OrderDetails(){
+            var b = Request.QueryString["Id"];
+            var bl = new BusinessLogic.BusinessLogic();
             var orderBL = bl.GetOrderAdminBL();
             var orderFromBL = orderBL.GetOrderById(int.Parse(b));
-            if (orderFromBL == null)
-                            cfg.CreateMap<Domain.Entities.Order.OrderDbTable, Models.Order>());
+            if (orderFromBL == null) return RedirectToAction("er404", "Errors");
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Order.OrderDbTable, Models.Order>());
             var mapper = config.CreateMapper();
             var order = mapper.Map<Models.Order>(orderFromBL);
 
