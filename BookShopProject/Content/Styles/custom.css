@@ -82,11 +82,11 @@
     margin-top: 20px;
 }
 
-.book-image {
+.book-image .author-full-photo {
     display: block;
 }
 
-.book-name {
+.book-name .author-full-name {
     margin-top: 30px;
     margin-bottom: 0;
 }
@@ -171,7 +171,7 @@
 
 /*Admin*/
 .body-admin-content {
-    margin-left: 25%;
+    margin-left: 20% !important;
     padding: 1px 16px;
     height: 1000px;
 }
@@ -219,6 +219,7 @@
     margin-top: auto;
 }
 
+<<<<<<< HEAD
 /*Admin Order Panel*/
 .admin-orders-container {
     padding: 2rem;
@@ -387,4 +388,19 @@
 .admin-orders-page-count {
     color: #64748b;
     font-size: 0.9rem;
+=======
+.go-back-button {
+    height: 35px;
+    width: 35px;
+}
+
+.form-readonly {
+    color: gray;
+}
+
+
+/*Author*/
+.author-parameters p{
+    margin: 0;
+>>>>>>> admin-panel
 }

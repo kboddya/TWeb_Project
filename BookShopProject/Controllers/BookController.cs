@@ -4,7 +4,7 @@ using BookShopProject.Models;
 
 namespace BookShopProject.Controllers
 {
-    public class BookController : Controller
+    public class BookController : BaseController
     {
         public ActionResult BookInfo()
         {
@@ -24,6 +24,8 @@ namespace BookShopProject.Controllers
                 Publisher = "PhotoBooks Publishing",
                 ISBN = 9781234567890
             };
+            
+            book.SetSession(SessionStatus());
 
             return b == book.ISBN.ToString() ? (ActionResult)View(book) : RedirectToAction("er404", "Errors");
         }

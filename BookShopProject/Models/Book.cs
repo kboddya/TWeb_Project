@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BookShopProject.Models
 {
-    public class Book
+    public class Book: UserMinimal
     {
         public ulong ISBN { get; set; } = 9780000000000;
         

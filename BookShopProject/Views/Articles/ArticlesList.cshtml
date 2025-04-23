@@ -11,6 +11,27 @@
                     <h2 class="section-title">Articles</h2>
                 </div>
             </div>
+            @{
+                string MonthToString(int month)
+                {
+                    return month switch
+                    {
+                        1 => "Jan",
+                        2 => "Feb",
+                        3 => "Mar",
+                        4 => "Apr",
+                        5 => "May",
+                        6 => "Jun",
+                        7 => "Jul",
+                        8 => "Aug",
+                        9 => "Sep",
+                        10 => "Oct",
+                        11 => "Nov",
+                        12 => "Dec",
+                        _ => ""
+                    };
+                }
+            }
             @foreach (var art in Model.Articles)
             {
                 <div class="col-md-3 article-background">
@@ -20,7 +41,7 @@
                         </figure>
                     </a>
                     <div class="post-item">
-                        <div id="article-date">@art.PublishedDate</div>
+                        <div id="article-date">@MonthToString(art.PublishedDate.Month) @art.PublishedDate.Day, @art.PublishedDate.Year</div>
                         <a href="@Url.Action("ArticleDetails")?Id=@art.Id">
                             <h3 class="article-title">@art.Title</h3></a>
                     </div>
