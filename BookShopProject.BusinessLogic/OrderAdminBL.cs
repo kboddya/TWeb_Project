@@ -1,52 +1,25 @@
-﻿using BookShopProject.BusinessLogic.Core;
+﻿using System;
+using BookShopProject.BusinessLogic.Core;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Order;
-using System.Collections.Generic;
 
-public class OrderAdminBL : AdminApi, IOrder
+namespace BookShopProject.BusinessLogic
 {
-    public bool UpdateOrder(OrderDbTable order)
+    public class OrderAdminBL : AdminApi, IOrder
     {
-        return UpdateOrderStatus(order.Id, order.Status);
-    }
+        public bool UpdateOrderStatus(int Id, Enum newStatus)
+        {
+            return UpdateOrderStatusAction(Id, newStatus);
+        }
 
-    public OrderDbTable OrderById(int id)
-    {
-        return OrderByIdAction(id);
-    }
+        public OrderDbTable GetOrderById(int id)
+        {
+            return OrderByIdAction(id);
+        }
 
-    public List<OrderDbTable> GetOrders()
-    {
-        return GetAllOrders();
-    }
-
-    public List<OrderDbTable> GetOrdersByUserId(int userId)
-    {
-        return base.GetOrdersByUserId(userId);
-    }
-
-    public bool UpdateOrderStatus(int orderId, string newStatus)
-    {
-        return base.UpdateOrderStatus(orderId, newStatus);
-    }
-
-    public List<OrderDbTable> GetAllOrders()
-    {
-        return base.GetAllOrders();
-    }
-
-    public List<OrderDbTable> SearchOrders(string searchTerm)
-    {
-        return base.SearchOrders(searchTerm);
-    }
-
-    public OrderDbTable GetOrderDetails(int orderId)
-    {
-        return base.GetOrderDetails(orderId);
-    }
-
-    public int GetOrderCountByStatus(string status)
-    {
-        return base.GetOrderCountByStatus(status);
+        public OrdersList GetOrders()
+        {
+            return OrdersListAction();
+        }
     }
 }

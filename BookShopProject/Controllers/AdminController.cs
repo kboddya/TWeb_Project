@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using System;
 using System.Web.Mvc;
 using BookShopProject.Models;
 
@@ -13,28 +10,19 @@ namespace BookShopProject.Controllers
             return View();
         }
 
-        public ActionResult Order()
+        public ActionResult OrderList()
         {
             var bl = new BusinessLogic.BusinessLogic();
             var orderBL = bl.GetOrderAdminBL();
-            var orderList = orderBL.GetAllOrders();
+            var ordersList = orderBL.GetOrders();
 
-            var orderListModel = new List<Models.Order>();
-            foreach (var v in orderList)
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Order.OrderDbTable, Models.Order>());
+            var mapper = config.CreateMapper();
+            var orderListModel = new Models.OrderList();
+            foreach (var v in ordersList.Orders)
             {
-                var order = new Models.Order
-                {
-                    Id = v.Id,
-                    UserId = v.UserId,
-                    CreateTime = v.CreateTime,
-                    LastUpdateTime = v.LastUpdateTime,
-                    TotalPrice = v.TotalPrice,
-                    Books = v.ISBNs.Select(isbn => new Book
-                    {
-                        ISBN = isbn
-                    }).ToList()
-                };
-                orderListModel.Add(order);
+                orderListModel.Orders.Add(mapper.Map<Models.Order>(v));
             }
 
             return View(orderListModel);
@@ -42,29 +30,21 @@ namespace BookShopProject.Controllers
 
         public ActionResult OrderDetails()
         {
-            var orderId = Request.QueryString["Id"];
+            var b = Request.QueryString["Id"];
 
             var bl = new BusinessLogic.BusinessLogic();
             var orderBL = bl.GetOrderAdminBL();
 
-            var orderFromBL = orderBL.OrderById(int.Parse(orderId));
+            var orderFromBL = orderBL.GetOrderById(int.Parse(b));
             if (orderFromBL == null)
             {
                 return RedirectToAction("er404", "Errors");
             }
 
-            var order = new Models.Order
-            {
-                Id = orderFromBL.Id,
-                UserId = orderFromBL.UserId,
-                CreateTime = orderFromBL.CreateTime,
-                LastUpdateTime = orderFromBL.LastUpdateTime,
-                TotalPrice = orderFromBL.TotalPrice,
-                Books = orderFromBL.ISBNs.Select(isbn => new Book
-                {
-                    ISBN = isbn
-                }).ToList()
-            };
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Order.OrderDbTable, Models.Order>());
+            var mapper = config.CreateMapper();
+            var order = mapper.Map<Models.Order>(orderFromBL);
 
             return View(order);
         }
@@ -75,19 +55,20 @@ namespace BookShopProject.Controllers
             var bl = new BusinessLogic.BusinessLogic();
             var orderBL = bl.GetOrderAdminBL();
 
-            var orderDbTable = orderBL.OrderById(order.Id);
+            var orderDbTable = orderBL.GetOrderById(order.Id);
 
+            orderDbTable.UserId = order.UserId;
             orderDbTable.Status = order.Status;
-            orderDbTable.LastUpdateTime = DateTime.Now;
+            orderDbTable.TotalPrice = order.TotalPrice;
 
             var result = orderBL.UpdateOrderStatus(order.Id, order.Status);
-
+            
             if (result)
             {
-                return RedirectToAction("Orders");
+                return RedirectToAction("AuthorList");
             }
 
-            ModelState.AddModelError("Error", "Error updating order");
+            ModelState.AddModelError("Error", "Error updating author");
 
             return View(order);
         }

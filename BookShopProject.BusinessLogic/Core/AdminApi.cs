@@ -1,85 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Order;
 
 namespace BookShopProject.BusinessLogic.Core
 {
     public class AdminApi
     {
-        internal OrderDbTable OrderByIdAction(int id)
+
+        internal OrdersList OrdersListAction()
         {
-            OrderDbTable a;
-            using(var db = new OrderContext()) { 
-                a = db.Order.FirstOrDefault(x => x.Id == id);
+            var a = new OrdersList();
+            using (var db = new OrderContext())
+            {
+                a.Orders = db.Orders.ToList();
             }
 
             return a;
-
         }
 
-        internal List<OrderDbTable> GetOrdersByUserId(int userId)
-        {
-            List<OrderDbTable> orders;
-            using (var db = new OrderContext())
-            {
-                orders = db.Order.Where(x => x.UserId == userId).ToList();
-            }
-            return orders;
-
-        }
-
-        internal bool UpdateOrderStatus(int orderId, string newStatus)
+        internal bool AddOrderAction(OrderDbTable order)
         {
             using (var db = new OrderContext())
             {
-                var order = db.Order.FirstOrDefault(x => x.Id == orderId);
-                if (order == null) return false;
-
-                order.Status = newStatus;
+                if (db.Orders.FirstOrDefault(x => x.Id == order.Id) != null) return false;
+                db.Orders.Add(order);
                 db.SaveChanges();
                 return true;
             }
         }
 
-        internal List<OrderDbTable> GetAllOrders()
+        internal bool UpdateOrderStatusAction(int Id, Enum newStatus)
         {
             using (var db = new OrderContext())
             {
-                return db.Order.ToList();
-            } 
-        }
+                var order = db.Orders.FirstOrDefault(x => x.Id == Id);
+                if (order == null) return false;
 
-        internal List<OrderDbTable> SearchOrders(string searchTerm)
-        {
-            using (var db = new OrderContext())
-            {
-                return db.Order
-                    .Where(x => x.Id.ToString().Contains(searchTerm) ||
-                                x.UserId.ToString().Contains(searchTerm))
-                    .ToList();
+                order.Status = newStatus;
+                order.LastUpdateTime = DateTime.Now;
+                db.SaveChanges();
+                return true;
             }
         }
 
-        internal OrderDbTable GetOrderDetails(int orderId)
+        internal OrderDbTable OrderByIdAction(int id)
         {
+            OrderDbTable a;
             using (var db = new OrderContext())
             {
-                return db.Order.FirstOrDefault(x => x.Id == orderId);
+                a = db.Orders.FirstOrDefault(x => x.Id == id);
             }
-        }
 
-        internal int GetOrderCountByStatus(string status)
-        {
-            using (var db = new OrderContext())
-            {
-                return db.Order.Count(x => x.Status == status);
-            }
+            return a;
         }
-
     }
 }
 /*Null if error in controller OrderByIdACtion*/

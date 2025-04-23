@@ -9,6 +9,6 @@ namespace BookShopProject.BusinessLogic
         {
         }
 
-        public virtual DbSet<OrderDbTable> Order { get; set; }
+        public virtual DbSet<OrderDbTable> Orders { get; set; }
     }
 }

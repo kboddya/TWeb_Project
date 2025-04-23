@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace BookShopProject.Domain.Entities.Order
 {
@@ -28,8 +24,14 @@ namespace BookShopProject.Domain.Entities.Order
         public decimal TotalPrice { get; set; }
 
         [Required]
-        public string Status { get; set; }
+        public Enum Status { get; set; }
 
+        [Required]
         public List<ulong> ISBNs { get; set; }
+    }
+
+    public class OrdersList
+    {
+        public List<OrderDbTable> Orders { get; set; }
     }
 }

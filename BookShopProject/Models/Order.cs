@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace BookShopProject.Models
 {
@@ -12,8 +10,13 @@ namespace BookShopProject.Models
         public DateTime CreateTime { get; set; }
         public DateTime LastUpdateTime { get; set; }
         public decimal TotalPrice { get; set; }
-        public string Status { get; set; }
+        public Enum Status { get; set; }
         public List<Book> Books { get; set; }
+    }
+
+    public class OrderList
+    {
+        public List<Order> Orders { get; set; } = new List<Order>();
     }
 
 }
