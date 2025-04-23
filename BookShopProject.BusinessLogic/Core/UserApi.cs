@@ -104,13 +104,13 @@ namespace BookShopProject.BusinessLogic.Core
                 return result;
             }
             
-            // if (user.Password != LoginHelper.HashGen(data.Password))
-            // {
-            //     result.Status = false;
-            //     result.StatusMsg = "Email or Password is not valid";
-            //     result.StatusKey = "Name";
-            //     return result;
-            // }
+            if (user.Password != LoginHelper.HashGen(data.Password))
+            {
+                result.Status = false;
+                result.StatusMsg = "Email or Password is not valid";
+                result.StatusKey = "Name";
+                return result;
+            }
             
             user.LastLoginTime = DateTime.Now;
             user.LastIp = data.LastIp;
