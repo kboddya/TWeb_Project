@@ -49,6 +49,7 @@
     <Compile Include="Entities\Publisher\PublisherDbTable.cs" />
     <Compile Include="Entities\User\UDbTable.cs" />
     <Compile Include="Entities\User\UserAuthResult.cs" />
+    <Compile Include="Enums\Book\AgeCategories.cs" />
     <Compile Include="Enums\Book\BSearchParameter.cs" />
     <Compile Include="Enums\User\URole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

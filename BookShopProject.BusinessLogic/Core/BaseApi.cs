@@ -2,6 +2,7 @@
 using BookShopProject.Domain.Entities.Book;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using BookShopProject.Domain.Entities.Author;
 using BookShopProject.Domain.Entities.Genre;
 using BookShopProject.Domain.Enums.Book;
 
@@ -103,6 +104,17 @@ namespace BookShopProject.BusinessLogic.Core
                     break;
                 }
 
+                case BSearchParameter.Age:
+                {
+                    var age = (AgeCategories)int.Parse(parameter);
+                    using (var db = new BookContext())
+                    {
+                        b.Books = db.Books.Where(x => x.age == age).ToList();
+                    }
+                    
+                    break;
+                }
+
                 case BSearchParameter.All:
                 default:
                 {
@@ -130,6 +142,39 @@ namespace BookShopProject.BusinessLogic.Core
             g.Sort();
 
             return g;
+        }
+
+        internal BookListDb BookByAuthorIdAction(int id)
+        {
+            var books = new BookListDb();
+            using (var db = new BookContext())
+            {
+                books.Books = db.Books.Where(x => x.AuthorId == id).ToList();
+            }
+
+            return books;
+        }
+        
+        internal AuthorDbTable AuthorByIdAction(int id)
+        {
+            AuthorDbTable a;
+            using (var db = new AuthorContext())
+            {
+                a = db.Authors.FirstOrDefault(x => x.Id == id);
+            }
+
+            return a;
+        }
+
+        internal AuthorsList AuthorsListAction()
+        {
+            var a = new AuthorsList();
+            using (var db = new AuthorContext())
+            {
+                a.Authors = db.Authors.ToList();
+            }
+
+            return a;
         }
     }
 }

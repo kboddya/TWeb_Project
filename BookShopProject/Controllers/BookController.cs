@@ -12,16 +12,18 @@ namespace BookShopProject.Controllers
     public class BookController : Controller
     {
         private readonly IBookUser _bookUser;
+
         public BookController()
         {
             var bl = new BusinessLogic.BusinessLogic();
             _bookUser = bl.GetBookUserBL();
         }
+
         public ActionResult BookInfo()
         {
             var config = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<BookDbTable, Book>());
             var mapper = config.CreateMapper();
-            
+
             var book = mapper.Map<Book>(_bookUser.GetBookByISBN(long.Parse(Request.QueryString["ISBN"])));
 
             return book != null ? (ActionResult)View(book) : RedirectToAction("er404", "Errors");
@@ -33,6 +35,8 @@ namespace BookShopProject.Controllers
             var Search = Request.QueryString["Search"];
             var Year = Request.QueryString["Year"];
             var Lang = Request.QueryString["Lang"];
+            var Age = Request.QueryString["Age"];
+            var Publisher = Request.QueryString["Publisher"];
 
             var config = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<BookDbTable, Book>());
             var mapper = config.CreateMapper();
@@ -40,11 +44,11 @@ namespace BookShopProject.Controllers
             {
                 Products = new List<Book>()
             };
-            
+
             if (genre != null)
             {
                 List.NameOfList = genre;
-                
+
                 var b = _bookUser.GetBooks(genre, BSearchParameter.Genre);
 
                 foreach (var v in b.Books)
@@ -52,7 +56,7 @@ namespace BookShopProject.Controllers
                     List.Products.Add(mapper.Map<Book>(v));
                 }
             }
-            else if(Search != null)
+            else if (Search != null)
             {
                 List.NameOfList = Search;
                 List.parameterForSearch = Search;
@@ -62,7 +66,51 @@ namespace BookShopProject.Controllers
                     List.Products.Add(mapper.Map<Book>(v));
                 }
             }
-            
+            else if (Year != null)
+            {
+                List.NameOfList = Year;
+
+                var b = _bookUser.GetBooks(Year, BSearchParameter.Year);
+
+                foreach (var v in b.Books)
+                {
+                    List.Products.Add(mapper.Map<Book>(v));
+                }
+            }
+            else if (Lang != null)
+            {
+                List.NameOfList = Lang;
+
+                var b = _bookUser.GetBooks(Lang, BSearchParameter.Language);
+
+                foreach (var v in b.Books)
+                {
+                    List.Products.Add(mapper.Map<Book>(v));
+                }
+            }
+            else if (Age != null)
+            {
+                List.NameOfList = Age;
+
+                var b = _bookUser.GetBooks(Age, BSearchParameter.Age);
+
+                foreach (var v in b.Books)
+                {
+                    List.Products.Add(mapper.Map<Book>(v));
+                }
+            }
+            else if (Publisher != null)
+            {
+                List.NameOfList = Publisher;
+
+                var b = _bookUser.GetBooks(Publisher, BSearchParameter.Publisher);
+
+                foreach (var v in b.Books)
+                {
+                    List.Products.Add(mapper.Map<Book>(v));
+                }
+            }
+
             return List.Products.Count != 0 ? (ActionResult)View(List) : RedirectToAction("er404", "Errors");
         }
     }

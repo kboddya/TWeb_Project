@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using BookShopProject.Domain.Enums.Book;
 
 namespace BookShopProject.Domain.Entities.Book
 {
@@ -59,7 +60,9 @@ namespace BookShopProject.Domain.Entities.Book
         [Required]
         public DateTime LastUpdateTime { get; set; }
         
-        public int CountOfOrders { get; set; } = -1;
+        public int CountOfOrders { get; set; } = 0;
+        
+        public AgeCategories age { get; set; }
     }
     
     public class BookListDb

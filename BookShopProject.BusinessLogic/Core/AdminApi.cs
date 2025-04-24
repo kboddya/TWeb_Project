@@ -162,28 +162,6 @@ namespace BookShopProject.BusinessLogic.Core
             return true;
         }
 
-        internal AuthorDbTable AuthorByIdAction(int id)
-        {
-            AuthorDbTable a;
-            using (var db = new AuthorContext())
-            {
-                a = db.Authors.FirstOrDefault(x => x.Id == id);
-            }
-
-            return a;
-        }
-
-        internal AuthorsList AuthorsListAction()
-        {
-            var a = new AuthorsList();
-            using (var db = new AuthorContext())
-            {
-                a.Authors = db.Authors.ToList();
-            }
-
-            return a;
-        }
-
         internal bool UpdateBookAction(BookDbTable book)
         {
             using (var db = new BookContext())

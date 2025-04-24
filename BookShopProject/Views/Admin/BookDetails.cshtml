@@ -3,6 +3,8 @@
     Layout = "/Views/Shared/_AdminLayout.cshtml";
 }
 
+@using BookShopProject.Domain.Enums.Book
+@using Microsoft.Ajax.Utilities
 @model BookShopProject.Models.Book
 
 <section class="my-5 py-5">
@@ -31,6 +33,7 @@
                 <div class="product-style want-be-normal-left-margin-book-only-on-pc">
                     <figcaption>
                         <h3 class="book-name" style="margin-bottom: 0;">@Model.Title</h3>
+
                         <a href="@Url.Action("Details", "Author")?Id=@Model.AuthorId"><span>@Model.AuthorFirstName @Model.AuthorLastName</span></a>
                         <div class="item-price">
                             @if (Model.DiscountedPrice != decimal.MinusOne)
@@ -47,23 +50,27 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3 book-parameters">
+                    <div class="col-md-2 book-parameters">
+                        <p class="margin-button-10">Age</p>
+                        <a href="@Url.Action("BookList", "Book")?Age=@Model.age" class="tags-of-parameters rounded-corners">@((int)(Model.age))+</a>
+                    </div>
+                    <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Genre</p>
-                        <a href="@Url.Action("BookList")?Genre=@Model.Genre"
+                        <a href="@Url.Action("BookList", "Book")?Genre=@Model.Genre"
                            class="tags-of-parameters rounded-corners">@Model.Genre</a>
                     </div>
-                    <div class="col-md-3 book-parameters">
+                    <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Language</p>
-                        <a href="#" class="tags-of-parameters rounded-corners">@Model.Language</a>
+                        <a href="@Url.Action("BookList", "Book")?Lang=@Model.Language" class="tags-of-parameters rounded-corners">@Model.Language</a>
                     </div>
 
-                    <div class="col-md-3 book-parameters">
+                    <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Year</p>
-                        <a href="#" class="tags-of-parameters rounded-corners">@Model.PublishDate.Year</a>
+                        <a href="@Url.Action("BookList", "Book")?Year=@Model.PublishDate.Year" class="tags-of-parameters rounded-corners">@Model.PublishDate.Year</a>
                     </div>
-                    <div class="col-md-3 book-parameters">
+                    <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Publisher</p>
-                        <a href="#" class="tags-of-parameters rounded-corners">@Model.Publisher</a>
+                        <a href="@Url.Action("BookList", "Book")?Publisher=@Model.Publisher" class="tags-of-parameters rounded-corners">@Model.Publisher</a>
                     </div>
 
 
@@ -76,7 +83,7 @@
                 <p class="book-description">
                     @foreach (var c in Model.Description)
                     {
-                        if(c == '\n')
+                        if (c == '\n')
                         {
                             <br>
                         }
@@ -153,7 +160,7 @@
                             })
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             @Html.TextBoxFor(m => m.Genre, new
                             {
                                 @class = "form-control-lg form-text-box w-100 form-readonly",
@@ -165,7 +172,18 @@
                             })
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(m => m.age, new SelectList(Enum.GetValues(typeof(BookShopProject.Domain.Enums.Book.AgeCategories))), new
+                            {
+                                @class = "form-control-lg form-text-box w-100",
+                                placeholder = "Age",
+                                style = "border-radius: 10px; height: 15px;",
+                                id = "age",
+                                name = "age"
+                            })
+                        </div>
+
+                        <div class="col-md-3">
                             @Html.TextBoxFor(m => m.Language, new
                             {
                                 @class = "form-control-lg form-text-box w-100 form-readonly",
@@ -175,7 +193,7 @@
                             })
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             @Html.TextBoxFor(m => m.Image, new
                             {
                                 @class = "form-control-lg form-text-box w-100",

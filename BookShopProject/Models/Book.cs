@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using BookShopProject.Domain.Enums.Book;
 
 namespace BookShopProject.Models
 {
@@ -39,6 +40,8 @@ namespace BookShopProject.Models
 
         public DateTime PublishDate { get; set; }
         
-        public int CountOfOrders { get; set; } = -1;
+        public int CountOfOrders { get; set; } = 0;
+        
+        public AgeCategories age { get; set; }
     }
 }

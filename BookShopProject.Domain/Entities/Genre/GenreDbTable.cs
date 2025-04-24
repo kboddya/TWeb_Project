@@ -11,5 +11,7 @@ namespace BookShopProject.Domain.Entities.Genre
         
         [Required]
         public string Name { get; set; }
+        
+        public int CountOfOrders { get; set; } = 0;
     }
 }

@@ -40,22 +40,27 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3 book-parameters">
-                        <p class="margin-button-10">Genre</p>
-                        <a href="@Url.Action("BookList")?Genre=@Model.Genre" class="tags-of-parameters rounded-corners">@Model.Genre</a>
+                    <div class="col-md-2 book-parameters">
+                        <p class="margin-button-10">Age</p>
+                        <a href="@Url.Action("BookList", "Book")?Age=@Model.age" class="tags-of-parameters rounded-corners">@((int)(Model.age))+</a>
                     </div>
-                    <div class="col-md-3 book-parameters">
+                    <div class="col-md-2 book-parameters">
+                        <p class="margin-button-10">Genre</p>
+                        <a href="@Url.Action("BookList", "Book")?Genre=@Model.Genre"
+                           class="tags-of-parameters rounded-corners">@Model.Genre</a>
+                    </div>
+                    <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Language</p>
-                        <a href="#" class="tags-of-parameters rounded-corners">@Model.Language</a>
+                        <a href="@Url.Action("BookList", "Book")?Lang=@Model.Language" class="tags-of-parameters rounded-corners">@Model.Language</a>
                     </div>
 
-                    <div class="col-md-3 book-parameters">
+                    <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Year</p>
-                        <a href="#" class="tags-of-parameters rounded-corners">@Model.PublishDate.Year</a>
+                        <a href="@Url.Action("BookList", "Book")?Year=@Model.PublishDate.Year" class="tags-of-parameters rounded-corners">@Model.PublishDate.Year</a>
                     </div>
-                    <div class="col-md-3 book-parameters">
+                    <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Publisher</p>
-                        <a href="#" class="tags-of-parameters rounded-corners">@Model.Publisher</a>
+                        <a href="@Url.Action("BookList", "Book")?Publisher=@Model.Publisher" class="tags-of-parameters rounded-corners">@Model.Publisher</a>
                     </div>
 
 

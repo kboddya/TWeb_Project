@@ -69,27 +69,38 @@
                         })
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         @Html.TextBoxFor(m => m.Genre, new
                         {
                             @class = "form-control-lg form-text-box w-100",
                             placeholder = "Genre",
                             style = "border-radius: 10px; height: 15px;",
                             id = "Title",
-                            name = "Title"
+                            name = "Title",
                         })
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(m=> m.age, new SelectList(Enum.GetValues(typeof(BookShopProject.Domain.Enums.Book.AgeCategories))), new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Age",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "age",
+                            name = "age"
+                        })
+                    </div>
+
+                    <div class="col-md-3">
                         @Html.TextBoxFor(m => m.Language, new
                         {
                             @class = "form-control-lg form-text-box w-100",
                             placeholder = "Language",
-                            style = "border-radius: 10px; height: 15px;"
+                            style = "border-radius: 10px; height: 15px;",
                         })
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         @Html.TextBoxFor(m => m.Image, new
                         {
                             @class = "form-control-lg form-text-box w-100",
