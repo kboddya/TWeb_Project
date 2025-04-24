@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using AutoMapper;
 using BookShopProject.Domain.Entities.Author;
 using BookShopProject.BusinessLogic;
+using BookShopProject.Domain.Entities.Book;
 
 
 namespace BookShopProject.Controllers
@@ -48,6 +49,20 @@ namespace BookShopProject.Controllers
             var config = new MapperConfiguration(cfg => cfg.CreateMap<AuthorDbTable, Author>());
             var mapper = config.CreateMapper();
             var author = mapper.Map<Author>(authorFromBL);
+            
+            var books = authorBL.GetBooksByAuthorId(int.Parse(b));
+            
+            var config2 = new MapperConfiguration(cfg => cfg.CreateMap<BookDbTable, Book>());
+            var mapper2 = config2.CreateMapper();
+
+            author.Books = new List<Book>();
+
+            foreach (var book in books.Books)
+            {
+                author.Books.Add(mapper2.Map<Book>(book));
+            }
+            
+            author.Genres = author.Genres ?? new List<string>();
 
             return View(author);
         }

@@ -1,6 +1,8 @@
 @{
     ViewBag.Title = "Index";
 }
+@model BookShopProject.Models.GenreList
+
 <section class="py-5 my-5">
     <div class="container">
         <div class="row">
@@ -9,28 +11,13 @@
                     <h2 class="section-title">Genres</h2>
                 </div>
             </div>
-            <div class="col-md-3">
-                <a href="@Url.Action("BookList", "Genre")?Genre=Fiction"><p class="genres">Fiction</p></a>
-            </div>
-            <div class="col-md-3">
-                <a href="@Url.Action("BookList", "Genre")?Genre=Lifestyle"><p class="genres">Lifestyle</p></a>
-            </div>
-            <div class="col-md-3">
-                <a href="@Url.Action("BookList", "Genre")?Genre=Photography"><p class="genres">Photography</p></a>
-            </div>
-            <div class="col-md-3">
-                <a href="@Url.Action("BookList", "Genre")?Genre=Sociology"><p class="genres">Sociology</p></a>
-            </div>
-            <div class="col-md-3">
-                <a href="@Url.Action("BookList", "Genre")?Genre=Fantasy"><p class="genres">Fantasy</p></a>
-            </div>
-            <div class="col-md-3">
-                <a href="@Url.Action("BookList", "Genre")?Genre=Science"><p class="genres">Science</p>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="@Url.Action("BookList", "Genre")?Genre=Mystery"><p class="genres">Mystery</p></a>
-            </div>
+            @foreach (var g in Model.Genres)
+            {
+                <div class="col-md-3">
+                    <a href="@Url.Action("BookList", "Book")?Genre=@g"><p class="genres">@g</p></a>
+                </div>
+            }
+            
         </div>
     </div>
 </section>

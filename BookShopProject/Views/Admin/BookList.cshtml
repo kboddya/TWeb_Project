@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "BookList";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model BookShopProject.Models.BookList
+
+<section class=" py-5 my-5">
+    <div class="container">
+
+        @Html.ValidationSummary(true)
+
+        @using (Html.BeginForm("BookList", "Admin", FormMethod.Post))
+        {
+            <form class="mx-3 d-flex flex-column justify-content-between align-items-center">
+                @Html.AntiForgeryToken()
+                <div class="row align-content-center">
+                    <div class="col-md-8">
+                        
+                            @Html.TextBoxFor(m => m.parameterForSearch, new
+                            {
+                                @class = "form-control-lg form-text-box w-100",
+                                placeholder = "Search",
+                                style = "border-radius: 10px; height: 15px;",
+                                id = "searchString",
+                                name = "searchString"
+                            })
+                        
+                    </div>
+
+                    <div class="col-md-2">
+                        @Html.DropDownListFor(m => m.typeOfSearch,
+                            new SelectList(Enum.GetValues(typeof(BookShopProject.Domain.Enums.Book.BSearchParameter))),
+                            new
+                            {
+                                @class = "form-control-lg form-text-box w-100",
+                                style = "border-radius: 10px; height: 15px;",
+                                id = "typeOfSearch",
+                                name = "typeOfSearch"
+                            })
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <button type="submit" class="rounded-corners w-100" style="height: 45px; margin: 0;">Search</button>
+                    </div>
+
+                    <div class="col-md-2">
+                        <button class="button-for-a rounded-corners">
+                            <a href="@Url.Action("AddBook")">New Book</a>
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        }
+        <section id="popular-books" class="bookshelf">
+            <div class="row">
+                <hr>
+                @foreach (var prod in Model.Products)
+                {
+                    <div class="col-md-3">
+                        <div class="product-item">
+                            <figure class="product-style">
+                                <a href="@Url.Action("BookDetails")?ISBN=@prod.ISBN">
+                                    <img src="@prod.Image" alt="Books" class="product-item">
+                                </a>
+                            </figure>
+                            <figcaption>
+                                <a href="@Url.Action("BookDetails")?ISBN=@prod.ISBN">
+                                    <h3>@prod.Title</h3></a>
+                                <span>@prod.AuthorFirstName @prod.AuthorLastName</span>
+                                <div class="item-price">
+                                    @if (prod.DiscountedPrice != decimal.MinusOne)
+                                    {
+                                        <span class="prev-price">$ @prod.Price</span>
+                                        <span>$ @prod.DiscountedPrice</span>
+                                    }
+                                    @if (prod.DiscountedPrice == decimal.MinusOne)
+                                    {
+                                        <span>$ @prod.Price</span>
+                                    }
+                                    
+                                </div>
+                            </figcaption>
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+        </section>
+    </div>
+</section>

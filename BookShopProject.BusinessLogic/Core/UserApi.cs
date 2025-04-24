@@ -9,12 +9,13 @@ using System.Web;
 using BookShopProject.BusinessLogic.DBModel;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Author;
+using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Entities.User;
 using BookShopProject.Helpers;
 
 namespace BookShopProject.BusinessLogic.Core
 {
-    public class UserApi
+    public class UserApi: BaseApi
     {
         internal UserAuthResult UserRegisterAction(UDbTable data)
         {
@@ -125,28 +126,6 @@ namespace BookShopProject.BusinessLogic.Core
             result.StatusMsg = "User logged in successfully";
             result.StatusKey = "Name";
             return result;
-        }
-
-        internal AuthorDbTable AuthorByIdAction(int id)
-        {
-            AuthorDbTable a;
-            using (var db = new AuthorContext())
-            {
-                a = db.Authors.FirstOrDefault(x => x.Id == id);
-            }
-
-            return a;
-        }
-
-        internal AuthorsList AuthorsListAction()
-        {
-            var a = new AuthorsList();
-            using (var db = new AuthorContext())
-            {
-                a.Authors = db.Authors.ToList();
-            }
-
-            return a;
         }
 
         internal HttpCookie Cookie(string mail)
