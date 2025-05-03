@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.User;
 using BookShopProject.Extension;
 using BookShopProject.Domain.Entities.Book;
@@ -13,17 +14,22 @@ namespace BookShopProject.Controllers
 {
     public class HomeController : BaseController
     {
+        private readonly IBookUser _bookUser;
+        
+        public HomeController()
+        {
+            var bl = new BusinessLogic.BusinessLogic();
+            _bookUser = bl.GetBookUserBL();
+        }
         // GET: Home
         public ActionResult Index()
         {
-            var data = new BookList();
-            
-            var bl = new BusinessLogic.BusinessLogic();
-            var bookBL = bl.GetBookUserBL(); 
+            SessionStatus();
+            var data = new BookList(System.Web.HttpContext.Current.GetMySessionObject());
             
             var config = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<BookDbTable, Book>());
             var mapper = config.CreateMapper();
-            var b = bookBL.GetBooks(" ",BSearchParameter.Popularity);
+            var b = _bookUser.GetBooks(" ",BSearchParameter.Popularity);
 
             data.Products = new List<Book>();
             foreach (var v in b.Books)

@@ -23,6 +23,9 @@
                     </span>
                 </a>
             }
+            else
+            {
+            }
 
             @if (!Model.IsAuthenticated)
             {
@@ -38,10 +41,11 @@
                     <a href="#" class="search-button search-toggle" data-selector="#header-wrap">
                         <i class="icon icon-search"></i>
                     </a>
-                    <form role="search" method="post" class="search-box">
-                        <input class="search-field text search-input" placeholder="Search"
-                               type="search">
+
+                    <form role="Search" method="get" action="@Url.Action("BookList", "Book")" class="search-box">
+                        <input class="search-field text search-input" name="search" placeholder="Search" type="search">
                     </form>
+                    
                 </div>
             </div>
 

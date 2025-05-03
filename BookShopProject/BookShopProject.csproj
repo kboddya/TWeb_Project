@@ -238,7 +238,6 @@
     <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Extension\HttpContextExtensions.cs" />
-    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

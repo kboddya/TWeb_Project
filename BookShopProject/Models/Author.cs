@@ -3,8 +3,14 @@ using System.Collections.Generic;
 
 namespace BookShopProject.Models
 {
-    public class Author
+    public class Author: UserMinimal
     {
+        public Author(){}
+        
+        public Author(Domain.Entities.User.UserMinimal u): base(u)
+        {
+        }
+        
         public int Id { get; set; }
         
         public string FirstName { get; set; }
@@ -24,8 +30,13 @@ namespace BookShopProject.Models
         public List<Book> Books { get; set; } = new List<Book>();
     }
     
-    public class AuthorList
+    public class AuthorList: UserMinimal
     {
+        public AuthorList(){}
+        
+        public AuthorList(Domain.Entities.User.UserMinimal u): base(u)
+        {
+        }
         public List<Author> Authors { get; set; } = new List<Author>();
     }
 }

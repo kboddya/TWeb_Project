@@ -8,10 +8,11 @@ using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Enums.Book;
 using BookShopProject.Models;
 using BookShopProject.Controllers;
+using BookShopProject.Extension;
 
 namespace BookShopProject.Controllers
 {
-    public class GenreController : Controller
+    public class GenreController : BaseController
     {
         private readonly IBookUser _bookUser;
 
@@ -24,7 +25,9 @@ namespace BookShopProject.Controllers
         public ActionResult Index()
         {
             var genres = _bookUser.GetGenres();
-            var genresList = new GenreList
+
+            SessionStatus();
+            var genresList = new GenreList(System.Web.HttpContext.Current.GetMySessionObject())
             {
                 Genres = new List<string>(genres.Count)
             };
@@ -40,7 +43,9 @@ namespace BookShopProject.Controllers
             
             var config = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<BookDbTable, Book>());
             var mapper = config.CreateMapper();
-            var List = new BookList()
+            
+            SessionStatus();
+            var List = new BookList(System.Web.HttpContext.Current.GetMySessionObject())
             {
                 NameOfList = genre,
                 Products = new List<Book>()

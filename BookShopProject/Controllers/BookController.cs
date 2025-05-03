@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Enums.Book;
+using BookShopProject.Extension;
 using BookShopProject.Models;
 
 namespace BookShopProject.Controllers
@@ -24,7 +25,18 @@ namespace BookShopProject.Controllers
             var config = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<BookDbTable, Book>());
             var mapper = config.CreateMapper();
 
+            SessionStatus();
+            var u = System.Web.HttpContext.Current.GetMySessionObject();
             var book = mapper.Map<Book>(_bookUser.GetBookByISBN(long.Parse(Request.QueryString["ISBN"])));
+
+            if (book != null)
+            {
+                book.IsAuthenticated = true;
+                book.Role = u.Role;
+                book.Email = u.Email;
+                book.Name = u.Name;
+            }
+            
 
             return book != null ? (ActionResult)View(book) : RedirectToAction("er404", "Errors");
         }
@@ -40,12 +52,12 @@ namespace BookShopProject.Controllers
 
             var config = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<BookDbTable, Book>());
             var mapper = config.CreateMapper();
-            var List = new BookList()
+            
+            SessionStatus();
+            var List = new BookList(System.Web.HttpContext.Current.GetMySessionObject())
             {
                 Products = new List<Book>()
             };
-            
-            List.SetSession(SessionStatus());
 
             if (genre != null)
             {

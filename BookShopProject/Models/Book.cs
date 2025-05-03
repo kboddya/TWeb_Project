@@ -8,6 +8,12 @@ namespace BookShopProject.Models
 {
     public class Book: UserMinimal
     {
+        public Book(){}
+        
+        public Book(Domain.Entities.User.UserMinimal u): base(u)
+        {
+        }
+        
         public int Id { get; set; }
         
         public long ISBN { get; set; } = 9780000000000;

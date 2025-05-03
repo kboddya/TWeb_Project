@@ -146,7 +146,7 @@
                                 @class = "form-control-lg form-text-box",
                                 placeholder = "dd/MM/yyyy",
                                 style = "border-radius: 10px;",
-                                id = "BirthDate",
+                                id = "datepicker",
                                 name = "BirthDate"
                             })
                         </div>
@@ -158,11 +158,11 @@
                                 @class = "form-control-lg form-text-box",
                                 placeholder = "dd/MM/yyyy",
                                 style = "border-radius: 10px;",
-                                id = "DeathDate",
+                                id = "datepicker",
                                 name = "DeathDate"
                             })
                         </div>
-                    
+
 
 
                         @Html.LabelFor(m => m.Image)
@@ -176,8 +176,8 @@
                                 name = "Image"
                             })
                         </div>
-                
-                    
+
+
                         @Html.LabelFor(m => m.Wiki)
                         <div>
                             @Html.TextBoxFor(m => m.Wiki, new
@@ -189,7 +189,7 @@
                             })
                         </div>
                     </div>
-                    
+
                     <div class="col-md-3">
                         <button type="submit" class="rounded-corners">Update</button>
                     </div>
