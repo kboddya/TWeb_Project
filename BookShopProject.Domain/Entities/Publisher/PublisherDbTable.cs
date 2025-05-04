@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookShopProject.Domain.Entities.Publisher
@@ -14,6 +15,13 @@ namespace BookShopProject.Domain.Entities.Publisher
         
         public string Email { get; set; }
         
+        public string Logo { get; set; }
+        
         public int CountOfOrders { get; set; } = 0;
+    }
+    
+    public class PublishersList
+    {
+        public List<PublisherDbTable> Publishers { get; set; } = new List<PublisherDbTable>();
     }
 }

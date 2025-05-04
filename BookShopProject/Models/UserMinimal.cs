@@ -9,6 +9,11 @@ namespace BookShopProject.Models
     {
         public UserMinimal(Domain.Entities.User.UserMinimal u)
         {
+            if (u == null)
+            {
+                IsAuthenticated = false;
+                return;
+            }
             Name = u.Name;
             Email = u.Email;
             Role = u.Role;

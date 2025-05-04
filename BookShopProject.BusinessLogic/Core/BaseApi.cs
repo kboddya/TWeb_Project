@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using BookShopProject.Domain.Entities.Author;
 using BookShopProject.Domain.Entities.Genre;
+using BookShopProject.Domain.Entities.Publisher;
 using BookShopProject.Domain.Enums.Book;
 
 namespace BookShopProject.BusinessLogic.Core
@@ -139,7 +140,6 @@ namespace BookShopProject.BusinessLogic.Core
                 g = db.Genres.ToList();
             }
             
-            g.Sort();
 
             return g;
         }
@@ -175,6 +175,39 @@ namespace BookShopProject.BusinessLogic.Core
             }
 
             return a;
+        }
+
+        internal PublisherDbTable PublisherByIdAction(int id)
+        {
+            PublisherDbTable p;
+            using (var db = new PublisherContext())
+            {
+                p = db.Publishers.FirstOrDefault(x => x.Id == id);
+            }
+            
+            return p;
+        }
+        
+        internal PublishersList PublishersListAction()
+        {
+            var p = new PublishersList();
+            using (var db = new PublisherContext())
+            {
+                p.Publishers = db.Publishers.ToList();
+            }
+
+            return p;
+        }
+
+        internal BookListDb BookByPublisherIdAction(int id)
+        {
+            var b =new BookListDb();
+            using (var db = new BookContext())
+            {
+                b.Books = db.Books.Where(x => x.PublisherId == id).ToList();
+            }
+
+            return b;
         }
     }
 }

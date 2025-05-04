@@ -38,7 +38,7 @@ namespace BookShopProject.BusinessLogic.Core
             return true;
         }
 
-        private bool DeleteAuthorAction(int id)
+        internal bool DeleteAuthorAction(int id)
         {
             using (var db = new AuthorContext())
             {
@@ -56,7 +56,7 @@ namespace BookShopProject.BusinessLogic.Core
             return true;
         }
 
-        private int AddAuthorAction(AuthorDbTable author)
+        internal int AddAuthorAction(AuthorDbTable author)
         {
             using (var db = new AuthorContext())
             {
@@ -78,7 +78,7 @@ namespace BookShopProject.BusinessLogic.Core
             }
         }
 
-        private bool AddGenre(string g)
+        internal bool AddGenre(string g)
         {
             using (var db = new GenreContext())
             {
@@ -96,20 +96,15 @@ namespace BookShopProject.BusinessLogic.Core
             return true;
         }
 
-        private int AddPublisher(string publisher)
+        internal int AddPublisherAction(PublisherDbTable publisher)
         {
             using (var db = new PublisherContext())
             {
                 var p = db.Publishers
-                    .FirstOrDefault(x => x.Name == publisher);
+                    .FirstOrDefault(x => x.Name == publisher.Name);
                 if (p != null) return p.Id;
 
-                p = new PublisherDbTable()
-                {
-                    Name = publisher
-                };
-                
-                db.Publishers.Add(p);
+                db.Publishers.Add(publisher);
                 db.SaveChanges();
                 return db.Publishers.FirstOrDefault(x => x.Name == p.Name).Id;
             }
@@ -122,6 +117,31 @@ namespace BookShopProject.BusinessLogic.Core
                 var publisher = db.Publishers.FirstOrDefault(x => x.Id == id);
                 if (publisher == null) return false;
 
+                List<BookDbTable> books;
+                using (var bookdb = new BookContext())
+                {
+                    books = bookdb.Books.Where(x => x.PublisherId == id).ToList();
+                }
+                
+                if (books.Count != 0)
+                {
+                    foreach (var b in books)
+                    {
+                        DeleteBookAction(b.Id);
+                    }
+                }
+
+                using (var userdb = new UserContext())
+                {
+                    var user = userdb.Users.FirstOrDefault(x => x.Email == publisher.Email);
+                    if (user != null)
+                    {
+                        user.Role = URole.user;
+                        userdb.Users.AddOrUpdate(user);
+                        userdb.SaveChanges();
+                    }
+                }
+                
                 db.Publishers.Remove(publisher);
                 db.SaveChanges();
             }
@@ -133,8 +153,33 @@ namespace BookShopProject.BusinessLogic.Core
         {
             using (var db = new PublisherContext())
             {
-                if (db.Publishers.FirstOrDefault(x => x.Id == publisher.Id) == null) return false;
+                var p = db.Publishers.FirstOrDefault(x => x.Id == publisher.Id);
+                if (p == null) return false;
 
+                if (p.Email != publisher.Email)
+                {
+                    using (var dbu = new UserContext())
+                    {
+                        var user = dbu.Users.FirstOrDefault(x => x.Email == p.Email);
+                        if (user != null)
+                        {
+                            user.Role = URole.user;
+                            dbu.Users.AddOrUpdate(user);
+                            dbu.SaveChanges();
+                        }
+                    }
+                    
+                    using (var dbu = new UserContext())
+                    {
+                        var user = dbu.Users.FirstOrDefault(x => x.Email == publisher.Email);
+                        if (user != null)
+                        {
+                            user.Role = URole.publisher;
+                            dbu.Users.AddOrUpdate(user);
+                            dbu.SaveChanges();
+                        }
+                    }
+                }
 
                 db.Publishers.AddOrUpdate(publisher);
                 db.SaveChanges();
@@ -143,7 +188,7 @@ namespace BookShopProject.BusinessLogic.Core
             return true;
         }
 
-        private bool DeleteGenre(string g)
+        internal bool DeleteGenre(string g)
         {
             using (var db = new BookContext())
             {
@@ -207,17 +252,19 @@ namespace BookShopProject.BusinessLogic.Core
             book.LastUpdateTime = DateTime.Now;
 
 
-            var author = new AuthorDbTable
+            book.AuthorId = AddAuthorAction(new AuthorDbTable()
             {
                 FirstName = book.AuthorFirstName,
                 LastName = book.AuthorLastName,
                 LastUpdateTime = DateTime.Now
-            };
-
-            book.AuthorId = AddAuthorAction(author);
-            AddGenre(book.Genre);
+            });
             
-            book.PublisherId = AddPublisher(book.Publisher);
+            AddGenre(book.Genre);
+
+            book.PublisherId = AddPublisherAction(new PublisherDbTable()
+            {
+                Name = book.Publisher
+            });
 
             using (var db = new BookContext())
             {
