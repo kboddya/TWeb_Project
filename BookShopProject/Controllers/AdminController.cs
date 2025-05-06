@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using BookShopProject.Attributes;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Enums.Book;
 using BookShopProject.Domain.Enums.User;
@@ -9,6 +10,7 @@ using BookShopProject.Models;
 
 namespace BookShopProject.Controllers
 {
+    [AdminMod]
     public class AdminController : BaseController
     {
         private readonly IAuthorAdmin _authorAdmin;
@@ -23,38 +25,13 @@ namespace BookShopProject.Controllers
             _publisherAdmin = bl.GetPublisherAdmin();
         }
 
-
-        // GET
         public ActionResult Index()
         {
-            SessionStatus();
-            var user = System.Web.HttpContext.Current.GetMySessionObject();
-            if (user != null && user.Role != URole.admin)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else if (user == null)
-            {
-                return RedirectToAction("Login", "Auth");
-            }
-
             return View();
         }
 
         public ActionResult AuthorList()
         {
-            SessionStatus();
-            var userMin = System.Web.HttpContext.Current.GetMySessionObject();
-            if (userMin != null && userMin.Role != URole.admin)
-            {
-                return RedirectToAction("er404", "Errors");
-            }
-            else if (userMin == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-
             var authorsList = _authorAdmin.GetAuthors();
             var config = new AutoMapper.MapperConfiguration(cfg =>
                 cfg.CreateMap<Domain.Entities.Author.AuthorDbTable, Models.Author>());
@@ -68,14 +45,9 @@ namespace BookShopProject.Controllers
 
             return View(authorListModel);
         }
-
+        
         public ActionResult AuthorDetails()
         {
-            SessionStatus();
-            var userMin = System.Web.HttpContext.Current.GetMySessionObject();
-            if (userMin != null && userMin.Role != URole.admin) return RedirectToAction("Index", "Home");
-            else if (userMin == null) return RedirectToAction("Login", "Auth");
-
             var b = Request.QueryString["Id"];
 
             var authorFromBL = _authorAdmin.GetAuthorById(int.Parse(b));
@@ -96,11 +68,6 @@ namespace BookShopProject.Controllers
         [HttpPost]
         public ActionResult AuthorDetails(Author author)
         {
-            SessionStatus();
-            var userMin = System.Web.HttpContext.Current.GetMySessionObject();
-            if (userMin != null && userMin.Role != URole.admin) return RedirectToAction("Index", "Home");
-            else if (userMin == null) return RedirectToAction("Login", "Auth");
-            
             var config = new AutoMapper.MapperConfiguration(cfg =>
                 cfg.CreateMap<Models.Author, Domain.Entities.Author.AuthorDbTable>());
             var mapper = config.CreateMapper();
@@ -120,11 +87,6 @@ namespace BookShopProject.Controllers
 
         public ActionResult BookList(string search = "none", BSearchParameter type = BSearchParameter.All)
         {
-            SessionStatus();
-            var userMin = System.Web.HttpContext.Current.GetMySessionObject();
-            if (userMin != null && userMin.Role != URole.admin) return RedirectToAction("Index", "Home");
-            else if (userMin == null) return RedirectToAction("Login", "Auth");
-
             var booksList = _bookAdmin.GetBooks(search, type);
 
             var config = new AutoMapper.MapperConfiguration(cfg =>
@@ -148,21 +110,11 @@ namespace BookShopProject.Controllers
         [HttpPost]
         public ActionResult BookList(BookList b)
         {
-            SessionStatus();
-            var userMin = System.Web.HttpContext.Current.GetMySessionObject();
-            if (userMin != null && userMin.Role != URole.admin) return RedirectToAction("Index", "Home");
-            else if (userMin == null) return RedirectToAction("Login", "Auth");
-
             return BookList(b.parameterForSearch, b.typeOfSearch);
         }
 
         public ActionResult BookDetails()
         {
-            SessionStatus();
-            var userMin = System.Web.HttpContext.Current.GetMySessionObject();
-            if (userMin != null && userMin.Role != URole.admin) return RedirectToAction("Index", "Home");
-            else if (userMin == null) return RedirectToAction("Login", "Auth");
-
             var b = Request.QueryString["ISBN"];
             var bookFromBL = _bookAdmin.GetBooks(b, BSearchParameter.ISBN);
             if (bookFromBL == null)
@@ -183,11 +135,6 @@ namespace BookShopProject.Controllers
         [HttpPost]
         public ActionResult BookDetails(Book book)
         {
-            SessionStatus();
-            var userMin = System.Web.HttpContext.Current.GetMySessionObject();
-            if (userMin != null && userMin.Role != URole.admin) return RedirectToAction("Index", "Home");
-            else if (userMin == null) return RedirectToAction("Login", "Auth");
-
             var config =
                 new AutoMapper.MapperConfiguration(
                     cfg => cfg.CreateMap<Models.Book, Domain.Entities.Book.BookDbTable>());
@@ -204,11 +151,6 @@ namespace BookShopProject.Controllers
 
         public ActionResult DeleteBook()
         {
-            SessionStatus();
-            var userMin = System.Web.HttpContext.Current.GetMySessionObject();
-            if (userMin != null && userMin.Role != URole.admin) return RedirectToAction("Index", "Home");
-            else if (userMin == null) return RedirectToAction("Login", "Auth");
-
             var b = Request.QueryString["ISBN"];
             var bookFromBL = _bookAdmin.GetBooks(b, BSearchParameter.ISBN);
             if (bookFromBL == null)
@@ -220,7 +162,7 @@ namespace BookShopProject.Controllers
                 ? RedirectToAction("BookList")
                 : RedirectToAction("BookDetails", new { ISBN = bookFromBL.Books[0].ISBN });
         }
-
+        
         public ActionResult AddBook()
         {
             SessionStatus();
@@ -234,7 +176,7 @@ namespace BookShopProject.Controllers
 
             return View(b);
         }
-
+        
         [HttpPost]
         public ActionResult AddBook(Book b)
         {
@@ -251,7 +193,7 @@ namespace BookShopProject.Controllers
             var result = _bookAdmin.CreateBook(bookDbTable);
             return RedirectToAction("BookList");
         }
-
+        
         public ActionResult PublishersList()
         {
             SessionStatus();
@@ -273,7 +215,7 @@ namespace BookShopProject.Controllers
 
             return View(publisherListModel);
         }
-
+        
         public ActionResult PublisherDetails()
         {
             var b = Request.QueryString["Id"];
@@ -297,7 +239,7 @@ namespace BookShopProject.Controllers
             
             return View(publisher);
         }
-
+        
         [HttpPost]
         public ActionResult PublisherDetails(Publisher publisher)
         {
@@ -342,7 +284,7 @@ namespace BookShopProject.Controllers
                 ? RedirectToAction("PublishersList")
                 : RedirectToAction("PublisherDetails", new { Id = publisherFromBL.Id });
         }
-        
+
         public ActionResult AddPublisher()
         {
             SessionStatus();
@@ -354,7 +296,7 @@ namespace BookShopProject.Controllers
 
             return View(publisher);
         }
-        
+ 
         [HttpPost]
         public ActionResult AddPublisher(Publisher publisher)
         {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using BookShopProject.Attributes;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Entities.Publisher;
@@ -61,18 +62,11 @@ namespace BookShopProject.Controllers
 
             return View(publisherModel);
         }
-
+        
+        [PublisherMod]
         public ActionResult Panel()
         {
-            SessionStatus();
             var u = System.Web.HttpContext.Current.GetMySessionObject();
-
-            if (u == null) return RedirectToAction("Login", "Auth");
-
-            if (u.Role != URole.publisher)
-            {
-                return RedirectToAction("er404", "Errors");
-            }
 
             var publisher = _publisherPublisher.PublisherByEmail(u.Email);
 
@@ -105,17 +99,11 @@ namespace BookShopProject.Controllers
 
             return View(publisherModel);
         }
-
+        
+        [PublisherMod]
         public ActionResult BookDetails()
         {
-            SessionStatus();
             var u = System.Web.HttpContext.Current.GetMySessionObject();
-
-            if (u == null) return RedirectToAction("Login", "Auth");
-            if (u.Role != URole.publisher)
-            {
-                return RedirectToAction("er404", "Errors");
-            }
 
             var publisher = _publisherPublisher.PublisherByEmail(u.Email);
             if (u.Email != publisher?.Email)
@@ -144,17 +132,12 @@ namespace BookShopProject.Controllers
 
             return View(bookModel);
         }
-
+        
+        [PublisherMod]
         [HttpPost]
         public ActionResult BookDetails(Book book)
         {
-            SessionStatus();
             var u = System.Web.HttpContext.Current.GetMySessionObject();
-            if (u == null) return RedirectToAction("Login", "Auth");
-            if (u.Role != URole.publisher)
-            {
-                return RedirectToAction("er404", "Errors");
-            }
 
             var publisher = _publisherPublisher.PublisherByEmail(u.Email);
             if (u.Email != publisher?.Email)
@@ -172,15 +155,10 @@ namespace BookShopProject.Controllers
                 : View(book);
         }
         
+        [PublisherMod]
         public ActionResult AddBook()
         {
-            SessionStatus();
             var u = System.Web.HttpContext.Current.GetMySessionObject();
-            if (u == null) return RedirectToAction("Login", "Auth");
-            if (u.Role != URole.publisher)
-            {
-                return RedirectToAction("er404", "Errors");
-            }
 
             var publisher = _publisherPublisher.PublisherByEmail(u.Email);
             if (u.Email != publisher?.Email)
@@ -201,16 +179,11 @@ namespace BookShopProject.Controllers
             });
         }
 
+        [PublisherMod]
         [HttpPost]
         public ActionResult AddBook(Book book)
         {
-            SessionStatus();
             var u = System.Web.HttpContext.Current.GetMySessionObject();
-            if (u == null) return RedirectToAction("Login", "Auth");
-            if (u.Role != URole.publisher)
-            {
-                return RedirectToAction("er404", "Errors");
-            }
 
             var publisher = _publisherPublisher.PublisherByEmail(u.Email);
             if (u.Email != publisher?.Email)
@@ -228,15 +201,10 @@ namespace BookShopProject.Controllers
                 : View(book);
         }
         
+        [PublisherMod]
         public ActionResult DeleteBook()
         {
-            SessionStatus();
             var u = System.Web.HttpContext.Current.GetMySessionObject();
-            if (u == null) return RedirectToAction("Login", "Auth");
-            if (u.Role != URole.publisher)
-            {
-                return RedirectToAction("er404", "Errors");
-            }
 
             var publisher = _publisherPublisher.PublisherByEmail(u.Email);
             if (u.Email != publisher?.Email)

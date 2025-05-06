@@ -206,16 +206,15 @@ namespace BookShopProject.BusinessLogic.Core
             
             if (user == null) return null;
 
-            // TODO: Here must be automapper, but now it in other branch
-            var um = new UserMinimal()
-            {
-                Id = user.Id,
-                Name = user.Name,
-                Email = user.Email,
-                Role = user.Role
-            };
             
-            return um;
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<UDbTable, UserMinimal>();
+            });
+            var mapper = config.CreateMapper();
+            
+            
+            return mapper.Map<UserMinimal>(user);
         }
     }
 }
