@@ -87,16 +87,6 @@ namespace BookShopProject.BusinessLogic.Core
             return a;
         }
 
-        internal bool AddOrderAction(OrderDbTable order)
-        {
-            using (var db = new OrderContext())
-            {
-                if (db.Orders.FirstOrDefault(x => x.Id == order.Id) != null) return false;
-                db.Orders.Add(order);
-                db.SaveChanges();
-                return true;
-            }
-        }
 
         internal bool UpdateOrderStatusAction(int Id, Enum newStatus)
         {

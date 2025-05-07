@@ -14,7 +14,7 @@ namespace BookShopProject.Domain.Entities.Order
 
         [Required]
         public int UserId { get; set; }
-        
+
         [Required]
         public DateTime CreateTime { get; set; }
 
@@ -22,13 +22,13 @@ namespace BookShopProject.Domain.Entities.Order
         public DateTime LastUpdateTime { get; set; }
 
         [Required]
-        public decimal TotalPrice { get; set; }
+        public long ISBN { get; set; }
 
         [Required]
         public OrderStatus Status { get; set; }
 
         [Required]
-        public List<ulong> ISBNs { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 
     public class OrdersList

@@ -10,6 +10,7 @@ using BookShopProject.BusinessLogic.DBModel;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Author;
 using BookShopProject.Domain.Entities.User;
+using BookShopProject.Domain.Entities.Order;
 using BookShopProject.Helpers;
 
 namespace BookShopProject.BusinessLogic.Core
@@ -238,5 +239,37 @@ namespace BookShopProject.BusinessLogic.Core
             
             return um;
         }
+
+        internal bool AddCartAction(OrderDbTable cart)
+        {
+            using (var db = new OrderContext())
+            {
+                if (db.Orders.FirstOrDefault(x => x.Id == cart.Id) != null) return false;
+                db.Orders.Add(cart);
+                db.SaveChanges();
+                return true;
+            }
+        }
+/*
+        internal decimal CountPriceAction(int userId)
+        {
+            var price = new decimal();
+            using (var db = new OrderContext())
+            {
+                var cart = db.Orders.Where(x=>x.UserId == userId && x.Status).ToList();
+                if (cart == null) return -1;
+                foreach(var item in cart)
+                {
+                    price += item.Price;
+                }
+            }
+            return price;
+        }
+
+        internal bool BuyCartAction(int userId)
+        {
+
+        }*/
+
     }
 }
