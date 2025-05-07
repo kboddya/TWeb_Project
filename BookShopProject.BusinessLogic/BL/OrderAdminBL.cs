@@ -5,7 +5,7 @@ using BookShopProject.Domain.Entities.Order;
 
 namespace BookShopProject.BusinessLogic
 {
-    public class OrderAdminBL : AdminApi, IOrder
+    public class OrderAdminBL : AdminApi, IOrderAdmin
     {
         public bool UpdateOrderStatus(int Id, Enum newStatus)
         {

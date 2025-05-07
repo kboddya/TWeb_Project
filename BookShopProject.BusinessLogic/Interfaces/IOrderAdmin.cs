@@ -3,7 +3,7 @@ using BookShopProject.Domain.Entities.Order;
 
 namespace BookShopProject.BusinessLogic.Interfaces
 {
-    public interface IOrder
+    public interface IOrderAdmin
     {
         bool UpdateOrderStatus(int Id, Enum Status);
 

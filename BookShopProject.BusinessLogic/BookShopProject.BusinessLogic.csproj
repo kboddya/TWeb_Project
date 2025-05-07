@@ -66,7 +66,7 @@
     <Compile Include="Core\BaseApi.cs" />
     <Compile Include="Core\PublisherApi.cs" />
     <Compile Include="Core\UserApi.cs" />
-    <Compile Include="Interfaces\IOrder.cs" />
+    <Compile Include="Interfaces\IOrderAdmin.cs" />
     <Compile Include="DBModel\AuthorContext.cs" />
     <Compile Include="DBModel\BookContext.cs" />
     <Compile Include="DBModel\GenreContext.cs" />
@@ -81,7 +81,7 @@
     <Compile Include="Interfaces\IPublisherPublisher.cs" />
     <Compile Include="Interfaces\IPublisherUser.cs" />
     <Compile Include="Interfaces\ISession.cs" />
-    <Compile Include="OrderAdminBL.cs" />
+    <Compile Include="BL\OrderAdminBL.cs" />
     <Compile Include="DBModel\OrderContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

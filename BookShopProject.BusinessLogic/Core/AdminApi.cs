@@ -11,7 +11,6 @@ using BookShopProject.Domain.Entities.Genre;
 using BookShopProject.Domain.Entities.Publisher;
 using BookShopProject.Domain.Enums.Book;
 using BookShopProject.Domain.Enums.User;
-using BookShopProject.Domain.Enums.Order;
 
 namespace BookShopProject.BusinessLogic.Core
 {

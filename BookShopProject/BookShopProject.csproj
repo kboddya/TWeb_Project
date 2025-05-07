@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -254,13 +254,9 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\Order.cs" />
-=======
-    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\GenreList.cs" />
     <Compile Include="Models\Publisher.cs" />
->>>>>>> admin-panel
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\ReviewList.cs" />
     <Compile Include="Models\User.cs" />

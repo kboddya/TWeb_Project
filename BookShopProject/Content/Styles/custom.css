@@ -219,7 +219,6 @@
     margin-top: auto;
 }
 
-<<<<<<< HEAD
 /*Admin Order Panel*/
 .admin-orders-container {
     padding: 2rem;
@@ -388,7 +387,8 @@
 .admin-orders-page-count {
     color: #64748b;
     font-size: 0.9rem;
-=======
+}
+
 .go-back-button {
     height: 35px;
     width: 35px;
@@ -408,5 +408,4 @@
 /*Author*/
 .author-parameters p{
     margin: 0;
->>>>>>> admin-panel
 }

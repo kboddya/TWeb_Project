@@ -16,6 +16,7 @@ namespace BookShopProject.Controllers
         private readonly IAuthorAdmin _authorAdmin;
         private readonly IBookAdmin _bookAdmin;
         private readonly IPublisherAdmin _publisherAdmin;
+        private readonly IOrderAdmin _orderAdmin;
 
         public AdminController()
         {
@@ -23,6 +24,7 @@ namespace BookShopProject.Controllers
             _authorAdmin = bl.GetAuthorAdminBL();
             _bookAdmin = bl.GetBookAdminBL();
             _publisherAdmin = bl.GetPublisherAdmin();
+            _orderAdmin = bl.GetOrderAdminBL();
         }
 
         public ActionResult Index()
@@ -32,9 +34,7 @@ namespace BookShopProject.Controllers
 
         public ActionResult Order()
         {
-            var bl = new BusinessLogic.BusinessLogic();
-            var orderBL = bl.GetOrderAdminBL();
-            var ordersList = orderBL.GetOrders();
+            var ordersList = _orderAdmin.GetOrders();
 
             var config = new AutoMapper.MapperConfiguration(cfg =>
                 cfg.CreateMap<Domain.Entities.Order.OrderDbTable, Models.Order>());
@@ -50,9 +50,7 @@ namespace BookShopProject.Controllers
 
         public ActionResult OrderDetails(){
             var b = Request.QueryString["Id"];
-            var bl = new BusinessLogic.BusinessLogic();
-            var orderBL = bl.GetOrderAdminBL();
-            var orderFromBL = orderBL.GetOrderById(int.Parse(b));
+            var orderFromBL = _orderAdmin.GetOrderById(int.Parse(b));
             if (orderFromBL == null) return RedirectToAction("er404", "Errors");
             var config = new AutoMapper.MapperConfiguration(cfg =>
                 cfg.CreateMap<Domain.Entities.Order.OrderDbTable, Models.Order>());
@@ -65,16 +63,13 @@ namespace BookShopProject.Controllers
         [HttpPost]
         public ActionResult OrderDetails(Order order)
         {
-            var bl = new BusinessLogic.BusinessLogic();
-            var orderBL = bl.GetOrderAdminBL();
-
-            var orderDbTable = orderBL.GetOrderById(order.Id);
+            var orderDbTable = _orderAdmin.GetOrderById(order.Id);
 
             orderDbTable.UserId = order.UserId;
             orderDbTable.Status = order.Status;
             orderDbTable.TotalPrice = order.TotalPrice;
 
-            var result = orderBL.UpdateOrderStatus(order.Id, order.Status);
+            var result = _orderAdmin.UpdateOrderStatus(order.Id, order.Status);
 
             return View(order);
         }

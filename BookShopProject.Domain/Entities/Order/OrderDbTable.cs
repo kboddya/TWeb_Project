@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using BookShopProject.Domain.Enums.Order;
 
 namespace BookShopProject.Domain.Entities.Order
 {
@@ -25,7 +24,7 @@ namespace BookShopProject.Domain.Entities.Order
         public long ISBN { get; set; }
 
         [Required]
-        public OrderStatus Status { get; set; }
+        public bool IsBought { get; set; }
 
         [Required]
         public decimal TotalPrice { get; set; }
