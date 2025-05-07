@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Publisher";
+}
+
+@model BookShopProject.Models.Publisher
+
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+                <button class="button-for-a rounded-corners">
+                    <a href="@Url.Action("AddBook")">New Book</a>
+                </button>
+            </div>
+            <hr>
+            <section id="popular-books" class="bookshelf">
+                <div class="row">
+                    <hr>
+                    @foreach (var prod in Model.Books)
+                    {
+                        <div class="col-md-3">
+                            <div class="product-item">
+                                <figure class="product-style">
+                                    <a href="@Url.Action("BookDetails")?ISBN=@prod.ISBN">
+                                        <img src="@prod.Image" alt="Books" class="product-item">
+                                    </a>
+                                </figure>
+                                <figcaption>
+                                    <a href="@Url.Action("BookDetails")?ISBN=@prod.ISBN">
+                                        <h3>@prod.Title</h3></a>
+                                    <span>@prod.AuthorFirstName @prod.AuthorLastName</span>
+                                    <div class="item-price">
+                                        @if (prod.DiscountedPrice != decimal.MinusOne)
+                                        {
+                                            <span class="prev-price">$ @prod.Price</span>
+                                            <span>$ @prod.DiscountedPrice</span>
+                                        }
+                                        @if (prod.DiscountedPrice == decimal.MinusOne)
+                                        {
+                                            <span>$ @prod.Price</span>
+                                        }
+
+                                    </div>
+                                </figcaption>
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+            </section>
+        </div>
+    </div>
+</section>

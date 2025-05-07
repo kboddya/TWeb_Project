@@ -196,19 +196,29 @@
     <Content Include="Scripts\slideNav.min.js" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Admin\AddBook.cshtml" />
+    <Content Include="Views\Admin\AddPublisher.cshtml" />
     <Content Include="Views\Admin\AuthorDetails.cshtml" />
     <Content Include="Views\Admin\AuthorList.cshtml" />
+    <Content Include="Views\Admin\BookDetails.cshtml" />
+    <Content Include="Views\Admin\BookList.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\PublisherDetails.cshtml" />
+    <Content Include="Views\Admin\PublishersList.cshtml" />
     <Content Include="Views\Articles\ArticleDetails.cshtml" />
     <Content Include="Views\Articles\ArticlesList.cshtml" />
     <Content Include="Views\Author\Details.cshtml" />
     <Content Include="Views\Author\Index.cshtml" />
     <Content Include="Views\Auth\WelcomeToFamily.cshtml" />
+    <Content Include="Views\Book\BookList.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Book\BookInfo.cshtml" />
     <Content Include="Views\Errors\er404.cshtml" />
-    <Content Include="Views\Genre\BookList.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
+    <Content Include="Views\Publisher\AddBook.cshtml" />
+    <Content Include="Views\Publisher\BookDetails.cshtml" />
+    <Content Include="Views\Publisher\Index.cshtml" />
+    <Content Include="Views\Publisher\Panel.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_AdminSideBar.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
@@ -220,6 +230,8 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\AdminModAttribute.cs" />
+    <Compile Include="Attributes\PublisherModAttribute.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -233,6 +245,7 @@
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OfferController.cs" />
+    <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Extension\HttpContextExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -241,7 +254,13 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\Order.cs" />
+=======
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\GenreList.cs" />
+    <Compile Include="Models\Publisher.cs" />
+>>>>>>> admin-panel
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\ReviewList.cs" />
     <Compile Include="Models\User.cs" />

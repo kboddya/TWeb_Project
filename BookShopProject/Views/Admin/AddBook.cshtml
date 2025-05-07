@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "Add Book";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model BookShopProject.Models.Book
+
+<section class="py-5 my-5">
+    <div class="container">
+        <div>
+            <figure class="go-back-button">
+                <a href="@Url.Action("BookList")"><img src="~/Content/images/left.png" class="img-fluid"></a>
+            </figure>
+        </div>
+        <h3 class="section-title align-center">Add new book</h3>
+        @Html.ValidationSummary(true)
+        @using (Html.BeginForm("AddBook", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <form class="mx-3 d-flex flex-column justify-content-between align-items-center">
+                @Html.AntiForgeryToken()
+                <div class="row align-content-center">
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Title, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Title",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "Title",
+                            name = "Title"
+                        })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.ISBN, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "ISBN",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "ISBN",
+                            name = "ISBN"
+                        })
+                    </div>
+
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.AuthorFirstName, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Author First Name",
+                            style = "border-radius: 10px; height: 15px;"
+                        })
+                    </div>
+
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.AuthorLastName, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Author Last Name",
+                            style = "border-radius: 10px; height: 15px;"
+                        })
+                    </div>
+
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Publisher, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Publisher",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "Publisher",
+                            name = "Publisher"
+                        })
+                    </div>
+
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Genre, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Genre",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "Title",
+                            name = "Title",
+                        })
+                    </div>
+
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(m=> m.age, new SelectList(Enum.GetValues(typeof(BookShopProject.Domain.Enums.Book.AgeCategories))), new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Age",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "age",
+                            name = "age"
+                        })
+                    </div>
+
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Language, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Language",
+                            style = "border-radius: 10px; height: 15px;",
+                        })
+                    </div>
+
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Image, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Image URL",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "Image",
+                            name = "Image"
+                        })
+                    </div>
+
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.PublishDate, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Publish Date",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "datepicker",
+                            name = "Year",
+                            type = "date"
+                        })
+                    </div>
+
+
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Price, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Price",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "Price",
+                            name = "Price"
+                        })
+                    </div>
+
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.DiscountedPrice, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Discount price",
+                            style = "border-radius: 10px; height: 15px;"
+                        })
+                    </div>
+
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.Count, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Count",
+                            style = "border-radius: 10px; height: 15px;"
+                        })
+                    </div>
+
+
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(m => m.Description, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Description",
+                            style = "border-radius: 10px; height: 500px;",
+                            id = "Description",
+                            name = "Description"
+                        })
+                    </div>
+
+                    <div class="col-md-10"></div>
+                    <button type="submit" , class="rounded-corners col-md-2">Add book</button>
+
+                </div>
+
+            </form>
+        }
+    </div>
+</section>

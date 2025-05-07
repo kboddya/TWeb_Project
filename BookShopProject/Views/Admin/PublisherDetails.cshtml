@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Publisher Details";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model BookShopProject.Models.Publisher
+
+<section class="my-5 py-5">
+    <div class="container">
+        <div>
+            <figure class="go-back-button">
+                <a href="@Url.Action("PublishersList")"><img src="~/Content/images/left.png" class="img-fluid"></a>
+            </figure>
+        </div>
+
+        <div class="align-center">
+            <figure class="publisher-image">
+                <img src="@Model.Logo" alt="Publisher logo" class="img-fluid">
+            </figure>
+            <h3 class="section-title">@Model.Name</h3>
+        </div>
+
+        @Html.ValidationSummary(true)
+        @using (Html.BeginForm("PublisherDetails", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <form class="mx-3 d-flex flex-column justify-content-between align-items-center">
+                @Html.AntiForgeryToken()
+                <div class="row align-content-center">
+                    @Html.HiddenFor(m=>m.Id)
+                    @Html.HiddenFor(m=>m.CountOfOrders)
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Name, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Publisher Name",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "Name",
+                            name = "Name"
+                        })
+                    </div>
+                    
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Logo, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Logo URL",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "Logo",
+                            name = "Logo"
+                        })
+                    </div>
+                    
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Email, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "email",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "email",
+                            name = "email"
+                        })
+                    </div>
+
+                    <div class="col-md-7"></div>
+                    <button type="submit" , class="rounded-corners col-md-2">Update publisher</button>
+                    <button class="col-md-2 rounded-corners delete-button"><a
+                            href="@Url.Action("DeletePublisher")?Id=@Model.Id">Delete</a></button>
+                </div>
+            </form>
+        }
+    </div>
+</section>

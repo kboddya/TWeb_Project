@@ -1,94 +1,64 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using AutoMapper;
+using BookShopProject.BusinessLogic.Interfaces;
+using BookShopProject.Domain.Entities.Book;
+using BookShopProject.Domain.Enums.Book;
 using BookShopProject.Models;
+using BookShopProject.Controllers;
+using BookShopProject.Extension;
 
 namespace BookShopProject.Controllers
 {
-    public class GenreController : Controller
+    public class GenreController : BaseController
     {
+        private readonly IBookUser _bookUser;
+
+        public GenreController()
+        {
+            var bl = new BusinessLogic.BusinessLogic();
+            _bookUser = bl.GetBookUserBL();
+        }
         // GET
         public ActionResult Index()
         {
-            return View();
+            var genres = _bookUser.GetGenres();
+
+            SessionStatus();
+            var genresList = new GenreList(System.Web.HttpContext.Current.GetMySessionObject())
+            {
+                Genres = new List<string>(genres.Count)
+            };
+
+            genresList.Genres.AddRange(genres.Select(g => g.Name));
+
+            return View(genresList);
         }
 
-        public ActionResult BookList()
+        public ActionResult List()
         {
             var genre = Request.QueryString["Genre"];
-
-            var books = new List<Book>()
-            {
-                new Book()
-                {
-                    Title = "Portrait photography",
-                    Author = "Adam Silber",
-                    Genre = "Photography",
-                    Price = (decimal)40.00,
-                    Description = "A comprehensive guide to portrait photography.",
-                    Image = "../Content/images/tab-item1.jpg",
-                    Count = 10,
-                    Language = "English",
-                    Year = 2021,
-                    Publisher = "PhotoBooks Publishing",
-                    ISBN = 9783161484100
-                },
-                new Book()
-                {
-                    Title = "Once upon a time",
-                    Author = "Klien Marry",
-                    Genre = "Fiction",
-                    Price = (decimal)35.00,
-                    Description = "A captivating tale of adventure and mystery.",
-                    Image = "../Content/images/tab-item2.jpg",
-                    Count = 15,
-                    Language = "English",
-                    Year = 2019,
-                    Publisher = "StoryBooks Publishing",
-                    ISBN = 9781234567890
-                },
-                new Book()
-                {
-                    Title = "Tips of simple lifestyle",
-                    Author = "Bratt Smith",
-                    Genre = "Lifestyle",
-                    Price = (decimal)40.00,
-                    Description = "Practical tips for living a simple and fulfilling life.",
-                    Image = "../Content/images/tab-item3.jpg",
-                    Count = 20,
-                    Language = "English",
-                    Year = 2020,
-                    Publisher = "LifeBooks Publishing",
-                    ISBN = 9780123456789
-                },
-                new Book()
-                {
-                    Title = "Just felt from outside",
-                    Author = "Nicole Wilson",
-                    Genre = "Fiction",
-                    Price = (decimal)40.00,
-                    Description = "An intriguing story of self-discovery and adventure.",
-                    Image = "../Content/images/tab-item4.jpg",
-                    Count = 5,
-                    Language = "English",
-                    Year = 2022,
-                    Publisher = "AdventureBooks Publishing",
-                    ISBN = 9789876543210
-                }
-            };
-            var List = new BookList()
+            
+            var config = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<BookDbTable, Book>());
+            var mapper = config.CreateMapper();
+            
+            SessionStatus();
+            var List = new BookList(System.Web.HttpContext.Current.GetMySessionObject())
             {
                 NameOfList = genre,
                 Products = new List<Book>()
             };
+            
+            var b = _bookUser.GetBooks(genre, BSearchParameter.Genre);
 
-            foreach (var b in books.Where(b => b.Genre == List.NameOfList))
+            foreach (var v in b.Books)
             {
-                List.Products.Add(b);
+                List.Products.Add(mapper.Map<Book>(v));
             }
 
-
-            return List.Products.Count != 0 ? (ActionResult)View(List) : RedirectToAction("er404", "Errors");
+            return List.Products.Count != 0 ? RedirectToAction("BookList", "Book", List) : RedirectToAction("er404", "Errors");
         }
     }
 }

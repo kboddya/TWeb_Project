@@ -44,11 +44,15 @@
   <ItemGroup>
     <Compile Include="Entities\Order\OrderDbTable.cs" />
     <Compile Include="Entities\Author\AuthorDbTable.cs" />
+    <Compile Include="Entities\Book\BookDbTable.cs" />
+    <Compile Include="Entities\Genre\GenreDbTable.cs" />
+    <Compile Include="Entities\Publisher\PublisherDbTable.cs" />
     <Compile Include="Entities\User\UDbTable.cs" />
     <Compile Include="Entities\User\UserAuthResult.cs" />
     <Compile Include="Entities\User\Session.cs" />
     <Compile Include="Entities\User\UserMinimal.cs" />
-    <Compile Include="Enums\Order\OrderStatus.cs" />
+    <Compile Include="Enums\Book\AgeCategories.cs" />
+    <Compile Include="Enums\Book\BSearchParameter.cs" />
     <Compile Include="Enums\User\URole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

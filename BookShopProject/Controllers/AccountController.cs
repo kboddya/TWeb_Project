@@ -15,8 +15,8 @@ namespace BookShopProject.Controllers
         // GET: Account
         public ActionResult Index()
         {
-            var user = new Models.User();
-            user.SetSession(SessionStatus());;
+            SessionStatus();
+            var user = new Models.UserMinimal(System.Web.HttpContext.Current.GetMySessionObject());
             if (!user.IsAuthenticated) return RedirectToAction("Login", "Auth");
 
             //TODO: Here must be cart logic

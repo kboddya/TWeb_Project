@@ -82,7 +82,7 @@
     margin-top: 20px;
 }
 
-.book-image .author-full-photo {
+.book-image .author-full-photo .publisher-image {
     display: block;
 }
 
@@ -204,7 +204,7 @@
     justify-content: center;
 }
 
-.sidebar-menu-admin button {
+.button-for-a {
     display: block;
     color: gray;
     padding: 2px 16px;
@@ -396,6 +396,12 @@
 
 .form-readonly {
     color: gray;
+}
+
+.delete-button {
+    background-color: #e13d0b;
+    color: white;
+    margin-left: 20px;
 }
 
 

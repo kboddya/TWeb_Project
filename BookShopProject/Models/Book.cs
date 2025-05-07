@@ -2,16 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using BookShopProject.Domain.Enums.Book;
 
 namespace BookShopProject.Models
 {
     public class Book: UserMinimal
     {
-        public ulong ISBN { get; set; } = 9780000000000;
+        public Book(){}
+        
+        public Book(Domain.Entities.User.UserMinimal u): base(u)
+        {
+        }
+        
+        public int Id { get; set; }
+        
+        public long ISBN { get; set; } = 9780000000000;
         
         public string Title { get; set; }
 
-        public string Author { get; set; }
+        public string AuthorFirstName { get; set; }
+        
+        public string AuthorLastName { get; set; }
+        
+        public int AuthorId { get; set; }
 
         public string Genre { get; set; }
 
@@ -27,11 +40,14 @@ namespace BookShopProject.Models
 
         public string Language { get; set; }
 
-        public uint Year { get; set; }
-
         public string Publisher { get; set; }
         
+        public int PublisherId { get; set; }
 
         public DateTime PublishDate { get; set; }
+        
+        public int CountOfOrders { get; set; } = 0;
+        
+        public AgeCategories age { get; set; }
     }
 }

@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Publisher";
+}
+
+@model BookShopProject.Models.Publisher
+
+<section class="my-5 py-5">
+<div class="container">
+
+    <div class="align-center">
+        <figure class="publisher-image">
+            <img src="@Model.Logo" alt="Publisher logo" class="img-fluid">
+        </figure>
+        <h3 class="section-title">@Model.Name</h3>
+    </div>
+    
+    <hr>
+    
+    <div class="row">
+        @foreach (var book in Model.Books)
+        {
+            <div class="col-md-3">
+                <div class="product-item">
+                    <figure class="product-style">
+                        <a href="@Url.Action("BookInfo", "Book")?ISBN=@book.ISBN">
+                            <img src="@book.Image" alt="Books" class="product-item">
+                        </a>
+                        <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+                            Cart
+                        </button>
+                    </figure>
+                    <figcaption>
+                        <a href="@Url.Action("BookInfo", "Book")?ISBN=@book.ISBN">
+                            <h3>@book.Title</h3>
+                        </a>
+                        <span>@book.AuthorFirstName @book.AuthorLastName</span>
+                        <div class="item-price">
+                            @if (book.DiscountedPrice != decimal.MinusOne)
+                            {
+                                <span class="prev-price">$ @book.DiscountedPrice</span>
+                            }
+                            $ @book.Price
+                        </div>
+                    </figcaption>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+</section>
