@@ -66,10 +66,7 @@ namespace BookShopProject.Controllers
             var orderDbTable = _orderAdmin.GetOrderById(order.Id);
 
             orderDbTable.UserId = order.UserId;
-            orderDbTable.Status = order.Status;
             orderDbTable.TotalPrice = order.TotalPrice;
-
-            var result = _orderAdmin.UpdateOrderStatus(order.Id, order.Status);
 
             return View(order);
         }
