@@ -16,7 +16,7 @@
         <h3 class="section-title align-center">Add new book</h3>
 
         @Html.ValidationSummary(true)
-        @using (Html.BeginForm("PublisherDetails", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("AddPublisher", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <form class="mx-3 d-flex flex-column justify-content-between align-items-center">
                 @Html.AntiForgeryToken()

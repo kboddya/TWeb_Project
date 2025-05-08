@@ -9,5 +9,7 @@ namespace BookShopProject.BusinessLogic.Interfaces
         AuthorDbTable GetAuthorById(int id);
         
         AuthorsList GetAuthors();
+        
+        bool DeleteAuthor(int id);
     }
 }

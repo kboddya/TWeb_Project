@@ -43,10 +43,17 @@ namespace BookShopProject.BusinessLogic.Core
             using (var db = new AuthorContext())
             {
                 var author = db.Authors.FirstOrDefault(x => x.Id == id);
+                if (author == null) return false;
                 var a = author.FirstName + " " + author.LastName;
-                if (0 == BooksListAction(a, BSearchParameter.Author).Books.Count)
+                var books = BooksListAction(a, BSearchParameter.Author);
+
+                foreach (var book in books?.Books)
                 {
-                    return false;
+                    using (var bookdb = new BookContext())
+                    {
+                        bookdb.Books.Remove(book);
+                        bookdb.SaveChanges();
+                    }
                 }
 
                 db.Authors.Remove(author);
@@ -106,8 +113,9 @@ namespace BookShopProject.BusinessLogic.Core
 
                 db.Publishers.Add(publisher);
                 db.SaveChanges();
-                return db.Publishers.FirstOrDefault(x => x.Name == p.Name).Id;
             }
+
+            return publisher.Id;
         }
 
         internal bool DeletePublisherAction(int id)

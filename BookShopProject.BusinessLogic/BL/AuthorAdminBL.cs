@@ -20,5 +20,10 @@ namespace BookShopProject.BusinessLogic
         {
             return AuthorsListAction();
         }
+
+        public bool DeleteAuthor(int id)
+        {
+            return DeleteAuthorAction(id);
+        }
     }
 }
