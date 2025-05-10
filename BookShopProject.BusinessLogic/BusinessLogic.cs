@@ -13,5 +13,10 @@ namespace BookShopProject.BusinessLogic
         {
             return new SessionBL();
         }
+
+        public IUserPanel GetUserPanelBL() 
+        {
+            return new UserPanelBL();
+        }
     }
 }

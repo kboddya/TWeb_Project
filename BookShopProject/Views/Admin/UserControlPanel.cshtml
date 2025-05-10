@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "../Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Панель контроля пользователей";
+}
+
+@model BookShopProject.Models.UserListModel
+
+<!-- Подключение стилей -->
+<link href="~/Content/Styles/usercontrolpanel.css" rel="stylesheet" />
+
+<div class="custom-table-container">
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th class="section-title">Name</th>
+                <th class="section-title">Email</th>
+                <th class="section-title">Role</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(var user in Model.Details)
+            {
+                <tr>
+                    <td>
+                        <a href="@Url.Action("UserDetails", "Admin")?id=@user.Id">@user.Name</a>
+                    </td>
+                    <td>@user.Email</td>
+                    <td>@user.Role</td>
+                </tr>
+            }
+        </tbody>
+
+
+
+    </table>
+</div>
