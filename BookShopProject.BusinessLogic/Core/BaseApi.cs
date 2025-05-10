@@ -2,6 +2,8 @@
 using BookShopProject.Domain.Entities.Book;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using BookShopProject.BusinessLogic.DBModel;
+using BookShopProject.Domain.Entities.Articles;
 using BookShopProject.Domain.Entities.Author;
 using BookShopProject.Domain.Entities.Genre;
 using BookShopProject.Domain.Entities.Publisher;
@@ -208,6 +210,32 @@ namespace BookShopProject.BusinessLogic.Core
             }
 
             return b;
+        }
+
+        internal List<ArticleDbTable> ArticlesListAction()
+        {
+            List<ArticleDbTable> articles;
+
+            using (var db = new ArticleContext())
+            {
+                articles = db.Articles.ToList();
+            }
+
+            articles.Reverse();
+
+            return articles;
+        }
+
+        internal ArticleDbTable ArticleByIdAction(int id)
+        {
+            ArticleDbTable article;
+
+            using (var db = new ArticleContext())
+            {
+                article = db.Articles.FirstOrDefault(x => x.Id == id);
+            }
+            
+            return article;
         }
     }
 }

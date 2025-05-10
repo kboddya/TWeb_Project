@@ -16,6 +16,7 @@ namespace BookShopProject.Controllers
         private readonly IAuthorAdmin _authorAdmin;
         private readonly IBookAdmin _bookAdmin;
         private readonly IPublisherAdmin _publisherAdmin;
+        private readonly IArticleAdmin _articleAdmin;
 
         public AdminController()
         {
@@ -23,6 +24,7 @@ namespace BookShopProject.Controllers
             _authorAdmin = bl.GetAuthorAdminBL();
             _bookAdmin = bl.GetBookAdminBL();
             _publisherAdmin = bl.GetPublisherAdmin();
+            _articleAdmin = bl.GetArticleAdminBL();
         }
 
         public ActionResult Index()
@@ -287,6 +289,93 @@ namespace BookShopProject.Controllers
             var publisherDbTable = mapper.Map<Domain.Entities.Publisher.PublisherDbTable>(publisher);
             _publisherAdmin.CreatePublisher(publisherDbTable);
             return RedirectToAction("PublishersList");
+        }
+
+        public ActionResult ArticlesList()
+        {
+            var listFromDb = _articleAdmin.GetArticles();
+
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Articles.ArticleDbTable, Article>());
+            var mapper = config.CreateMapper();
+
+            var list = new ArticleList()
+            {
+                Articles = new List<Article>()
+            };
+            foreach (var v in listFromDb)
+            {
+                list.Articles.Add(mapper.Map<Article>(v));
+            }
+
+            return View(list);
+        }
+
+        public ActionResult ArticleDetails()
+        {
+            var id = Request.QueryString["Id"];
+
+            if (id == null) return RedirectToAction("er404", "Errors");
+
+            var articleFromBL = _articleAdmin.GetArticleById(int.Parse(id));
+
+            if (articleFromBL != null)
+            {
+                var config = new AutoMapper.MapperConfiguration(cfg =>
+                    cfg.CreateMap<Domain.Entities.Articles.ArticleDbTable, Article>());
+                var mapper = config.CreateMapper();
+
+                var articleModel = mapper.Map<Article>(articleFromBL);
+                return View(articleModel);
+            }
+
+
+            return RedirectToAction("er404", "Errors");
+        }
+
+        [HttpPost]
+        public ActionResult ArticleDetails(Article article)
+        {
+            var config =
+                new AutoMapper.MapperConfiguration(
+                    cfg => cfg.CreateMap<Models.Article, Domain.Entities.Articles.ArticleDbTable>());
+            var mapper = config.CreateMapper();
+            var articleDbTable = mapper.Map<Domain.Entities.Articles.ArticleDbTable>(article);
+
+            return _articleAdmin.UpdateArticle(articleDbTable)
+                ? RedirectToAction("ArticlesList")
+                : (ActionResult)View(article);
+        }
+
+        public ActionResult DeleteArticle()
+        {
+            var id = Request.QueryString["Id"];
+
+            return _articleAdmin.DeleteArticle(int.Parse(id))
+                ? RedirectToAction("ArticlesList")
+                : RedirectToAction("er404", "Errors");
+        }
+
+        public ActionResult AddArticle()
+        {
+            var article = new Article();
+
+            return View(article);
+        }
+
+        [HttpPost]
+        public ActionResult AddArticle(Article article)
+        {
+            var config =
+                new AutoMapper.MapperConfiguration(
+                    cfg => cfg.CreateMap<Models.Article, Domain.Entities.Articles.ArticleDbTable>());
+            var mapper = config.CreateMapper();
+
+            var articleDbTable = mapper.Map<Domain.Entities.Articles.ArticleDbTable>(article);
+
+            return _articleAdmin.AddArticle(articleDbTable)
+                ? RedirectToAction("ArticlesList")
+                : (ActionResult)View(article);
         }
     }
 }

@@ -48,5 +48,15 @@ namespace BookShopProject.BusinessLogic
         {
             return new PublisherPublisherBL();
         }
+
+        public IArticleUser GetArticleUserBL()
+        {
+            return new ArticleUserBL();
+        }
+        
+        public IArticleAdmin GetArticleAdminBL()
+        {
+            return new ArticleAdminBL();
+        }
     }
 }

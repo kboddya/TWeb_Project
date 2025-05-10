@@ -4,6 +4,8 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BookShopProject.BusinessLogic.DBModel;
+using BookShopProject.Domain.Entities.Articles;
 using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Entities.Author;
 using BookShopProject.Domain.Entities.Genre;
@@ -280,6 +282,46 @@ namespace BookShopProject.BusinessLogic.Core
                 db.SaveChanges();
             }
 
+
+            return true;
+        }
+        
+        internal bool CreateArticleAction(ArticleDbTable article)
+        {
+            if (ArticleByIdAction(article.Id) != null) return false;
+
+            using (var db = new ArticleContext())
+            {
+                db.Articles.Add(article);
+                db.SaveChanges();
+            }
+
+            return true;
+        }
+        
+        internal bool UpdateArticleAction(ArticleDbTable article)
+        {
+            using (var db = new ArticleContext())
+            {
+                if (db.Articles.FirstOrDefault(x => x.Id == article.Id) == null) return false;
+
+                db.Articles.AddOrUpdate(article);
+                db.SaveChanges();
+            }
+
+            return true;
+        }
+
+        internal bool DeleteArticleAction(int id)
+        {
+            using (var db = new ArticleContext())
+            {
+                var article = db.Articles.FirstOrDefault(x => x.Id == id);
+                if (article == null) return false;
+
+                db.Articles.Remove(article);
+                db.SaveChanges();
+            }
 
             return true;
         }

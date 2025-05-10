@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Articles\ArticleDbTable.cs" />
     <Compile Include="Entities\Author\AuthorDbTable.cs" />
     <Compile Include="Entities\Book\BookDbTable.cs" />
     <Compile Include="Entities\Genre\GenreDbTable.cs" />

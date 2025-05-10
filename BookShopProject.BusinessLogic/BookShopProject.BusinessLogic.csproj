@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\ArticleAdminBL.cs" />
+    <Compile Include="BL\ArticleUserBL.cs" />
     <Compile Include="BL\AuthorAdminBL.cs" />
     <Compile Include="BL\AuthorUserBL.cs" />
     <Compile Include="BL\BookAdminBL.cs" />
@@ -66,11 +68,14 @@
     <Compile Include="Core\BaseApi.cs" />
     <Compile Include="Core\PublisherApi.cs" />
     <Compile Include="Core\UserApi.cs" />
+    <Compile Include="DBModel\ArticleContext.cs" />
     <Compile Include="DBModel\AuthorContext.cs" />
     <Compile Include="DBModel\BookContext.cs" />
     <Compile Include="DBModel\GenreContext.cs" />
     <Compile Include="DBModel\PublisherContext.cs" />
     <Compile Include="DBModel\UserContext.cs" />
+    <Compile Include="Interfaces\IArticleAdmin.cs" />
+    <Compile Include="Interfaces\IArticleUser.cs" />
     <Compile Include="Interfaces\IAuthorAdmin.cs" />
     <Compile Include="Interfaces\IAuthorUser.cs" />
     <Compile Include="DBModel\SessionContext.cs" />

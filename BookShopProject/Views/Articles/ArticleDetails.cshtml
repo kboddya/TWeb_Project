@@ -29,7 +29,7 @@
             }
             <div>
                 <h2 class="article-title-full align-center">@Model.Title</h2>
-                <div class="meta-date">@MonthToString(Model.PublishedDate.Month) @Model.PublishedDate.Day, @Model.PublishedDate.Year</div>
+                <div class="meta-date">@MonthToString(Model.Date.Month) @Model.Date.Day, @Model.Date.Year</div>
             </div>
             <figure class="article-image">
                 <img src="@Model.Image" alt="post" class="article-image-full">

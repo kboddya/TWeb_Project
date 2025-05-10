@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "ArticleDetails";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model BookShopProject.Models.Article
+
+<section class="py-5 my-5">
+    <div class="container">
+        <div>
+            <figure class="go-back-button">
+                <a href="@Url.Action("ArticlesList")"><img src="~/Content/images/left.png" class="img-fluid"></a>
+            </figure>
+        </div>
+        <h3 class="section-title align-center">Article preview</h3>
+        <div class="align-center">
+            @{
+                string MonthToString(int month)
+                {
+                    return month switch
+                    {
+                        1 => "Jan",
+                        2 => "Feb",
+                        3 => "Mar",
+                        4 => "Apr",
+                        5 => "May",
+                        6 => "Jun",
+                        7 => "Jul",
+                        8 => "Aug",
+                        9 => "Sep",
+                        10 => "Oct",
+                        11 => "Nov",
+                        12 => "Dec",
+                        _ => ""
+                    };
+                }
+            }
+            <div>
+                <h2 class="article-title-full align-center">@Model.Title</h2>
+                <div class="meta-date">@MonthToString(Model.Date.Month) @Model.Date.Day, @Model.Date.Year</div>
+            </div>
+            <figure class="article-image">
+                <img src="@Model.Image" alt="post" class="article-image-full">
+            </figure>
+            <div>
+                <p class="article-text">
+                    @Html.Raw(@Model.Content.Replace("\n", "<br>"))
+                </p>
+            </div>
+
+        </div>
+        
+        <h3 class="section-title align-center">Update Article</h3>
+
+        @Html.ValidationSummary(true)
+        @using (Html.BeginForm("ArticleDetails", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <form class="mx-3 d-flex flex-column justify-content-between align-items-center">
+                @Html.AntiForgeryToken()
+                <div class="row align-content-center">
+                    @Html.HiddenFor(m=> m.Id)
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Title, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Title",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "Title",
+                            name = "Title"
+                        })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Image, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Image URL",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "Image",
+                            name = "Image"
+                        })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Date, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Publish Date",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "datepicker",
+                            name = "Year",
+                            type = "date"
+                        })
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(m => m.Content, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Content",
+                            style = "border-radius: 10px; height: 500px;"
+                        })
+                    </div>
+                    <div class="col-md-7"></div>
+                    <button type="submit" , class="rounded-corners col-md-2">Update article</button>
+                    <button class="col-md-2 rounded-corners delete-button">
+                        <a
+                            href="@Url.Action("DeleteArticle")?Id=@Model.Id">Delete</a></button>
+
+                </div>
+            </form>
+        }
+    </div>
+</section>

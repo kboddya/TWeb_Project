@@ -196,8 +196,11 @@
     <Content Include="Scripts\slideNav.min.js" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Admin\AddArticle.cshtml" />
     <Content Include="Views\Admin\AddBook.cshtml" />
     <Content Include="Views\Admin\AddPublisher.cshtml" />
+    <Content Include="Views\Admin\ArticleDetails.cshtml" />
+    <Content Include="Views\Admin\ArticlesList.cshtml" />
     <Content Include="Views\Admin\AuthorDetails.cshtml" />
     <Content Include="Views\Admin\AuthorList.cshtml" />
     <Content Include="Views\Admin\BookDetails.cshtml" />

@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "ArticleDetails";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model BookShopProject.Models.Article
+
+<section class="py-5 my-5">
+    <div class="container">
+        <div>
+            <figure class="go-back-button">
+                <a href="@Url.Action("ArticlesList")"><img src="~/Content/images/left.png" class="img-fluid"></a>
+            </figure>
+        </div>
+        
+        <h3 class="section-title align-center">Add Article</h3>
+
+        @Html.ValidationSummary(true)
+        @using (Html.BeginForm("AddArticle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <form class="mx-3 d-flex flex-column justify-content-between align-items-center">
+                @Html.AntiForgeryToken()
+                <div class="row align-content-center">
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Title, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Title",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "Title",
+                            name = "Title"
+                        })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Image, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Image URL",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "Image",
+                            name = "Image"
+                        })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Date, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Publish Date",
+                            style = "border-radius: 10px; height: 15px;",
+                            id = "datepicker",
+                            name = "Year",
+                            type = "date"
+                        })
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(m => m.Content, new
+                        {
+                            @class = "form-control-lg form-text-box w-100",
+                            placeholder = "Content",
+                            style = "border-radius: 10px; height: 500px;"
+                        })
+                    </div>
+                    <div class="col-md-10"></div>
+                    <button type="submit" , class="rounded-corners col-md-2">Add article</button>
+
+                </div>
+            </form>
+        }
+    </div>
+</section>

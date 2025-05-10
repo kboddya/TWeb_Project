@@ -11,7 +11,8 @@ namespace BookShopProject.Models
         public string Title { get; set; }
         public string Image { get; set; }
         public string Content { get; set; }
-        public DateTime PublishedDate { get; set; }
+        
+        public DateTime Date { get; set; } = DateTime.Now;
     }
 
     public class ArticleList

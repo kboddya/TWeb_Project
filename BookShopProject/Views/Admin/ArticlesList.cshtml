@@ -1,8 +1,10 @@
 ﻿@{
     ViewBag.Title = "ArticlesList";
-    Layout = "../Shared/_HeaderLayout.cshtml";
+    Layout = "../Shared/_AdminLayout.cshtml";
 }
+
 @model BookShopProject.Models.ArticleList
+
 <section class="py-5 my-5">
     <div class="container">
         <div class="row">
@@ -10,6 +12,12 @@
                 <div>
                     <h2 class="section-title">Articles</h2>
                 </div>
+            </div>
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+                <button class="button-for-a rounded-corners">
+                    <a href="@Url.Action("AddArticle")">New Article</a>
+                </button>
             </div>
             @{
                 string MonthToString(int month)
@@ -32,6 +40,7 @@
                     };
                 }
             }
+
             @foreach (var art in Model.Articles)
             {
                 <div class="col-md-3 article-background">
@@ -48,6 +57,7 @@
 
                 </div>
             }
+            
         </div>
     </div>
 </section>
