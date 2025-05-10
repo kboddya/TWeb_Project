@@ -11,7 +11,6 @@ using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Author;
 using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Entities.User;
-using BookShopProject.Domain.Entities.Order;
 using BookShopProject.Helpers;
 
 namespace BookShopProject.BusinessLogic.Core
@@ -228,13 +227,25 @@ namespace BookShopProject.BusinessLogic.Core
                 return true;
             }
         }
-/*
+
+        internal bool DeleteCartAction(int id)
+        {
+            using (var db = new OrderContext())
+            {
+                var cart = db.Orders.FirstOrDefault(x => x.Id == id);
+                if (cart == null) return false;
+                db.Orders.Remove(cart);
+                db.SaveChanges();
+                return true;
+            }
+        }
+
         internal decimal CountPriceAction(int userId)
         {
             var price = new decimal();
             using (var db = new OrderContext())
             {
-                var cart = db.Orders.Where(x=>x.UserId == userId && x.Status).ToList();
+                var cart = db.Orders.Where(x=>x.UserId == userId && !x.IsBought).ToList();
                 if (cart == null) return -1;
                 foreach(var item in cart)
                 {
@@ -246,8 +257,43 @@ namespace BookShopProject.BusinessLogic.Core
 
         internal bool BuyCartAction(int userId)
         {
+            using (var db = new OrderContext())
+            {
+                var cart = db.Orders.Where(x => x.UserId == userId && !x.IsBought).ToList();
+                if(cart == null) return false;
 
-        }*/
+                foreach (var item in cart)
+                {
+                    item.IsBought = true;
+                    db.Orders.AddOrUpdate(item);
+                    db.SaveChanges();
+                }
+            }
 
+            return true;
+        }
+        
+        internal OrderDbTable OrderByIdAction(int id)
+        {
+            OrderDbTable a;
+            using (var db = new OrderContext())
+            {
+                a = db.Orders.FirstOrDefault(x => x.Id == id);
+            }
+
+            return a;
+        }
+        
+        internal OrdersList OrdersListAction(int userId)
+        {
+            var a = new OrdersList();
+            using (var db = new OrderContext())
+            {
+                a.Orders = db.Orders.Where(x => x.UserId == userId && x.IsBought).ToList();
+            }
+        
+            return a;
+        }
+        
     }
 }

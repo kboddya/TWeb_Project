@@ -37,7 +37,7 @@ namespace BookShopProject.Controllers
             var ordersList = _orderAdmin.GetOrders();
 
             var config = new AutoMapper.MapperConfiguration(cfg =>
-                cfg.CreateMap<Domain.Entities.Order.OrderDbTable, Models.Order>());
+                cfg.CreateMap<Domain.Entities.Book.OrderDbTable, Models.Order>());
             var mapper = config.CreateMapper();
             var orderListModel = new Models.OrderList();
             foreach (var v in ordersList.Orders)
@@ -48,25 +48,15 @@ namespace BookShopProject.Controllers
             return View(orderListModel);
         }
 
-        public ActionResult OrderDetails(){
+        public ActionResult OrderDetails()
+        {
             var b = Request.QueryString["Id"];
             var orderFromBL = _orderAdmin.GetOrderById(int.Parse(b));
             if (orderFromBL == null) return RedirectToAction("er404", "Errors");
             var config = new AutoMapper.MapperConfiguration(cfg =>
-                cfg.CreateMap<Domain.Entities.Order.OrderDbTable, Models.Order>());
+                cfg.CreateMap<Domain.Entities.Book.OrderDbTable, Models.Order>());
             var mapper = config.CreateMapper();
             var order = mapper.Map<Models.Order>(orderFromBL);
-
-            return View(order);
-        }
-
-        [HttpPost]
-        public ActionResult OrderDetails(Order order)
-        {
-            var orderDbTable = _orderAdmin.GetOrderById(order.Id);
-
-            orderDbTable.UserId = order.UserId;
-            orderDbTable.TotalPrice = order.TotalPrice;
 
             return View(order);
         }
@@ -86,7 +76,7 @@ namespace BookShopProject.Controllers
 
             return View(authorListModel);
         }
-        
+
         public ActionResult AuthorDetails()
         {
             var b = Request.QueryString["Id"];
@@ -103,7 +93,6 @@ namespace BookShopProject.Controllers
             }
 
             var config = new AutoMapper.MapperConfiguration(cfg =>
-    
                 cfg.CreateMap<Domain.Entities.Author.AuthorDbTable, Models.Author>());
             var mapper = config.CreateMapper();
             var author = mapper.Map<Models.Author>(authorFromBL);
@@ -182,8 +171,8 @@ namespace BookShopProject.Controllers
         public ActionResult BookDetails(Book book)
         {
             var config =
-                new AutoMapper.MapperConfiguration(
-                    cfg => cfg.CreateMap<Models.Book, Domain.Entities.Book.BookDbTable>());
+                new AutoMapper.MapperConfiguration(cfg =>
+                    cfg.CreateMap<Models.Book, Domain.Entities.Book.BookDbTable>());
             var mapper = config.CreateMapper();
             var bookDbTable = mapper.Map<Domain.Entities.Book.BookDbTable>(book);
             var result = _bookAdmin.UpdateBook(bookDbTable);
@@ -208,7 +197,7 @@ namespace BookShopProject.Controllers
                 ? RedirectToAction("BookList")
                 : RedirectToAction("BookDetails", new { ISBN = bookFromBL.Books[0].ISBN });
         }
-        
+
         public ActionResult AddBook()
         {
             SessionStatus();
@@ -222,7 +211,7 @@ namespace BookShopProject.Controllers
 
             return View(b);
         }
-        
+
         [HttpPost]
         public ActionResult AddBook(Book b)
         {
@@ -239,20 +228,20 @@ namespace BookShopProject.Controllers
             var result = _bookAdmin.CreateBook(bookDbTable);
             return RedirectToAction("BookList");
         }
-        
+
         public ActionResult PublishersList()
         {
             SessionStatus();
             var userMin = System.Web.HttpContext.Current.GetMySessionObject();
             if (userMin != null && userMin.Role != URole.admin) return RedirectToAction("Index", "Home");
             else if (userMin == null) return RedirectToAction("Login", "Auth");
-            
+
             var publishersList = _publisherAdmin.GetPublishers();
-            
+
             var config = new AutoMapper.MapperConfiguration(cfg =>
                 cfg.CreateMap<Domain.Entities.Publisher.PublisherDbTable, Models.Publisher>());
             var mapper = config.CreateMapper();
-            
+
             var publisherListModel = new Models.PublishersList();
             foreach (var v in publishersList.Publishers)
             {
@@ -261,31 +250,31 @@ namespace BookShopProject.Controllers
 
             return View(publisherListModel);
         }
-        
+
         public ActionResult PublisherDetails()
         {
             var b = Request.QueryString["Id"];
-            
+
             SessionStatus();
             var userMin = System.Web.HttpContext.Current.GetMySessionObject();
             if (userMin != null && userMin.Role != URole.admin) return RedirectToAction("Index", "Home");
             else if (userMin == null) return RedirectToAction("Login", "Auth");
-            
+
             var publisherFromBL = _publisherAdmin.GetPublisherById(int.Parse(b));
-            
+
             if (publisherFromBL == null)
             {
                 return RedirectToAction("er404", "Errors");
             }
-            
+
             var config = new AutoMapper.MapperConfiguration(cfg =>
                 cfg.CreateMap<Domain.Entities.Publisher.PublisherDbTable, Models.Publisher>());
             var mapper = config.CreateMapper();
             var publisher = mapper.Map<Models.Publisher>(publisherFromBL);
-            
+
             return View(publisher);
         }
-        
+
         [HttpPost]
         public ActionResult PublisherDetails(Publisher publisher)
         {
@@ -295,8 +284,8 @@ namespace BookShopProject.Controllers
             else if (userMin == null) return RedirectToAction("Login", "Auth");
 
             var config =
-                new AutoMapper.MapperConfiguration(
-                    cfg => cfg.CreateMap<Models.Publisher, Domain.Entities.Publisher.PublisherDbTable>());
+                new AutoMapper.MapperConfiguration(cfg =>
+                    cfg.CreateMap<Models.Publisher, Domain.Entities.Publisher.PublisherDbTable>());
             var mapper = config.CreateMapper();
             var publisherDbTable = mapper.Map<Domain.Entities.Publisher.PublisherDbTable>(publisher);
 
@@ -311,7 +300,7 @@ namespace BookShopProject.Controllers
 
             return View(publisher);
         }
-        
+
         public ActionResult DeletePublisher()
         {
             SessionStatus();
@@ -337,12 +326,12 @@ namespace BookShopProject.Controllers
             var userMin = System.Web.HttpContext.Current.GetMySessionObject();
             if (userMin != null && userMin.Role != URole.admin) return RedirectToAction("Index", "Home");
             else if (userMin == null) return RedirectToAction("Login", "Auth");
-            
+
             var publisher = new Publisher();
 
             return View(publisher);
         }
- 
+
         [HttpPost]
         public ActionResult AddPublisher(Publisher publisher)
         {
@@ -352,11 +341,12 @@ namespace BookShopProject.Controllers
             else if (userMin == null) return RedirectToAction("Login", "Auth");
 
             var config =
-                new AutoMapper.MapperConfiguration(
-                    cfg => cfg.CreateMap<Models.Publisher, Domain.Entities.Publisher.PublisherDbTable>());
+                new AutoMapper.MapperConfiguration(cfg =>
+                    cfg.CreateMap<Models.Publisher, Domain.Entities.Publisher.PublisherDbTable>());
             var mapper = config.CreateMapper();
 
             var publisherDbTable = mapper.Map<Domain.Entities.Publisher.PublisherDbTable>(publisher);
+
             _publisherAdmin.CreatePublisher(publisherDbTable);
             return RedirectToAction("PublishersList");
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace BookShopProject.Domain.Entities.Order
+namespace BookShopProject.Domain.Entities.Book
 {
     public class OrderDbTable
     {
@@ -27,7 +27,7 @@ namespace BookShopProject.Domain.Entities.Order
         public bool IsBought { get; set; }
 
         [Required]
-        public decimal TotalPrice { get; set; }
+        public decimal Price { get; set; }
     }
 
     public class OrdersList

@@ -1,5 +1,5 @@
 ﻿using System;
-using BookShopProject.Domain.Entities.Order;
+using BookShopProject.Domain.Entities.Book;
 
 namespace BookShopProject.BusinessLogic.Interfaces
 {

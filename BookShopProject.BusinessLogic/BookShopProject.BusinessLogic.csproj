@@ -57,6 +57,7 @@
     <Compile Include="BL\AuthorUserBL.cs" />
     <Compile Include="BL\BookAdminBL.cs" />
     <Compile Include="BL\BookUserBL.cs" />
+    <Compile Include="BL\OrderUserBL.cs" />
     <Compile Include="BL\PublisherAdminBL.cs" />
     <Compile Include="BL\PublisherPublisherBL.cs" />
     <Compile Include="BL\PublisherUserBL.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="DBModel\SessionContext.cs" />
     <Compile Include="Interfaces\IBookAdmin.cs" />
     <Compile Include="Interfaces\IBookUser.cs" />
+    <Compile Include="Interfaces\IOrderUser.cs" />
     <Compile Include="Interfaces\IPublisherAdmin.cs" />
     <Compile Include="Interfaces\IPublisherPublisher.cs" />
     <Compile Include="Interfaces\IPublisherUser.cs" />

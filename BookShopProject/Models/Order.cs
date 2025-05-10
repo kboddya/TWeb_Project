@@ -3,8 +3,13 @@ using System.Collections.Generic;
 
 namespace BookShopProject.Models
 {
-    public class Order
+    public class Order: UserMinimal
     {
+        public Order(){}
+        
+        public Order(Domain.Entities.User.UserMinimal u): base(u)
+        {
+        }
         public int Id { get; set; }
         public int UserId { get; set; }
         public DateTime CreateTime { get; set; }
@@ -13,8 +18,13 @@ namespace BookShopProject.Models
         public List<Book> Books { get; set; }
     }
 
-    public class OrderList
+    public class OrderList: UserMinimal
     {
+        public OrderList(){}
+        
+        public OrderList(Domain.Entities.User.UserMinimal u): base(u)
+        {
+        }
         public List<Order> Orders { get; set; } = new List<Order>();
     }
 

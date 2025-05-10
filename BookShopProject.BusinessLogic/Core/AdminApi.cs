@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using BookShopProject.Domain.Entities.Order;
 using System.Text;
 using System.Threading.Tasks;
 using BookShopProject.Domain.Entities.Book;
