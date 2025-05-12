@@ -4,6 +4,6 @@
     {
         user = 0,
         admin = 1,
-        publisher = 2,
+        publisher = 2
     }
 }

@@ -58,5 +58,10 @@ namespace BookShopProject.BusinessLogic
         {
             return new ArticleAdminBL();
         }
+
+        public IUserPanel GetUserPanelBL() 
+        {
+            return new UserPanelBL();
+        }
     }
 }

@@ -89,7 +89,7 @@ namespace BookShopProject.BusinessLogic.Core
                 result.StatusKey = "Name";
                 return result;
             }
-            
+
             UDbTable user;
 
             using (var db = new UserContext())
@@ -104,7 +104,7 @@ namespace BookShopProject.BusinessLogic.Core
                 result.StatusKey = "Name";
                 return result;
             }
-            
+
             if (user.Password != LoginHelper.HashGen(data.Password))
             {
                 result.Status = false;
@@ -112,7 +112,7 @@ namespace BookShopProject.BusinessLogic.Core
                 result.StatusKey = "Name";
                 return result;
             }
-            
+
             user.LastLoginTime = DateTime.Now;
             user.LastIp = data.LastIp;
 
@@ -121,7 +121,7 @@ namespace BookShopProject.BusinessLogic.Core
                 db.Users.AddOrUpdate(user);
                 db.SaveChanges();
             }
-            
+
             result.Status = true;
             result.StatusMsg = "User logged in successfully";
             result.StatusKey = "Name";

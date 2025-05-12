@@ -40,6 +40,11 @@ namespace BookShopProject.Controllers
             return View(data);
         }
 
-        
+        public ActionResult AccessDenied()
+        {
+            return View();
+        }
+
+
     }
 }
