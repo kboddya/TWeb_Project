@@ -15,7 +15,7 @@ namespace BookShopProject.Models
         public DateTime CreateTime { get; set; }
         public DateTime LastUpdateTime { get; set; }
         public decimal TotalPrice { get; set; }
-        public List<Book> Books { get; set; }
+        public Book Book { get; set; }
     }
 
     public class OrderList: UserMinimal

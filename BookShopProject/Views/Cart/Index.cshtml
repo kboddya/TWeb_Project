@@ -7,16 +7,13 @@
 <section class="d-flex justify-content-center align-items-center min-vh-100 py-5">
     <div class="card p-5" style="width: 100%; max-width: 1200px; background-color: #f8f9fa; border-radius: 15px;">
         <div class="mx-3">
-            <!-- Shopping Cart Title -->
-            <h3 class="text-center mb-5">My Orders</h3>
+            <h3 class="text-center mb-5">My cart</h3>
 
-            <!-- Orders Table -->
-            @if (Model != null && Model.Orders != null && Model.Orders.Any())
+            @if (Model.Orders.Count!=0)
             {
                 foreach (var order in Model.Orders)
                 {
                     <div class="mb-5">
-                        <div class="mb-2"><strong>Order #@order.Id</strong> (Created: @order.CreateTime.ToShortDateString(), Last Update: @order.LastUpdateTime.ToShortDateString())</div>
                         <div class="table-responsive mb-3">
                             <table class="table align-middle">
                                 <thead>
@@ -27,20 +24,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(order.Books != null && order.Books.Any())
+                                    @if(order.Book != null)
                                     {
-                                        foreach(var book in order.Books)
-                                        {
+                                        
                                             <tr class="border-bottom">
-                                                <td class="py-3">@book.Title</td>
+                                                <td class="py-3">@order.Book.Title</td>
                                                 <td class="py-3">
-                                                    @(book.Publisher ?? "Unknown")
+                                                    @(order.Book.AuthorFirstName + " " + order.Book.AuthorLastName)
                                                 </td>
                                                 <td class="py-3">
-                                                    @(book.Price != null ? book.Price.ToString("C") : "N/A")
+                                                    @(order.Book.Price)
                                                 </td>
                                             </tr>
-                                        }
                                     }
                                     else
                                     {

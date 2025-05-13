@@ -289,11 +289,13 @@ namespace BookShopProject.BusinessLogic.Core
             var a = new OrdersList();
             using (var db = new OrderContext())
             {
-                a.Orders = db.Orders.Where(x => x.UserId == userId && x.IsBought).ToList();
+                a.Orders = db.Orders.Where(x => x.UserId == userId && !x.IsBought).ToList();
             }
         
             return a;
         }
+        
+        // TODO: Static logic and if available (another UsingDb, Book context, return new type) 
         
     }
 }
