@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using BookShopProject.Models;
 using BookShopProject.BusinessLogic;
@@ -79,6 +80,45 @@ namespace BookShopProject.Controllers
                 ? RedirectToAction("BookInfo", "Book", new { ISBN = b })
                 : RedirectToAction("er404", "Errors");
         }
+
+        public ActionResult BuyCart()
+        {
+            SessionStatus();
+            var user = System.Web.HttpContext.Current.GetMySessionObject();
+            if (user == null) return RedirectToAction("Login", "Auth");
+            
+            var cart = _orderUser.GetOrders(user.Id);
+        
+            if (cart.Orders.Count == 0)
+            {
+                return RedirectToAction("Index", "Cart");
+            }
+
+            return _orderUser.BuyCart(user.Id) 
+                ? RedirectToAction("Index", "Cart")
+                : RedirectToAction("er404", "Errors");
+        }
+
+        
+        public ActionResult DeleteCart()
+        {
+            SessionStatus();
+            var user = System.Web.HttpContext.Current.GetMySessionObject();
+            if (user == null) return RedirectToAction("Login", "Auth");
+            var b = Request.QueryString["Id"];
+            if (b == null) return RedirectToAction("er404", "Errors");
+
+            var order = new OrderDbTable()
+            {
+                Id = int.Parse(b),
+                UserId = user.Id
+            };
+            
+            return _orderUser.DeleteCart(order)
+                ? RedirectToAction("Index")
+                : RedirectToAction("er404", "Errors");
+        }
+        
 
         public ActionResult OrderDetails()
         {

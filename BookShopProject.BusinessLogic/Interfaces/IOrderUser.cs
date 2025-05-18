@@ -8,7 +8,7 @@ namespace BookShopProject.BusinessLogic.Interfaces
         OrdersList GetOrders(int userId);
         OrderDbTable GetOrderById(int id);
         bool AddCart(OrderDbTable cart);
-        bool DeleteCart(int id);
+        bool DeleteCart(OrderDbTable order);
         decimal CountPrice(int userId);
         bool BuyCart(int userId);
 

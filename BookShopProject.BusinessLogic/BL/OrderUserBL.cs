@@ -22,9 +22,9 @@ namespace BookShopProject.BusinessLogic
             return AddCartAction(cart);
         }
 
-        public bool DeleteCart(int id)
+        public bool DeleteCart(OrderDbTable order)
         {
-            return DeleteCartAction(id);
+            return DeleteCartAction(order);
         }
 
         public decimal CountPrice(int userId)

@@ -26,6 +26,34 @@ namespace BookShopProject.BusinessLogic.Core
 
             return a;
         }
+        
+        internal OrdersList OrdersListAction(int userId)
+        {
+            var a = new OrdersList();
+            using (var db = new OrderContext())
+            {
+                a.Orders = db.Orders.Where(x => x.UserId == userId && !x.IsBought).ToList();
+            }
+
+            using (var db = new BookContext())
+            {
+                foreach (var or in a.Orders)
+                {
+                    var b = db.Books.FirstOrDefault(x=>x.ISBN==or.ISBN);
+                    if (b == null || b.CountOfOrders >= b.Count)
+                    {
+                        using (var odb = new OrderContext())
+                        {
+                            odb.Orders.Remove(or);
+                            odb.SaveChanges();
+                        }
+                        a.Orders.Remove(or);
+                    }
+                }
+            }
+
+            return a;
+        }
 
         internal bool IsAdmin(URole role)
         {

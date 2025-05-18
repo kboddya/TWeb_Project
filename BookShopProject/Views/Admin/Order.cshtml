@@ -4,19 +4,13 @@
 
 @model BookShopProject.Models.OrderList
 
+
 <div class="admin-orders-container">
     <div class="admin-orders-header">
         <div class="admin-orders-header-actions">
             <div class="admin-orders-search-container">
                 <input type="text" placeholder="Search orders..." class="admin-orders-search-input">
             </div>
-            <select class="admin-orders-status-filter">
-                <option>All Statuses</option>
-                <option>Processing</option>
-                <option>Shipped</option>
-                <option>Delivered</option>
-                <option>Cancelled</option>
-            </select>
         </div>
     </div>
 
@@ -35,12 +29,10 @@
                 @foreach (var order in Model.Orders)
                 {
                     <tr>
+                        <td>@order.Id</td>
                         <td>@order.UserId</td>
                         <td>@order.TotalPrice</td>
                         <td>@order.CreateTime</td>
-                        <td>
-                            <a href="@Url.Action("OrderDetails", "Admin", new { id = order.Id })">Details</a>
-                        </td>
                     </tr>
                 }
             </tbody>
@@ -48,4 +40,3 @@
     </div>
 </div>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

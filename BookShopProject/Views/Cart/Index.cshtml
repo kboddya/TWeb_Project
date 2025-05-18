@@ -2,6 +2,7 @@
     ViewBag.Title = "Index";
     Layout = "/Views/Shared/_LoginLayout.cshtml";
 }
+@using BookShopProject.Models
 @model BookShopProject.Models.OrderList
 
 <section class="d-flex justify-content-center align-items-center min-vh-100 py-5">
@@ -9,49 +10,61 @@
         <div class="mx-3">
             <h3 class="text-center mb-5">My cart</h3>
 
-            @if (Model.Orders.Count!=0)
+            @if (Model.Orders.Count != 0)
             {
-                foreach (var order in Model.Orders)
-                {
-                    <div class="mb-5">
-                        <div class="table-responsive mb-3">
-                            <table class="table align-middle">
-                                <thead>
-                                    <tr class="border-bottom">
-                                        <th>Book</th>
-                                        <th>Author</th>
-                                        <th>Price</th>
+                var TotalPrice = new decimal(0);
+                <div class="table-responsive mb-3">
+                    <table class="table align-middle shadow-sm rounded-table">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Book</th>
+                                <th>Author</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in Model.Orders)
+                            {
+                                if (order.Book != null)
+                                {
+                                    <tr>
+                                        <td class="py-3">@order.Book.Title</td>
+                                        <td class="py-3">
+                                            @(order.Book.AuthorFirstName + " " + order.Book.AuthorLastName)
+                                        </td>
+                                        <td class="py-3">
+                                            @(order.Book.Price)
+                                        </td>
+                                        <td class="py-3">
+                                            <a class="rounded-corners btn btn-danger"
+                                               href="@Url.Action("DeleteCart", "Cart")?Id=@order.Id">
+                                                Remove from cart
+                                            </a>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    @if(order.Book != null)
-                                    {
-                                        
-                                            <tr class="border-bottom">
-                                                <td class="py-3">@order.Book.Title</td>
-                                                <td class="py-3">
-                                                    @(order.Book.AuthorFirstName + " " + order.Book.AuthorLastName)
-                                                </td>
-                                                <td class="py-3">
-                                                    @(order.Book.Price)
-                                                </td>
-                                            </tr>
-                                    }
-                                    else
-                                    {
-                                        <tr>
-                                            <td colspan="3" class="text-center">No books in this order.</td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="d-flex justify-content-end mb-4">
-                            <span style="font-size:16px;"><strong>Order Total:</strong> @order.TotalPrice.ToString("C")</span>
-                        </div>
-                        <hr />
-                    </div>
-                }
+                                        TotalPrice += order.Book.Price;
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="4" class="text-center">No books in this order.</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <hr /> 
+                <div class="d-flex justify-content-end mt-4">
+                    @using (Html.BeginForm("BuyCart", "Cart", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-success btn-lg">
+                            Purchase Now (@TotalPrice.ToString("C"))
+                        </button>
+                    }
+                </div>
             }
             else
             {
@@ -73,14 +86,38 @@
         border-color: #0d6efd;
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     }
+
     .btn, .form-control, .form-check-input {
         transition: all 0.3s ease;
     }
+
     .btn-primary:hover {
         opacity: 0.9;
         transform: translateY(-1px);
     }
+
     .table tbody tr {
         background-color: white;
+    }
+    /* Rounded table edges */
+    .rounded-table {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .rounded-table thead tr:first-child th:first-child {
+        border-top-left-radius: 15px;
+    }
+
+    .rounded-table thead tr:first-child th:last-child {
+        border-top-right-radius: 15px;
+    }
+
+    .rounded-table tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 15px;
+    }
+
+    .rounded-table tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 15px;
     }
 </style>
