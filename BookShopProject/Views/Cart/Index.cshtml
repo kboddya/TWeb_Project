@@ -2,150 +2,77 @@
     ViewBag.Title = "Index";
     Layout = "/Views/Shared/_LoginLayout.cshtml";
 }
-@model BookShopProject.Models.CartItem
+@using BookShopProject.Models
+@model BookShopProject.Models.OrderList
 
 <section class="d-flex justify-content-center align-items-center min-vh-100 py-5">
     <div class="card p-5" style="width: 100%; max-width: 1200px; background-color: #f8f9fa; border-radius: 15px;">
         <div class="mx-3">
-            <!-- Shopping Cart Title -->
-            <h3 class="text-center mb-5">Shopping Cart</h3>
+            <h3 class="text-center mb-5">My cart</h3>
 
-            <!-- Cart Items Table -->
-            <div class="table-responsive mb-5">
-                <div class="card p-4 mb-4" style="border-radius: 15px;">
-                    <table class="table align-middle">
-                        <thead>
-                            <tr class="border-bottom">
-                                <th scope="col" class="pb-3" style="font-size: 1.1rem; font-weight: 500;">Product</th>
-                                <th scope="col" class="pb-3" style="font-size: 1.1rem; font-weight: 500;">Format</th>
-                                <th scope="col" class="pb-3" style="font-size: 1.1rem; font-weight: 500;">Quantity</th>
-                                <th scope="col" class="pb-3" style="font-size: 1.1rem; font-weight: 500;">Price</th>
+            @if (Model.Orders.Count != 0)
+            {
+                var TotalPrice = new decimal(0);
+                <div class="table-responsive mb-3">
+                    <table class="table align-middle shadow-sm rounded-table">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Book</th>
+                                <th>Author</th>
+                                <th>Price</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Item 1 -->
-                            <tr class="border-bottom">
-                                <td class="py-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="https://i.imgur.com/2DsA49b.webp"
-                                             class="img-fluid rounded-3"
-                                             style="width: 100px; border-radius: 10px !important;"
-                                             alt="Book">
-                                        <div class="ms-4">
-                                            <p class="mb-1" style="font-size: 15px; font-weight: 500;">Thinking, Fast and Slow</p>
-                                            <p class="text-muted mb-0" style="font-size: 14px;">Daniel Kahneman</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="py-4">
-                                    <p class="mb-0" style="font-size: 15px; font-weight: 400;">Digital</p>
-                                </td>
-                                <td class="py-4">
-                                    <div class="d-flex align-items-center">
-                                        <input type="number"
-                                               class="form-control mx-2 text-center"
-                                               value="2"
-                                               style="width: 60px; border-radius: 10px;">
-                                    </div>
-                                </td>
-                                <td class="py-4">
-                                    <p class="mb-0" style="font-size: 15px; font-weight: 500;">$9.99</p>
-                                </td>
-                            </tr>
-
-                            <!-- Item 2 -->
-                            <tr>
-                                <td class="py-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="https://i.imgur.com/Oj1iQUX.webp"
-                                             class="img-fluid rounded-3"
-                                             style="width: 100px; border-radius: 10px !important;"
-                                             alt="Book">
-                                        <div class="ms-4">
-                                            <p class="mb-1" style="font-size: 15px; font-weight: 500;">Homo Deus: A Brief History of Tomorrow</p>
-                                            <p class="text-muted mb-0" style="font-size: 14px;">Yuval Noah Harari</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="py-4">
-                                    <p class="mb-0" style="font-size: 15px; font-weight: 400;">Paperback</p>
-                                </td>
-                                <td class="py-4">
-                                    <div class="d-flex align-items-center">
-                                        <input type="number"
-                                               class="form-control mx-2 text-center"
-                                               value="1"
-                                               style="width: 60px; border-radius: 10px;">
-                                    </div>
-                                </td>
-                                <td class="py-4">
-                                    <p class="mb-0" style="font-size: 15px; font-weight: 500;">$13.50</p>
-                                </td>
-                            </tr>
+                            @foreach (var order in Model.Orders)
+                            {
+                                if (order.Book != null)
+                                {
+                                    <tr>
+                                        <td class="py-3">@order.Book.Title</td>
+                                        <td class="py-3">
+                                            @(order.Book.AuthorFirstName + " " + order.Book.AuthorLastName)
+                                        </td>
+                                        <td class="py-3">
+                                            @(order.Book.Price)
+                                        </td>
+                                        <td class="py-3">
+                                            <a class="rounded-corners btn btn-danger"
+                                               href="@Url.Action("DeleteCart", "Cart")?Id=@order.Id">
+                                                Remove from cart
+                                            </a>
+                                        </td>
+                                    </tr>
+                                        TotalPrice += order.Book.Price;
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="4" class="text-center">No books in this order.</td>
+                                    </tr>
+                                }
+                            }
                         </tbody>
                     </table>
                 </div>
-            </div>
-
-            <!-- Payment Section -->
-            <div class="card p-4 mb-4" style="border-radius: 15px;">
-                <div class="row g-4">
-                    <!-- Payment Methods -->
-                    <div class="col-md-6 col-lg-4">
-                        <h5 class="pb-3" style="font-size: 1.1rem; font-weight: 500;">Payment Method</h5>
-                        <div class="d-flex flex-column gap-3">
-                            <div class="form-check d-flex align-items-center p-3 rounded"
-                                 style="border: 1px solid #dee2e6; border-radius: 10px;">
-                                <input class="form-check-input me-3" type="radio" name="paymentMethod" checked>
-                                <i class="fab fa-cc-mastercard fa-xl text-body me-3"></i>
-                                <span style="font-size: 15px;">Credit Card</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Details -->
-                    <div class="col-md-6 col-lg-4">
-                        <h5 class="pb-3" style="font-size: 1.1rem; font-weight: 500;">Card Details</h5>
-                        <div class="d-flex flex-column gap-3">
-                            <input type="text"
-                                   class="form-control form-control-lg"
-                                   placeholder="Name on Card"
-                                   style="border-radius: 10px; font-size: 15px;">
-                            <!-- Add other card details fields similarly -->
-                        </div>
-                    </div>
-
-                    <!-- Order Summary -->
-                    <div class="col-lg-4">
-                        <div class="bg-white p-4 rounded" style="border-radius: 15px;">
-                            <h5 class="pb-3" style="font-size: 1.1rem; font-weight: 500;">Order Summary</h5>
-                            <div class="d-flex justify-content-between mb-3">
-                                <span style="font-size: 15px;">Subtotal:</span>
-                                <span style="font-size: 15px; font-weight: 500;">$23.49</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-4">
-                                <span style="font-size: 15px;">Shipping:</span>
-                                <span style="font-size: 15px; font-weight: 500;">$2.99</span>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between mb-4">
-                                <span style="font-size: 16px; font-weight: 500;">Total:</span>
-                                <span style="font-size: 16px; font-weight: 500;">$26.48</span>
-                            </div>
-                            <button class="btn btn-primary w-100 py-3"
-                                    style="border-radius: 25px; font-size: 16px;">
-                                Checkout
-                            </button>
-                        </div>
-                    </div>
+                <hr /> 
+                <div class="d-flex justify-content-end mt-4">
+                    @using (Html.BeginForm("BuyCart", "Cart", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-success btn-lg">
+                            Purchase Now (@TotalPrice.ToString("C"))
+                        </button>
+                    }
                 </div>
-            </div>
-
-            <!-- Back Link -->
+            }
+            else
+            {
+                <div class="alert alert-info text-center mb-0">No orders found.</div>
+            }
             <p class="text-center mt-4 mb-0">
                 <small>
-                    <a href="@Url.Action("Index", "Home")"
-                       class="text-decoration-none link-danger">
+                    <a href="@Url.Action("Index", "Home")" class="text-decoration-none link-danger">
                         ← Continue Shopping
                     </a>
                 </small>
@@ -171,5 +98,26 @@
 
     .table tbody tr {
         background-color: white;
+    }
+    /* Rounded table edges */
+    .rounded-table {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .rounded-table thead tr:first-child th:first-child {
+        border-top-left-radius: 15px;
+    }
+
+    .rounded-table thead tr:first-child th:last-child {
+        border-top-right-radius: 15px;
+    }
+
+    .rounded-table tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 15px;
+    }
+
+    .rounded-table tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 15px;
     }
 </style>

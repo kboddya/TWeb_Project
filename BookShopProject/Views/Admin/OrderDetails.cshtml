@@ -1,0 +1,205 @@
+﻿@{
+    Layout = "../Shared/_AdminLayout.cshtml";
+}
+
+<div class="admin-orders-container">
+    <div class="admin-orders-header">
+        <h1 class="admin-orders-title">Order #12345 Details</h1>
+        <div class="admin-orders-status-container">
+            <span class="admin-orders-status admin-orders-status--processing">Processing</span>
+        </div>
+    </div>
+
+    <div class="admin-orders-details-container">
+        <div class="admin-orders-details-section">
+            <h3 class="admin-orders-section-title">Customer Information</h3>
+            <div class="admin-orders-details-grid">
+                <div class="admin-orders-detail-item">
+                    <span class="admin-orders-detail-label">Name:</span>
+                    <span class="admin-orders-detail-value">John Doe</span>
+                </div>
+                <div class="admin-orders-detail-item">
+                    <span class="admin-orders-detail-label">Email:</span>
+                    <span class="admin-orders-detail-value">john.doe@example.com</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-orders-details-section">
+            <h3 class="admin-orders-section-title">Order Items</h3>
+            <table class="admin-orders-table">
+                <thead>
+                    <tr>
+                        <th style="padding-left: 20px;">Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding-left: 20px;">
+                            <div class="admin-orders-product-item">
+                                <img src="~/Images/book-cover.jpg" class="admin-orders-product-image">
+                                <div class="admin-orders-product-info">
+                                    <div class="admin-orders-product-title">The Great Novel</div>
+                                    <div class="admin-orders-product-author">by Author Name</div>
+                                    <div class="admin-orders-product-isbn">ISBN: 123-4567890123</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>$29.99</td>
+                        <td>1</td>
+                        <td>$29.99</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="admin-orders-summary-section">
+            <div class="admin-orders-summary-row">
+                <span class="admin-orders-summary-label">Subtotal:</span>
+                <span class="admin-orders-summary-value">$29.99</span>
+            </div>
+            <div class="admin-orders-summary-row">
+                <span class="admin-orders-summary-label">Shipping:</span>
+                <span class="admin-orders-summary-value">$5.00</span>
+            </div>
+            <div class="admin-orders-summary-row admin-orders-summary-total">
+                <span class="admin-orders-summary-label">Total:</span>
+                <span class="admin-orders-summary-value">$34.99</span>
+            </div>
+        </div>
+
+        <div class="admin-orders-update-section">
+            <h3 class="admin-orders-section-title">Update Status</h3>
+            <div class="admin-orders-status-controls">
+                <select class="admin-orders-status-select">
+                    <option>Processing</option>
+                    <option>Shipped</option>
+                    <option>Delivered</option>
+                    <option>Cancelled</option>
+                </select>
+                <button class="admin-orders-action-btn admin-orders-action-btn--primary">
+                    Update Status
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Additional Styles for Order Details */
+    .admin-orders-details-container {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .admin-orders-section-title {
+        color: #64748b;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .admin-orders-details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .admin-orders-detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem;
+        background: #f8fafc;
+        border-radius: 8px;
+    }
+
+    .admin-orders-detail-label {
+        color: #64748b;
+        font-weight: 500;
+    }
+
+    .admin-orders-detail-value {
+        color: #475569;
+        font-weight: 600;
+    }
+
+    .admin-orders-product-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .admin-orders-product-image {
+        width: 60px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+    .admin-orders-product-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+
+    .admin-orders-product-author {
+        color: #64748b;
+        font-size: 0.9rem;
+    }
+
+    .admin-orders-product-isbn {
+        color: #94a3b8;
+        font-size: 0.85rem;
+    }
+
+    .admin-orders-summary-section {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid #f1f5f9;
+        max-width: 300px;
+        margin-left: auto;
+    }
+
+    .admin-orders-summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    .admin-orders-summary-total {
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding-top: 1rem;
+        border-top: 1px solid #f1f5f9;
+    }
+
+    .admin-orders-status-controls {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .admin-orders-status-select {
+        padding: 0.8rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        width: 200px;
+    }
+
+    .admin-orders-action-btn--primary {
+        background: #3b82f6;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+    }
+
+        .admin-orders-action-btn--primary:hover {
+            background: #2563eb;
+        }
+</style>

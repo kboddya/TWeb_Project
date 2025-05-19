@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BookShopProject.BusinessLogic.Interfaces;
+using BookShopProject.Domain.Entities.Book;
 
 namespace BookShopProject.BusinessLogic
 {
@@ -12,6 +13,16 @@ namespace BookShopProject.BusinessLogic
         public ISession GetSessionBL()
         {
             return new SessionBL();
+        }
+
+        public IOrderAdmin GetOrderAdminBL()
+        {
+            return new OrderAdminBL();
+        }
+
+        public IOrderUser GetOrderUserBL()
+        {
+            return new OrderUserBL();
         }
         
         public IAuthorUser GetAuthorUserBL()

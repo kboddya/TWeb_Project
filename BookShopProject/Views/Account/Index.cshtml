@@ -3,123 +3,80 @@
     Layout = "/Views/Shared/_LoginLayout.cshtml";
 }
 @model BookShopProject.Models.UserMinimal
+
 <div class="d-flex justify-content-center align-items-center min-vh-100 py-5">
     <div class="card p-5" style="width: 100%; max-width: 1200px; background-color: #f8f9fa; border-radius: 15px;">
         <div class="row g-5">
-            <!-- Sidebar Navigation -->
-            <div class="col-md-3">
-                <div class="d-flex flex-column gap-3">
-                    <div class="p-3 rounded" style="background-color: white; border-radius: 10px !important;">
-                        <h5 class="mb-4" style="font-size: 16px; font-weight: 500;">Navigation</h5>
-                        <div class="d-flex flex-column gap-2">
-                            <a href="#" class="text-decoration-none text-body active-account-tab">Home</a>
-                            <a href="#" class="text-decoration-none text-body">Cart (2)</a>
-                            <a href="#" class="text-decoration-none text-body">Liked (3)</a>
-                            <a href="#" class="text-decoration-none text-body">Purchases</a>
-                            <a href="#" class="text-decoration-none text-body">Support</a>
-                            <a href="#" class="text-decoration-none text-body">Settings</a>
-                        </div>
-                    </div>
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h4 class="mb-0">Account Information</h4>
+                    <!-- Sign Out Button right of Account Info -->
                     <form action="@Url.Action("Index", "Account")" method="post" style="margin: 0;">
-                        <input type="hidden" name="idOfAction" value="1" />
-                        <button type="submit" value="1" class="btn btn-danger w-100 py-2" style="border-radius: 25px;">
+                        <input type="hidden" name="idOfAction" value="1"/>
+                        <button type="submit" value="1" class="btn btn-danger px-4 py-2 ms-4"
+                                style="border-radius: 25px;">
                             Sign Out
                         </button>
                     </form>
                 </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="col-md-9">
-                <!-- Account Info Section -->
-                <div class="card p-4 mb-4" style="border-radius: 15px;">
-                    <h4 class="mb-4">Account Information</h4>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label style="font-size: 14px; color: #6c757d;">Name</label>
-                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">@Model.Name</p>
-                            </div>
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-size: 14px; color: #6c757d;">Name</label>
+                            <p class="mb-0" style="font-size: 15px; font-weight: 500;">@Model.Name</p>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label style="font-size: 14px; color: #6c757d;">Email</label>
-                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">@Model.Email</p>
-                            </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-size: 14px; color: #6c757d;">Email</label>
+                            <p class="mb-0" style="font-size: 15px; font-weight: 500;">@Model.Email</p>
                         </div>
-                        @* <div class="col-md-6"> *@
-                        @*     <div class="form-group"> *@
-                        @*         <label style="font-size: 14px; color: #6c757d;">Phone</label> *@
-                        @*         <p class="mb-0" style="font-size: 15px; font-weight: 500;">00923468974656</p> *@
-                        @*     </div> *@
-                        @* </div> *@
-                        @* <div class="col-md-6"> *@
-                        @*     <div class="form-group"> *@
-                        @*         <label style="font-size: 14px; color: #6c757d;">Address</label> *@
-                        @*         <p class="mb-0" style="font-size: 15px; font-weight: 500;">street no4, xyz</p> *@
-                        @*     </div> *@
-                        @* </div> *@
                     </div>
                 </div>
 
-                <!-- Cart Section -->
-                <div class="card p-4 mb-4" style="border-radius: 15px;">
-                    <h4 class="mb-4">Cart Items (2)</h4>
-                    <div class="d-flex flex-column gap-3">
-                        <!-- Cart Item -->
-                        <div class="d-flex align-items-center justify-content-between p-3 bg-white rounded">
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="https://via.placeholder.com/80"
-                                     class="rounded"
-                                     style="width: 60px; height: 60px; object-fit: cover;">
-                                <div>
-                                    <p class="mb-0" style="font-size: 15px; font-weight: 500;">Product Name</p>
-                                    <p class="mb-0 text-muted" style="font-size: 14px;">$49.99</p>
-                                </div>
+                <hr />
+
+                <!-- Cart Items -->
+                <div class="d-flex align-items-center mb-4">
+                    <h4 class="mb-0 me-2">Cart Items</h4>
+                    <small>
+                        <a href="@Url.Action("Index", "Cart")" class="text-decoration-none link-danger fs-5" style="vertical-align: middle;">
+                            <span style="font-size: 1.15em;">&#8594;</span>
+                        </a>
+                    </small>
+                </div>
+                <div class="d-flex flex-column gap-3 mb-4">
+                    <!-- Cart Item -->
+                    <div class="d-flex align-items-center justify-content-between p-3 bg-white rounded">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://via.placeholder.com/80"
+                                 class="rounded"
+                                 style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">Product Name</p>
+                                <p class="mb-0 text-muted" style="font-size: 14px;">$49.99</p>
                             </div>
-                            <button class="btn btn-link text-danger p-0">Remove</button>
                         </div>
-                        <!-- Repeat cart items -->
                     </div>
+                    <!-- Repeat cart items -->
                 </div>
 
-                <!-- Liked Items Section -->
-                <div class="card p-4 mb-4" style="border-radius: 15px;">
-                    <h4 class="mb-4">Liked Items (3)</h4>
-                    <div class="row g-3">
-                        <div class="col-6 col-md-4">
-                            <div class="card border-0">
-                                <img src="https://via.placeholder.com/200"
-                                     class="card-img-top rounded"
-                                     style="border-radius: 10px !important;">
-                                <div class="card-body p-2">
-                                    <p class="card-text mb-0" style="font-size: 14px;">Product Name</p>
-                                    <p class="card-text text-muted mb-0" style="font-size: 13px;">$29.99</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Repeat liked items -->
-                    </div>
-                </div>
+                <hr />
 
                 <!-- Purchase History -->
-                <div class="card p-4" style="border-radius: 15px;">
-                    <h4 class="mb-4">Purchase History</h4>
-                    <div class="d-flex flex-column gap-3">
-                        <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded">
-                            <div>
-                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">Order #12345</p>
-                                <p class="mb-0 text-muted" style="font-size: 14px;">March 15, 2024</p>
-                            </div>
-                            <span class="badge bg-success">Delivered</span>
+                <h4 class="mb-4">Purchase History</h4>
+                <div class="d-flex flex-column gap-3">
+                    <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded">
+                        <div>
+                            <p class="mb-0" style="font-size: 15px; font-weight: 500;">Order #12345</p>
+                            <p class="mb-0 text-muted" style="font-size: 14px;">March 15, 2024</p>
                         </div>
-                        <!-- Repeat purchase history items -->
+                        <span class="badge bg-success">Delivered</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-</div>
 
 <style>
     .active-account-tab {

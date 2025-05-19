@@ -59,6 +59,7 @@
     <Compile Include="BL\AuthorUserBL.cs" />
     <Compile Include="BL\BookAdminBL.cs" />
     <Compile Include="BL\BookUserBL.cs" />
+    <Compile Include="BL\OrderUserBL.cs" />
     <Compile Include="BL\PublisherAdminBL.cs" />
     <Compile Include="BL\PublisherPublisherBL.cs" />
     <Compile Include="BL\PublisherUserBL.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Core\PublisherApi.cs" />
     <Compile Include="Core\UserApi.cs" />
     <Compile Include="DBModel\ArticleContext.cs" />
+    <Compile Include="Interfaces\IOrderAdmin.cs" />
     <Compile Include="DBModel\AuthorContext.cs" />
     <Compile Include="DBModel\BookContext.cs" />
     <Compile Include="DBModel\GenreContext.cs" />
@@ -81,10 +83,13 @@
     <Compile Include="DBModel\SessionContext.cs" />
     <Compile Include="Interfaces\IBookAdmin.cs" />
     <Compile Include="Interfaces\IBookUser.cs" />
+    <Compile Include="Interfaces\IOrderUser.cs" />
     <Compile Include="Interfaces\IPublisherAdmin.cs" />
     <Compile Include="Interfaces\IPublisherPublisher.cs" />
     <Compile Include="Interfaces\IPublisherUser.cs" />
     <Compile Include="Interfaces\ISession.cs" />
+    <Compile Include="BL\OrderAdminBL.cs" />
+    <Compile Include="DBModel\OrderContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interfaces\IUserPanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

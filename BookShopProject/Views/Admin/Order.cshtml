@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "../Shared/_AdminLayout.cshtml";
+}
+
+@model BookShopProject.Models.OrderList
+
+
+<div class="admin-orders-container">
+    <div class="admin-orders-header">
+        <div class="admin-orders-header-actions">
+            <div class="admin-orders-search-container">
+                <input type="text" placeholder="Search orders..." class="admin-orders-search-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="admin-orders-table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>User ID</th>
+                    <th>Total Price</th>
+                    <th>Create Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model.Orders)
+                {
+                    <tr>
+                        <td>@order.Id</td>
+                        <td>@order.UserId</td>
+                        <td>@order.TotalPrice</td>
+                        <td>@order.CreateTime</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

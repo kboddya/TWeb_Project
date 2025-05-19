@@ -18,6 +18,17 @@ namespace BookShopProject.BusinessLogic.Core
 {
     public class AdminApi : BaseApi
     {
+        internal OrdersList OrdersListAction()
+        {
+            var a = new OrdersList();
+            using (var db = new OrderContext())
+            {
+                a.Orders = db.Orders.Where(x => x.IsBought).ToList();
+            }
+
+            return a;
+        }
+
         internal bool IsAdmin(URole role)
         {
             return role == URole.admin;
@@ -104,6 +115,17 @@ namespace BookShopProject.BusinessLogic.Core
             }
 
             return true;
+        }
+
+        internal OrderDbTable OrderByIdAction(int id)
+        {
+            OrderDbTable a;
+            using (var db = new OrderContext())
+            {
+                a = db.Orders.FirstOrDefault(x => x.Id == id);
+            }
+
+            return a;
         }
 
         internal int AddPublisherAction(PublisherDbTable publisher)
