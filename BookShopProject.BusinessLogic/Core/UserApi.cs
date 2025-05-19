@@ -253,25 +253,59 @@ namespace BookShopProject.BusinessLogic.Core
 
             return price;
         }
+        
+        private bool AddCountOfOrdersAction(long isbn)
+        {
+            BookDbTable book;
+            using (var db = new BookContext())
+            {
+                book = db.Books.FirstOrDefault(x => x.ISBN == isbn);
+                if (book == null) return false;
+                book.CountOfOrders++;
+                db.Books.AddOrUpdate(book);
+                db.SaveChanges();
+            }
+
+            using (var db = new GenreContext())
+            {
+                var g = db.Genres.FirstOrDefault(x => x.Name == book.Genre);
+                if (g == null) return false;
+                g.CountOfOrders++;
+                db.Genres.AddOrUpdate(g);
+                db.SaveChanges();
+            }
+            
+            using (var db = new AuthorContext())
+            {
+                var a = db.Authors.FirstOrDefault(x => x.Id == book.AuthorId);
+                if (a == null) return false;
+                a.CountOfOrders++;
+                db.Authors.AddOrUpdate(a);
+                db.SaveChanges();
+            }
+            
+            using (var db = new PublisherContext())
+            {
+                var p = db.Publishers.FirstOrDefault(x => x.Id == book.PublisherId);
+                if (p == null) return false;
+                p.CountOfOrders++;
+                db.Publishers.AddOrUpdate(p);
+                db.SaveChanges();
+            }
+
+            return true;
+        }
 
         internal bool BuyCartAction(int userId)
         {
-            List<OrderDbTable> cart;
             using (var db = new OrderContext())
             {
-                cart = db.Orders.Where(x => x.UserId == userId && !x.IsBought).ToList();
+                var cart = db.Orders.Where(x => x.UserId == userId && !x.IsBought).ToList();
                 if (cart.Count == 0) return false;
 
                 foreach (var item in cart)
                 {
-                    using (var bdb = new BookContext())
-                    {
-                        var b = bdb.Books.FirstOrDefault(x => x.ISBN == item.ISBN);
-                        if (b == null) return false;
-                        b.CountOfOrders++;
-                        bdb.Books.AddOrUpdate(b);
-                        bdb.SaveChanges();
-                    }
+                    if(!AddCountOfOrdersAction(item.ISBN)) return false;
 
                     item.IsBought = true;
                     db.Orders.AddOrUpdate(item);
