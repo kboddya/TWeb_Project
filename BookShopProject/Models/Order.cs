@@ -14,7 +14,7 @@ namespace BookShopProject.Models
         public int UserId { get; set; }
         public DateTime CreateTime { get; set; }
         public DateTime LastUpdateTime { get; set; }
-        public decimal TotalPrice { get; set; }
+        public decimal Price { get; set; }
         public Book Book { get; set; }
     }
 

@@ -20,8 +20,8 @@ namespace BookShopProject.Controllers
             _orderUser = bl.GetOrderUserBL();
             _bookUser = bl.GetBookUserBL();
         }
-        
-        
+
+
         public ActionResult Index()
         {
             SessionStatus();
@@ -45,26 +45,16 @@ namespace BookShopProject.Controllers
                 var bDb = _bookUser.GetBookByISBN(v.ISBN);
                 order.Book = bookMapper.Map<Book>(bDb);
                 orderListModel.Orders.Add(order);
+            }
             return View(orderListModel);
         }
 
-        [HttpPost]
-        public ActionResult Index(string idOfAction)
+        public ActionResult SignOut()
         {
-            switch (idOfAction)
-            {
-                case "1":
-                {
-                    DestroySession();
-                    return RedirectToAction("Index", "Home");
-                    break;
-                }
-                
-                default:
-                    return RedirectToAction("Index", "Home");
-                    break;
-            }
-            
+            SessionStatus();
+            DestroySession();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

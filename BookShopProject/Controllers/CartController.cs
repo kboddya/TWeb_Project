@@ -77,7 +77,7 @@ namespace BookShopProject.Controllers
 
 
             return _orderUser.AddCart(order)
-                ? RedirectToAction("BookInfo", "Book", new { ISBN = b })
+                ? (ActionResult)Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString())
                 : RedirectToAction("er404", "Errors");
         }
 

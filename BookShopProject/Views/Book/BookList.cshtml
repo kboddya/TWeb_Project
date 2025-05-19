@@ -25,8 +25,8 @@
                                     <a href="@Url.Action("BookInfo", "Book")?ISBN=@prod.ISBN">
                                         <img src="@prod.Image" alt="Books" class="product-item">
                                     </a>
-                                    <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-                                        Cart
+                                    <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                                        <a href="@Url.Action("AddToCart", "Cart")?ISBN=@prod.ISBN">Add to Cart</a>
                                     </button>
                                 </figure>
                                 <figcaption>
