@@ -24,7 +24,7 @@ namespace BookShopProject.BusinessLogic
         {
             return new OrderUserBL();
         }
-        
+
         public IAuthorUser GetAuthorUserBL()
         {
             return new AuthorUserBL();
@@ -49,7 +49,7 @@ namespace BookShopProject.BusinessLogic
         {
             return new PublisherAdminBL();
         }
-        
+
         public IPublisherUser GetPublisherUserBL()
         {
             return new PublisherUserBL();
@@ -64,15 +64,25 @@ namespace BookShopProject.BusinessLogic
         {
             return new ArticleUserBL();
         }
-        
+
         public IArticleAdmin GetArticleAdminBL()
         {
             return new ArticleAdminBL();
         }
 
-        public IUserPanel GetUserPanelBL() 
+        public IUserPanel GetUserPanelBL()
         {
             return new UserPanelBL();
+        }
+
+        public IMessageUser GetMessageUserBL()
+        {
+            return new MessageUserBL();
+        }
+
+        public IMessageAdmin GetMessageAdminBL()
+        {
+            return new MessageAdminBL();
         }
     }
 }

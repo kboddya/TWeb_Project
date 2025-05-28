@@ -349,7 +349,7 @@ namespace BookShopProject.BusinessLogic.Core
             return true;
         }
 
-        public List<UDbTable> GetAllUsersAction()
+        internal List<UDbTable> GetAllUsersAction()
         {
             List<UDbTable> u;
 
@@ -361,7 +361,7 @@ namespace BookShopProject.BusinessLogic.Core
             return u;
         }
 
-        public UDbTable GetUserByIdAction(int id)
+        internal UDbTable GetUserByIdAction(int id)
         {
             UDbTable u;
             using (var db = new UserContext())
@@ -372,7 +372,7 @@ namespace BookShopProject.BusinessLogic.Core
             return u;
         }
 
-        public void DeleteUserAction(int id)
+        internal void DeleteUserAction(int id)
         {
             using (var db = new UserContext())
             {
@@ -385,7 +385,7 @@ namespace BookShopProject.BusinessLogic.Core
             }
         }
 
-        public void UpdateUserRoleAction(UDbTable userToUpdate)
+        internal void UpdateUserRoleAction(UDbTable userToUpdate)
         {
             using (var db = new UserContext())
             {
@@ -395,6 +395,29 @@ namespace BookShopProject.BusinessLogic.Core
                     db.Users.AddOrUpdate(userToUpdate);
                     db.SaveChanges();
                 }
+            }
+        }
+
+        internal List<MessageDbTable> GetMessagesAction()
+        {
+            using (var db = new MessageContext())
+            {
+                var m = db.Messages.ToList();
+                m.Reverse();
+                return m;
+            }
+        }
+
+        internal MessageDbTable GetMessageByIdAction(int id)
+        {
+            using (var db = new MessageContext())
+            {
+                var m = db.Messages.FirstOrDefault(x => x.Id == id);
+                if (m == null) return null;
+                m.IsRead = true;
+                db.Messages.AddOrUpdate(m);
+                db.SaveChanges();
+                return m;
             }
         }
     }

@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Messages";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model List<BookShopProject.Models.MessageForAdmin>
+
+<section class=" py-5 my-5">
+    <div class="container">
+        <div class="section-header align-center">
+            <div>
+                <h2 class="section-title">Messages</h2>
+            </div>
+        </div>
+        @foreach (var message in Model)
+        {
+            <a href="@Url.Action("MessageDetails")?Id=@message.Id">
+                <div class="message">
+                    <div class="row">
+                        <div class="col-md-1">
+                            @if(!message.IsRead)
+                            {
+                                <p>◯</p>
+                            }
+                        </div>
+                        <div class="col-md-11">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4>@message.Subject</h4>
+                                    <span style="margin: 0">@message.Email</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>@(message.CreateTime.Day).@message.CreateTime.Month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </a>
+        }
+    </div>
+</section>

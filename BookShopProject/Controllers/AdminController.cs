@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using BookShopProject.Attributes;
 using BookShopProject.BusinessLogic.Interfaces;
@@ -20,6 +21,7 @@ namespace BookShopProject.Controllers
         private readonly IArticleAdmin _articleAdmin;
         private readonly IUserPanel _userPanel;
         private readonly IOrderAdmin _orderAdmin;
+        private readonly IMessageAdmin _messageAdmin;
 
         public AdminController()
         {
@@ -30,6 +32,7 @@ namespace BookShopProject.Controllers
             _articleAdmin = bl.GetArticleAdminBL();
             _userPanel = bl.GetUserPanelBL();
             _orderAdmin = bl.GetOrderAdminBL();
+            _messageAdmin = bl.GetMessageAdminBL();
         }
 
         public ActionResult Index()
@@ -480,6 +483,35 @@ namespace BookShopProject.Controllers
             var id = Request.QueryString["id"];
             _userPanel.Delete(int.Parse(id));
             return RedirectToAction("UserControlPanel");
+        }
+        
+        public ActionResult Messages()
+        {
+            var messages = _messageAdmin.GetMessages();
+
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.User.MessageDbTable, MessageForAdmin>());
+            var mapper = config.CreateMapper();
+
+            var messageListModel = messages.Select(v => mapper.Map<MessageForAdmin>(v)).ToList();
+
+            return View(messageListModel);
+        }
+
+        public ActionResult MessageDetails()
+        {
+            var id = Request.QueryString["Id"];
+            if (id == null) return RedirectToAction("er404", "Errors");
+
+            var messageFromBL = _messageAdmin.GetMessageById(int.Parse(id));
+            if (messageFromBL == null) return RedirectToAction("er404", "Errors");
+
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.User.MessageDbTable, MessageForAdmin>());
+            var mapper = config.CreateMapper();
+
+            var messageModel = mapper.Map<MessageForAdmin>(messageFromBL);
+            return View(messageModel);
         }
     }
 }

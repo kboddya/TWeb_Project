@@ -356,5 +356,22 @@ namespace BookShopProject.BusinessLogic.Core
         }
 
         // TODO: Static logic and if available (another UsingDb, Book context, return new type) 
+
+        internal bool SendMessageToAdminAction(Domain.Entities.User.MessageDbTable message)
+        {
+            if (string.IsNullOrEmpty(message.Message))
+            {
+                return false;
+            }
+            
+            message.CreateTime = DateTime.Now;
+
+            using (var db = new MessageContext())
+            {
+                db.Messages.Add(message);
+                db.SaveChanges();
+                return true;
+            }
+        }
     }
 }

@@ -48,6 +48,7 @@
     <Compile Include="Entities\Book\OrderDbTable.cs" />
     <Compile Include="Entities\Genre\GenreDbTable.cs" />
     <Compile Include="Entities\Publisher\PublisherDbTable.cs" />
+    <Compile Include="Entities\User\MessageDbTable.cs" />
     <Compile Include="Entities\User\UDbTable.cs" />
     <Compile Include="Entities\User\UserAuthResult.cs" />
     <Compile Include="Entities\User\Session.cs" />

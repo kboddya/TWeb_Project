@@ -209,6 +209,8 @@
     <Content Include="Views\Admin\BookDetails.cshtml" />
     <Content Include="Views\Admin\BookList.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\MessageDetails.cshtml" />
+    <Content Include="Views\Admin\Messages.cshtml" />
     <Content Include="Views\Admin\PublisherDetails.cshtml" />
     <Content Include="Views\Admin\PublishersList.cshtml" />
     <Content Include="Views\Articles\ArticleDetails.cshtml" />
@@ -260,6 +262,7 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\MessageForAdmin.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\GenreList.cs" />
     <Compile Include="Models\Publisher.cs" />

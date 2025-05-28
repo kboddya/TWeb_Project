@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Message";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+@model BookShopProject.Models.MessageForAdmin
+
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <figure class="go-back-button">
+                    <a href="@Url.Action("Messages")"><img src="~/Content/images/left.png" class="img-fluid"></a>
+                </figure>
+            </div>
+            <h3 class="section-title align-center">Message preview</h3>
+            <div class="col-md-12">
+                <div class="message-details">
+                    <h4>@Model.Subject</h4>
+                    <p style="margin-bottom: 5px;"><strong>Email:</strong> @Model.Email</p>
+                    <p style="margin-bottom: 5px;"><strong>Created
+                            on:</strong> @(Model.CreateTime.Day).@(Model.CreateTime.Month).@(Model.CreateTime.Year)</p>
+                    <p style="margin-bottom: 5px;"><strong>Message:</strong>
+                        @foreach (var c in Model.Message)
+                        {
+                            if (c == '\n')
+                            {
+                                <br>
+                            }
+                            else
+                            {
+                                @c
+                            }
+                        }</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
