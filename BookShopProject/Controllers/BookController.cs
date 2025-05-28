@@ -29,16 +29,44 @@ namespace BookShopProject.Controllers
             var u = System.Web.HttpContext.Current.GetMySessionObject();
             var book = mapper.Map<Book>(_bookUser.GetBookByISBN(long.Parse(Request.QueryString["ISBN"])));
 
+            var reviews = _bookUser.GetReviews(book.ISBN);
+            
+            var configReviews = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<ReviewDbTable, Review>());
+            var mapperReviews = configReviews.CreateMapper();
+
             if (book != null)
             {
                 book.IsAuthenticated = true;
                 book.Role = u.Role;
                 book.Email = u.Email;
                 book.Name = u.Name;
+                book.Reviews = new ReviewList();
+            }
+            foreach (var v in reviews)
+            {
+                book.Reviews.Reviews.Add(mapperReviews.Map<Review>(v));
             }
             
-
             return book != null ? (ActionResult)View(book) : RedirectToAction("er404", "Errors");
+        }
+
+        [HttpPost]
+        public ActionResult BookInfo(Book book)
+        {
+            SessionStatus();
+            var u = System.Web.HttpContext.Current.GetMySessionObject();
+            if (u == null)
+            {
+                return RedirectToAction("er404", "Errors");
+            }
+            var config = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<Review, ReviewDbTable>());
+            var mapper = config.CreateMapper();
+            var r = mapper.Map<ReviewDbTable>(book.Review);
+            r.ISBN = book.ISBN;
+            r.Date = DateTime.Now;
+            r.Email = u.Email;
+            _bookUser.AddReview(r);
+            return RedirectToAction("BookInfo", new { ISBN = book.ISBN });
         }
 
         public ActionResult BookList()
@@ -52,7 +80,7 @@ namespace BookShopProject.Controllers
 
             var config = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<BookDbTable, Book>());
             var mapper = config.CreateMapper();
-            
+
             SessionStatus();
             var List = new BookList(System.Web.HttpContext.Current.GetMySessionObject())
             {

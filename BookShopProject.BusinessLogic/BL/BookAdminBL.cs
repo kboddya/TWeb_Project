@@ -1,4 +1,5 @@
-﻿using BookShopProject.BusinessLogic.Core;
+﻿using System.Collections.Generic;
+using BookShopProject.BusinessLogic.Core;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Enums.Book;
@@ -30,6 +31,16 @@ namespace BookShopProject.BusinessLogic
         public BookListDb GetBooks(string parameter = "None", BSearchParameter type = BSearchParameter.All)
         {
             return BooksListAction(parameter, type);
+        }
+        
+        public List<ReviewDbTable> GetReviews(long ISBN)
+        {
+            return GetReviewsByISBNAction(ISBN);
+        }
+        
+        public bool DeleteReview(int id)
+        {
+            return DeleteReviewAction(id);
         }
     }
 }

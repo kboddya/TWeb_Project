@@ -237,5 +237,13 @@ namespace BookShopProject.BusinessLogic.Core
             
             return article;
         }
+        
+        internal List<ReviewDbTable> GetReviewsByISBNAction(long isbn)
+        {
+            using (var db = new ReviewContext())
+            {
+                return db.Reviews.Where(x => x.ISBN == isbn).ToList();
+            }
+        }
     }
 }

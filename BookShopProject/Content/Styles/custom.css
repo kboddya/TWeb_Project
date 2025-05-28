@@ -115,6 +115,14 @@
     margin-left: 0%;
 }
 
+.review{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
 
 /*Errors*/
 .error-code {

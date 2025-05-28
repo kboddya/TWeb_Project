@@ -254,7 +254,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\PublisherController.cs" />
-    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Extension\HttpContextExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -283,7 +282,6 @@
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
-    <Content Include="Views\Review\Index.cshtml" />
     <Content Include="Views\Offer\Index.cshtml" />
     <Content Include="Views\Admin\UserControlPanel.cshtml" />
     <Content Include="Views\Home\AccessDenied.cshtml" />

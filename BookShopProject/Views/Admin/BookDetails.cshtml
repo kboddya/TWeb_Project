@@ -16,13 +16,6 @@
         </div>
         <div class="row">
             <div class="col-md-3">
-                <div class="rating disabled star5" style="margin-bottom: 0px;">
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                </div>
                 <div class="book-image">
                     <img src="@Model.Image" alt="book" class="img-fluid">
                 </div>
@@ -95,6 +88,24 @@
                 </p>
             </div>
             <hr>
+            @foreach (var review in Model.Reviews.Reviews)
+            {
+                <div class="review">
+                    <p> @foreach (var c in review.Text)
+                        {
+                            if (c == '\n')
+                            {
+                                <br>
+                            }
+                            else
+                            {
+                                @c
+                            }
+                        }</p>
+                    <span class="review-date">@review.Date.ToString("dd.MM.yyyy") <a href="@Url.Action("UserControlPanel")">@review.Email</a></span>
+                    <button class="rounded-corners delete-button"><a href="@Url.Action("DeleteReview")?Id=@review.Id">Delete</a></button>
+                </div>
+            }
             <h3 class="align-center">Editing book details</h3>
             @Html.ValidationSummary(true)
             @using (Html.BeginForm("BookDetails", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))

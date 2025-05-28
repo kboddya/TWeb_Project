@@ -420,5 +420,19 @@ namespace BookShopProject.BusinessLogic.Core
                 return m;
             }
         }
+
+        internal bool DeleteReviewAction(int id)
+        {
+            using (var db = new ReviewContext())
+            {
+                var m = db.Reviews.FirstOrDefault(x => x.Id == id);
+                if (m == null) return false;
+
+                db.Reviews.Remove(m);
+                db.SaveChanges();
+            }
+
+            return true;
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using BookShopProject.Attributes;
 using BookShopProject.BusinessLogic.Interfaces;
+using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Enums.Book;
 using BookShopProject.Domain.Enums.User;
 using BookShopProject.Domain.Entities.User;
@@ -180,6 +181,19 @@ namespace BookShopProject.Controllers
 
             var book = new Book();
             book = mapper.Map<Models.Book>(bookFromBL.Books[0]);
+
+            book.Reviews = new ReviewList();
+            var reviews = _bookAdmin.GetReviews(book.ISBN);
+            
+            if (reviews != null)
+            {
+                var configReviews = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<ReviewDbTable, Review>());
+                var mapperReviews = configReviews.CreateMapper();
+                foreach (var v in reviews)
+                {
+                    book.Reviews.Reviews.Add(mapperReviews.Map<Review>(v));
+                }
+            }
 
             return View(book);
         }
@@ -512,6 +526,16 @@ namespace BookShopProject.Controllers
 
             var messageModel = mapper.Map<MessageForAdmin>(messageFromBL);
             return View(messageModel);
+        }
+
+        public ActionResult DeleteReview()
+        {
+            var id = Request.QueryString["Id"];
+            if (id == null) return RedirectToAction("er404", "Errors");
+
+            return _bookAdmin.DeleteReview(int.Parse(id))
+                ? RedirectToAction("BookList")
+                : RedirectToAction("err404", "Errors");
         }
     }
 }

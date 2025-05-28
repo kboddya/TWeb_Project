@@ -73,6 +73,7 @@
     <Compile Include="Core\UserApi.cs" />
     <Compile Include="DBModel\ArticleContext.cs" />
     <Compile Include="DBModel\MessageContext.cs" />
+    <Compile Include="DBModel\ReviewContext.cs" />
     <Compile Include="Interfaces\IMessageAdmin.cs" />
     <Compile Include="Interfaces\IMessageUser.cs" />
     <Compile Include="Interfaces\IOrderAdmin.cs" />
