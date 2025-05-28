@@ -265,6 +265,7 @@
     <Compile Include="Models\Publisher.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\ReviewList.cs" />
+    <Compile Include="Models\Stats.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserListModel.cs" />
     <Compile Include="Models\BookList.cs" />

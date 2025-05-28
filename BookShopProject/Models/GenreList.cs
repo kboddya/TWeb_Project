@@ -11,5 +11,7 @@ namespace BookShopProject.Models
         }
         
         public List<string> Genres { get; set; }
+        
+        public int CountOfOrders { get; set; } = 0;
     }
 }

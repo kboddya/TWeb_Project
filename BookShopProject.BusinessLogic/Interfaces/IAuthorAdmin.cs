@@ -1,4 +1,5 @@
-﻿using BookShopProject.Domain.Entities.Author;
+﻿using System.Collections.Generic;
+using BookShopProject.Domain.Entities.Author;
 
 namespace BookShopProject.BusinessLogic.Interfaces
 {
@@ -11,5 +12,7 @@ namespace BookShopProject.BusinessLogic.Interfaces
         AuthorsList GetAuthors();
         
         bool DeleteAuthor(int id);
+        
+        List<AuthorDbTable> AuthorStats();
     }
 }

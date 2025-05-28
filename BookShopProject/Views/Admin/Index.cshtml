@@ -1,3 +1,92 @@
 ﻿@{
     Layout = "../Shared/_AdminLayout.cshtml";
 }
+@model BookShopProject.Models.Stats
+
+<section class="content">
+    <div class="container-fluid">
+        <style>
+            canvas { border: 1px solid #ccc; margin-top: 20px; }
+        </style>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Books per Author</h4>
+                <canvas id="authorChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h4>Books per Genre</h4>
+                <canvas id="genreChart"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Books per Publisher</h4>
+                <canvas id="publisherChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h4>Book Copies (Total Per Book)</h4>
+                <canvas id="bookChart"></canvas>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            // Authors
+            var authorLabels = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
+                Model.Authors?.Select(a => a.Name) ?? new List<string>()
+            ));
+            var authorData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
+                Model.Authors?.Select(a => Model.Books.Count(b => b.AuthorId == a.Id)) ?? new List<int>()
+            ));
+
+            // Genres
+            var genreLabels = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
+                Model.Books?.Select(a => a.Name) ?? new List<string>()
+            ));
+            var genreData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
+                Model.Books?.Select(a => Model.Books.Count(b => b.Genre == a.Genre)) ?? new List<int>()
+            ));
+
+            // Publishers
+            var publisherLabels = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
+                Model.Publishers?.Select(p => p.Name) ?? new List<string>()
+            ));
+            var publisherData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
+                Model.Publishers?.Select(p => Model.Books.Count(b => b.PublisherId == p.Id)) ?? new List<int>()
+            ));
+
+            // Books (show total copies if available, else 1)
+            var bookLabels = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
+                Model.Books?.Select(b => b.Title) ?? new List<string>()
+            ));
+            var bookData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
+                 Model.Books?.Select(p => Model.Books.Count(b => b.ISBN == p.ISBN)) ?? new List<int>()
+            ));
+
+            function makeBarChart(ctx, labels, data, label) {
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: label,
+                            data: data,
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        indexAxis: 'y',
+                        scales: { x: { beginAtZero: true } }
+                    }
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                makeBarChart(document.getElementById('authorChart').getContext('2d'), authorLabels, authorData, 'Books per Author');
+                makeBarChart(document.getElementById('genreChart').getContext('2d'), genreLabels, genreData, 'Books per Genre');
+                makeBarChart(document.getElementById('publisherChart').getContext('2d'), publisherLabels, publisherData, 'Books per Publisher');
+                makeBarChart(document.getElementById('bookChart').getContext('2d'), bookLabels, bookData, 'Book Copies');
+            });
+        </script>
+    </div>
+</section>

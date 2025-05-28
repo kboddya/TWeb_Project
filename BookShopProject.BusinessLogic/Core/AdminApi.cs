@@ -397,5 +397,35 @@ namespace BookShopProject.BusinessLogic.Core
                 }
             }
         }
+        
+        
+        
+        public List<AuthorDbTable> GetAuthorStats()
+        {
+            var u = AuthorsListAction().Authors;
+            u.Sort((x,y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
+            return u;
+        }
+
+        public List<BookDbTable> GetBookStats()
+        {
+            var u = BooksListAction("",BSearchParameter.All).Books;
+            u.Sort((x,y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
+            return u;
+        }
+        
+        public List<PublisherDbTable> GetPublisherStats()
+        {
+            var u = PublishersListAction().Publishers;
+            u.Sort((x,y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
+            return u;
+        }
+
+        public List<GenreDbTable> GetGenreStats()
+        {
+            var u = GenresListAction();
+            u.Sort((x,y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
+            return u;
+        }
     }
 }

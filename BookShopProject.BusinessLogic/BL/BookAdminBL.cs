@@ -1,6 +1,8 @@
-﻿using BookShopProject.BusinessLogic.Core;
+﻿using System.Collections.Generic;
+using BookShopProject.BusinessLogic.Core;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Book;
+using BookShopProject.Domain.Entities.Genre;
 using BookShopProject.Domain.Enums.Book;
 
 namespace BookShopProject.BusinessLogic
@@ -30,6 +32,16 @@ namespace BookShopProject.BusinessLogic
         public BookListDb GetBooks(string parameter = "None", BSearchParameter type = BSearchParameter.All)
         {
             return BooksListAction(parameter, type);
+        }
+        
+        public List<BookDbTable> BookStats()
+        {
+            return GetBookStats();
+        }
+        
+        public List<GenreDbTable> GenreStats()
+        {
+            return GetGenreStats();
         }
     }
 }
