@@ -18,5 +18,10 @@ namespace BookShopProject.BusinessLogic
         {
             return BookByPublisherIdAction(id);
         }
+        
+        public List<PublisherDbTable> GetPublishersByPopularity()
+        {
+            return GetPublishersByPopularityAction();
+        }
     }
 }

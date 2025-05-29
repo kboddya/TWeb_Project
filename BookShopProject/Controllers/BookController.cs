@@ -90,6 +90,16 @@ namespace BookShopProject.Controllers
                 }
                 return List.Products.Count != 0 ? (ActionResult)View(List) : RedirectToAction("er404", "Errors");
             }
+            else if(type == "Popular")
+            {
+                List.NameOfList = "Popularity";
+                var b = _bookUser.GetBooks("", BSearchParameter.Popularity);
+                foreach (var v in b.Books)
+                {
+                    List.Products.Add(mapper.Map<Book>(v));
+                }
+                return List.Products.Count != 0 ? (ActionResult)View(List) : RedirectToAction("er404", "Errors");
+            }
             
             var genre = Request.QueryString["Genre"];
             var Search = Request.QueryString["Search"];

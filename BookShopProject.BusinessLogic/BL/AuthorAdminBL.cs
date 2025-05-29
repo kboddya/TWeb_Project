@@ -29,7 +29,7 @@ namespace BookShopProject.BusinessLogic
         
         public List<AuthorDbTable> AuthorStats()
         {
-            return GetAuthorStats();
+            return GetAuthorsByPopularityAction();
         }
     }
 }

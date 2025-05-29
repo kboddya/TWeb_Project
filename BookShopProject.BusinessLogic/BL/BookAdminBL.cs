@@ -46,12 +46,12 @@ namespace BookShopProject.BusinessLogic
 
         public List<BookDbTable> BookStats()
         {
-            return GetBookStats();
+            return BooksListAction(" ", BSearchParameter.Popularity).Books;
         }
         
         public List<GenreDbTable> GenreStats()
         {
-            return GetGenreStats();
+            return GetGenresByPopularityAction();
         }
     }
 }

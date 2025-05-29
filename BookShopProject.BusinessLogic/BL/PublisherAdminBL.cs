@@ -34,7 +34,7 @@ namespace BookShopProject.BusinessLogic
         
         public List<PublisherDbTable> PublisherStats()
         {
-            return GetPublisherStats();
+            return GetPublishersByPopularityAction();
         }
     }
 }

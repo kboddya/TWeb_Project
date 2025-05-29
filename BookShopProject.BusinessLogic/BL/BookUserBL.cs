@@ -23,6 +23,11 @@ namespace BookShopProject.BusinessLogic
         {
             return GenresListAction();
         }
+        
+        public List<GenreDbTable> GetGenresByPopularity()
+        {
+            return GetGenresByPopularityAction();
+        }
 
         public List<ReviewDbTable> GetReviews(long ISBN)
         {

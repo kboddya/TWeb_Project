@@ -10,5 +10,7 @@ namespace BookShopProject.BusinessLogic.Interfaces
         PublisherDbTable GetPublisherById(int id);
 
         BookListDb GetBooksByPublisherId(int id);
+        
+        List<PublisherDbTable> GetPublishersByPopularity();
     }
 }

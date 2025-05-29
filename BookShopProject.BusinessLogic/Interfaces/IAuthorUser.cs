@@ -1,4 +1,5 @@
-﻿using BookShopProject.Domain.Entities.Author;
+﻿using System.Collections.Generic;
+using BookShopProject.Domain.Entities.Author;
 using BookShopProject.Domain.Entities.Book;
 
 namespace BookShopProject.BusinessLogic.Interfaces
@@ -10,5 +11,7 @@ namespace BookShopProject.BusinessLogic.Interfaces
         AuthorsList GetAuthors();
         
         BookListDb GetBooksByAuthorId(int id);
+        
+        List<AuthorDbTable> GetAuthorsByPopularity();
     }
 }

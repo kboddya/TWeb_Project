@@ -2,50 +2,102 @@
 @{
     ViewBag.Title = "Index";
 }
-@model BookShopProject.Models.BookList
+@model BookShopProject.Models.HomePage
 
 <section id="popular-books" class="bookshelf py-5 my-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-
-
-                <div class="section-header align-center">
-                    <div>
-                        <h2 class="section-title">Popular books</h2>
-                    </div>
-                </div>
                 <div class="row">
+                    <h1><a href="@Url.Action("BookList", "Book", new { type = "Popular" })">Popular books →</a>
+                    </h1>
 
-                    @foreach (var prod in Model.Products)
-                        {
-                            <div class="col-md-3">
-                                <div class="product-item">
-                                    <figure class="product-style">
-                                        <a href="@Url.Action("BookInfo", "Book")?ISBN=@prod.ISBN">
-                                            <img src="@prod.Image" alt="Books" class="product-item">
-                                        </a>
-                                        <a href="@Url.Action("Index", "Cart")?ISBN=@prod.ISBN" class="add-to-cart" data-product-tile="add-to-cart">Add to
-                                            Cart
-                                        </a>
-                                    </figure>
-                                    <figcaption>
-                                        <a href="@Url.Action("BookInfo", "Book")?ISBN=@prod.ISBN">
-                                            <h3>@prod.Title</h3>
-                                        </a>
-                                        <span>@prod.AuthorFirstName @prod.AuthorLastName</span>
-                                        <div class="item-price">
-                                            @if(prod.DiscountedPrice != decimal.MinusOne)
-                                            {
-                                                <span class="prev-price">$ @prod.DiscountedPrice</span>
-                                            }
-                                            $ @prod.Price
-                                        </div>
-                                    </figcaption>
-                                </div>
-
+                    @foreach (var prod in Model.books)
+                    {
+                        <div class="col-md-3">
+                            <div class="product-item">
+                                <figure class="product-style">
+                                    <a href="@Url.Action("BookInfo", "Book")?ISBN=@prod.ISBN">
+                                        <img src="@prod.Image" alt="Books" class="product-item">
+                                    </a>
+                                    <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                                        <a href="@Url.Action("AddToCart", "Cart")?ISBN=@prod.ISBN">Add to Cart</a>
+                                    </button>
+                                </figure>
+                                <figcaption>
+                                    <a href="@Url.Action("BookInfo", "Book")?ISBN=@prod.ISBN">
+                                        <h3>@prod.Title</h3></a>
+                                    <span>@prod.AuthorFirstName @prod.AuthorLastName</span>
+                                    <div class="item-price">
+                                        @if (prod.DiscountedPrice != decimal.MinusOne)
+                                        {
+                                            <span class="prev-price">$ @prod.Price</span>
+                                            <span>$ @prod.DiscountedPrice</span>
+                                        }
+                                        @if (prod.DiscountedPrice == decimal.MinusOne)
+                                        {
+                                            <span>$ @prod.Price</span>
+                                        }
+                                    </div>
+                                </figcaption>
                             </div>
-                            }
+
+                        </div>
+                    }
+                    
+                    <hr>
+                    <h1 style="margin-top: 40px"><a href="@Url.Action("Index", "Genre")">Popular genres →</a></h1>
+
+                    @foreach (var g in Model.genres)
+                    {
+                        <div class="col-md-3">
+                            <a href="@Url.Action("BookList", "Book")?Genre=@g"><p class="genres">@g</p></a>
+                        </div>
+                    }
+
+                    <hr>
+                    <h1 style="margin-top: 40px"><a href="@Url.Action("Index", "Author")">Popular authors →</a></h1>
+
+                    @foreach (var author in Model.authors)
+                    {
+                        <div class="col-md-3 article-background">
+                            <div class="product-item">
+                                <figure class="article-image">
+                                    <a href="@Url.Action("Details", "Author")?Id=@author.Id">
+                                        <img src="@author.Image" alt="Author photo" class="post-image">
+                                    </a>
+                                </figure>
+                                <figcaption style="margin-top:0;">
+                                    <a href="@Url.Action("Details", "Author")?Id=@author.Id">
+                                        <h3>@author.FirstName @author.LastName</h3>
+                                    </a>
+                                </figcaption>
+                            </div>
+
+                        </div>
+                    }
+
+                    <hr>
+                    <h1 style="margin-top: 40px">Popular publishers</h1>
+
+                    @foreach (var publisher in Model.publishers)
+                    {
+                        <div class="col-md-3 article-background">
+                            <div class="product-item">
+                                <figure class="article-image">
+                                    <a href="@Url.Action("Index", "Publisher")?Id=@publisher.Id">
+                                        <img src="@publisher.Logo" alt="Publisher logo" class="post-image">
+                                    </a>
+                                </figure>
+                                <figcaption style="margin-top:0;">
+                                    <a href="@Url.Action("Index", "Publisher")?Id=@publisher.Id">
+                                        <h3>@publisher.Name</h3>
+                                    </a>
+                                </figcaption>
+                            </div>
+
+                        </div>
+                    }
 
                 </div>
             </div>

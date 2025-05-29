@@ -1,4 +1,5 @@
-﻿using BookShopProject.BusinessLogic.Core;
+﻿using System.Collections.Generic;
+using BookShopProject.BusinessLogic.Core;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Entities.Publisher;
@@ -43,6 +44,9 @@ namespace BookShopProject.BusinessLogic
             return PublisherByEmailAction(email);
         }
         
-        
+        public List<PublisherDbTable> GetPublishersByPopularity()
+        {
+            return GetPublishersByPopularityAction();
+        }
     }
 }

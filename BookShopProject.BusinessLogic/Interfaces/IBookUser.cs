@@ -16,6 +16,8 @@ namespace BookShopProject.BusinessLogic.Interfaces
         List<ReviewDbTable> GetReviews(long ISBN);
         
         bool AddReview(ReviewDbTable review);
-        
+
+        List<GenreDbTable> GetGenresByPopularity();
+
     }
 }

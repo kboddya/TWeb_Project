@@ -127,6 +127,7 @@
     <Content Include="Content\images\default.png" />
     <Content Include="Content\images\device.png" />
     <Content Include="Content\images\google-play.jpg" />
+    <Content Include="Content\images\team-image2.jpg" />
     <Content Include="Content\images\item.png" />
     <Content Include="Content\images\item1.png" />
     <Content Include="Content\images\item3.png" />
@@ -161,7 +162,6 @@
     <Content Include="Content\images\tab-item8.jpg" />
     <Content Include="Content\images\team-image1.jpg" />
     <Content Include="Content\images\team-image3.jpg" />
-    <Content Include="Content\images\team-image2.jpg" />
     <Content Include="Content\Styles\about.css" />
     <Content Include="Content\Styles\ajax-loader.gif" />
     <Content Include="Content\Styles\bootstrap.min.css" />
@@ -260,6 +260,7 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\HomePage.cs" />
     <Compile Include="Models\MessageForAdmin.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Order.cs" />

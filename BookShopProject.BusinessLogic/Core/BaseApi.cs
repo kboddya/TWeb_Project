@@ -63,8 +63,9 @@ namespace BookShopProject.BusinessLogic.Core
                 {
                     using (var db = new BookContext())
                     {
-                        b.Books = db.Books.Where(x => x.CountOfOrders > 15).ToList();
+                        b.Books = db.Books.ToList();
                     }
+                    b.Books.Sort((x,y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
 
                     break;
                 }
@@ -254,6 +255,27 @@ namespace BookShopProject.BusinessLogic.Core
             {
                 return db.Reviews.Where(x => x.ISBN == isbn).ToList();
             }
+        }
+        
+        internal List<AuthorDbTable> GetAuthorsByPopularityAction()
+        {
+            var u = AuthorsListAction().Authors;
+            u.Sort((x, y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
+            return u;
+        }
+
+        internal List<PublisherDbTable> GetPublishersByPopularityAction()
+        {
+            var u = PublishersListAction().Publishers;
+            u.Sort((x,y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
+            return u;
+        }
+
+        internal List<GenreDbTable> GetGenresByPopularityAction()
+        {
+            var u = GenresListAction();
+            u.Sort((x,y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
+            return u;
         }
     }
 }
