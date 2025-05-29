@@ -2,6 +2,7 @@
 using BookShopProject.BusinessLogic.Core;
 using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Domain.Entities.Book;
+using BookShopProject.Domain.Entities.Genre;
 using BookShopProject.Domain.Enums.Book;
 
 namespace BookShopProject.BusinessLogic
@@ -37,10 +38,20 @@ namespace BookShopProject.BusinessLogic
         {
             return GetReviewsByISBNAction(ISBN);
         }
-        
+
         public bool DeleteReview(int id)
         {
             return DeleteReviewAction(id);
+        }
+
+        public List<BookDbTable> BookStats()
+        {
+            return GetBookStats();
+        }
+        
+        public List<GenreDbTable> GenreStats()
+        {
+            return GetGenreStats();
         }
     }
 }

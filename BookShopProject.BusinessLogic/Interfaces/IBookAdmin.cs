@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using BookShopProject.Domain.Entities.Book;
+using BookShopProject.Domain.Entities.Genre;
 using BookShopProject.Domain.Enums.Book;
 
 namespace BookShopProject.BusinessLogic.Interfaces
@@ -16,5 +17,9 @@ namespace BookShopProject.BusinessLogic.Interfaces
         List<ReviewDbTable> GetReviews(long ISBN);
 
         bool DeleteReview(int id);
+
+        List<GenreDbTable> GenreStats();
+        
+        List<BookDbTable> BookStats();
     } 
 }

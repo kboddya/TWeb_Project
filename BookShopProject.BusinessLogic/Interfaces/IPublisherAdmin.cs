@@ -1,4 +1,5 @@
-﻿using BookShopProject.Domain.Entities.Publisher;
+﻿using System.Collections.Generic;
+using BookShopProject.Domain.Entities.Publisher;
 
 namespace BookShopProject.BusinessLogic.Interfaces
 {
@@ -13,5 +14,7 @@ namespace BookShopProject.BusinessLogic.Interfaces
         int CreatePublisher(PublisherDbTable publisher);
         
         bool DeletePublisher(int id);
+        
+        List<PublisherDbTable> PublisherStats();
     }
 }

@@ -38,7 +38,52 @@ namespace BookShopProject.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var booksStatsDb = _bookAdmin.BookStats();
+            var genreStatsDb = _bookAdmin.GenreStats();
+            var authorStatsDb = _authorAdmin.AuthorStats();
+            var publisherStatsDb = _publisherAdmin.PublisherStats();
+            
+            var bookConfig = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Book.BookDbTable, Book>());
+            var bookMapper = bookConfig.CreateMapper();
+
+            var authorConfig = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Author.AuthorDbTable, Author>());
+            var authorMapper = authorConfig.CreateMapper();
+
+            var genreConfig = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Genre.GenreDbTable, Genre>());
+            var genreMapper = genreConfig.CreateMapper();
+
+            var publisherConfig = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Publisher.PublisherDbTable, Publisher>());
+            var publisherMapper = publisherConfig.CreateMapper();
+            
+            var booksStats = new List<Book>();
+            foreach (var b in booksStatsDb)
+                booksStats.Add(bookMapper.Map<Book>(b));
+
+            var genreStats = new List<Genre>();
+            foreach (var g in genreStatsDb)
+                genreStats.Add(genreMapper.Map<Genre>(g));
+
+            var authorStats = new List<Author>();
+            foreach (var a in authorStatsDb)
+                authorStats.Add(authorMapper.Map<Author>(a));
+
+            var publisherStats = new List<Publisher>();
+            foreach (var p in publisherStatsDb)
+                publisherStats.Add(publisherMapper.Map<Publisher>(p));
+            
+            var stats = new Stats
+            {
+                Books = booksStats,
+                Genre = genreStats,
+                Authors = authorStats,
+                Publishers = publisherStats
+            };
+
+            return View(stats);
         }
 
         public ActionResult Order()
