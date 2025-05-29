@@ -69,15 +69,8 @@ namespace BookShopProject.Controllers
             return RedirectToAction("BookInfo", new { ISBN = book.ISBN });
         }
 
-        public ActionResult BookList()
+        public ActionResult BookList(string type = null)
         {
-            var genre = Request.QueryString["Genre"];
-            var Search = Request.QueryString["Search"];
-            var Year = Request.QueryString["Year"];
-            var Lang = Request.QueryString["Lang"];
-            var Age = Request.QueryString["Age"];
-            var Publisher = Request.QueryString["Publisher"];
-
             var config = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<BookDbTable, Book>());
             var mapper = config.CreateMapper();
 
@@ -86,6 +79,26 @@ namespace BookShopProject.Controllers
             {
                 Products = new List<Book>()
             };
+            
+            if (type == "Offers")
+            {
+                List.NameOfList = "Offers";
+                var b = _bookUser.GetBooks("Offers", BSearchParameter.Offers);
+                foreach (var v in b.Books)
+                {
+                    List.Products.Add(mapper.Map<Book>(v));
+                }
+                return List.Products.Count != 0 ? (ActionResult)View(List) : RedirectToAction("er404", "Errors");
+            }
+            
+            var genre = Request.QueryString["Genre"];
+            var Search = Request.QueryString["Search"];
+            var Year = Request.QueryString["Year"];
+            var Lang = Request.QueryString["Lang"];
+            var Age = Request.QueryString["Age"];
+            var Publisher = Request.QueryString["Publisher"];
+
+
 
             if (genre != null)
             {

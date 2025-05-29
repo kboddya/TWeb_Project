@@ -118,6 +118,16 @@ namespace BookShopProject.BusinessLogic.Core
                     break;
                 }
 
+                case BSearchParameter.Offers:
+                {
+                    using (var db = new BookContext())
+                    {
+                        b.Books = db.Books.Where(x => x.DiscountedPrice != decimal.MinusOne).ToList();
+                    }
+                    
+                    break;
+                }
+
                 case BSearchParameter.All:
                 default:
                 {
