@@ -3,123 +3,140 @@
 }
 @model BookShopProject.Models.Stats
 
-<section class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <h4>Most Popular Authors</h4>
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>CountOfOrders</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (Model.Authors != null)
-                        {
-                            foreach (var author in Model.Authors
-                                .Select(a => new {
-                                    Name = a.Name,
-                                    CountOfOrders = Model.Books?.Where(b => b.AuthorId == a.Id).Sum(b => b.CountOfOrders) ?? 0
-                                })
-                                .OrderByDescending(a => a.CountOfOrders)
-                                .Take(10) // Top 10
-                            )
-                            {
-                                <tr>
-                                    <td>@author.Name</td>
-                                    <td>@author.CountOfOrders</td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
+<section class=" py-5 my-5">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="section-header align-center">
+                <div>
+                    <h2 class="section-title">Statistic</h2>
+                </div>
             </div>
-            <!-- Table: Most Popular Publishers -->
-            <div class="col-md-6 col-lg-3">
-                <h4>Most Popular Publishers</h4>
-                <table class="table table-bordered table-hover">
-                    <thead>
+            <div class="row">
+                <!-- Table: Most Popular Books -->
+                <div class="col-md-6 col-lg-3">
+                    <h3>Most Popular Books</h3>
+                    <table class="table">
+                        <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>CountOfOrders</th>
+                            <th style="background-color: #f3f2ec;">Name</th>
+                            <th style="background-color: #f3f2ec;">Count</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @if (Model.Publishers != null)
-                        {
-                            foreach (var publisher in Model.Publishers
-                                .Select(p => new {
-                                    Name = p.Name,
-                                    CountOfOrders = Model.Books?.Where(b => b.PublisherId == p.Id).Sum(b => b.CountOfOrders) ?? 0
-                                })
-                                .OrderByDescending(p => p.CountOfOrders)
-                                .Take(10)
-                            )
-                            {
-                                <tr>
-                                    <td>@publisher.Name</td>
-                                    <td>@publisher.CountOfOrders</td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
-            </div>
-            <!-- Table: Most Popular Books -->
-            <div class="col-md-6 col-lg-3">
-                <h4>Most Popular Books</h4>
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>CountOfOrders</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         @if (Model.Books != null)
                         {
                             foreach (var book in Model.Books
-                                .OrderByDescending(b => b.CountOfOrders)
-                                .Take(10)
-                            )
+                                         .OrderByDescending(b => b.CountOfOrders)
+                                         .Take(10)
+                                    )
                             {
                                 <tr>
-                                    <td>@book.Title</td>
-                                    <td>@book.CountOfOrders</td>
+                                    <td style="background-color: #f3f2ec;"><a
+                                                                               href="@Url.Action("BookDetails")?ISBN=@book.ISBN">@book.Title</a></td>
+                                    <td style="background-color: #f3f2ec;">@book.CountOfOrders</td>
                                 </tr>
                             }
                         }
-                    </tbody>
-                </table>
-            </div>
-            <!-- Table: Most Popular Genres -->
-            <div class="col-md-6 col-lg-3">
-                <h4>Most Popular Genres</h4>
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>CountOfOrders</th>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h3>Most Popular Authors</h3>
+                    <table class="table" style="background-color: #f3f2ec;">
+                        <thead>
+                        <tr style="background-color: #f3f2ec;">
+                            <th style="background-color: #f3f2ec;">Name</th>
+                            <th style="background-color: #f3f2ec;">Count</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody style="background-color: #f3f2ec;">
+                        @if (Model.Authors != null)
+                        {
+                            foreach (var author in Model.Authors
+                                         .Select(a => new
+                                         {
+                                             Name = a.FirstName + " " + a.LastName,
+                                             CountOfOrders = Model.Books?.Where(b => b.AuthorId == a.Id).Sum(b => b.CountOfOrders) ?? 0,
+                                             Id = a.Id
+                                         })
+                                         .OrderByDescending(a => a.CountOfOrders)
+                                         .Take(10) // Top 10
+                                    )
+                            {
+                                <tr>
+                                    <td style="background-color: #f3f2ec;">
+                                        <a
+                                            href="@Url.Action("AuthorDetails")?Id=@author.Id">@author.Name</a></td>
+                                    <td style="background-color: #f3f2ec;">@author.CountOfOrders</td>
+                                </tr>
+                            }
+                        }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Table: Most Popular Publishers -->
+                <div class="col-md-6 col-lg-3">
+                    <h3>Most Popular Publishers</h3>
+                    <table class="table" style="background-color: #f3f2ec;">
+                        <thead>
+                        <tr>
+                            <th style="background-color: #f3f2ec;">Name</th>
+                            <th style="background-color: #f3f2ec;">Count</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if (Model.Publishers != null)
+                        {
+                            foreach (var publisher in Model.Publishers
+                                         .Select(p => new
+                                         {
+                                             Name = p.Name,
+                                             CountOfOrders = Model.Books?.Where(b => b.PublisherId == p.Id).Sum(b => b.CountOfOrders) ?? 0,
+                                             Id = p.Id
+                                         })
+                                         .OrderByDescending(p => p.CountOfOrders)
+                                         .Take(10)
+                                    )
+                            {
+                                <tr>
+                                    <td style="background-color: #f3f2ec;">
+                                        <a
+                                            href="@Url.Action("PublisherDetails")?Id=@publisher.Id">@publisher.Name</a>
+                                    </td>
+                                    <td style="background-color: #f3f2ec;">@publisher.CountOfOrders</td>
+                                </tr>
+                            }
+                        }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Table: Most Popular Genres -->
+                <div class="col-md-6 col-lg-3">
+                    <h3>Most Popular Genres</h3>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th style="background-color: #f3f2ec;">Name</th>
+                            <th style="background-color: #f3f2ec;">Count</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         @if (Model.Genre != null)
                         {
                             foreach (var genre in Model.Genre
-                                .OrderByDescending(g => g.CountOfOrders)
-                                .Take(10)
-                            )
+                                         .OrderByDescending(g => g.CountOfOrders)
+                                         .Take(10)
+                                    )
                             {
                                 <tr>
-                                    <td>@genre.Name</td>
-                                    <td>@genre.CountOfOrders</td>
+                                    <td style="background-color: #f3f2ec;"><a href="@Url.Action("BookList", "Book")?Genre=@genre.Name">@genre.Name</a></td>
+                                    <td style="background-color: #f3f2ec;">@genre.CountOfOrders</td>
                                 </tr>
                             }
                         }
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
