@@ -5,88 +5,122 @@
 
 <section class="content">
     <div class="container-fluid">
-        <style>
-            canvas { border: 1px solid #ccc; margin-top: 20px; }
-        </style>
         <div class="row">
-            <div class="col-md-6">
-                <h4>Books per Author</h4>
-                <canvas id="authorChart"></canvas>
+            <div class="col-md-6 col-lg-3">
+                <h4>Most Popular Authors</h4>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>CountOfOrders</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Authors != null)
+                        {
+                            foreach (var author in Model.Authors
+                                .Select(a => new {
+                                    Name = a.Name,
+                                    CountOfOrders = Model.Books?.Where(b => b.AuthorId == a.Id).Sum(b => b.CountOfOrders) ?? 0
+                                })
+                                .OrderByDescending(a => a.CountOfOrders)
+                                .Take(10) // Top 10
+                            )
+                            {
+                                <tr>
+                                    <td>@author.Name</td>
+                                    <td>@author.CountOfOrders</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
             </div>
-            <div class="col-md-6">
-                <h4>Books per Genre</h4>
-                <canvas id="genreChart"></canvas>
+            <!-- Table: Most Popular Publishers -->
+            <div class="col-md-6 col-lg-3">
+                <h4>Most Popular Publishers</h4>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>CountOfOrders</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Publishers != null)
+                        {
+                            foreach (var publisher in Model.Publishers
+                                .Select(p => new {
+                                    Name = p.Name,
+                                    CountOfOrders = Model.Books?.Where(b => b.PublisherId == p.Id).Sum(b => b.CountOfOrders) ?? 0
+                                })
+                                .OrderByDescending(p => p.CountOfOrders)
+                                .Take(10)
+                            )
+                            {
+                                <tr>
+                                    <td>@publisher.Name</td>
+                                    <td>@publisher.CountOfOrders</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- Table: Most Popular Books -->
+            <div class="col-md-6 col-lg-3">
+                <h4>Most Popular Books</h4>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>CountOfOrders</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Books != null)
+                        {
+                            foreach (var book in Model.Books
+                                .OrderByDescending(b => b.CountOfOrders)
+                                .Take(10)
+                            )
+                            {
+                                <tr>
+                                    <td>@book.Title</td>
+                                    <td>@book.CountOfOrders</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- Table: Most Popular Genres -->
+            <div class="col-md-6 col-lg-3">
+                <h4>Most Popular Genres</h4>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>CountOfOrders</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Genre != null)
+                        {
+                            foreach (var genre in Model.Genre
+                                .OrderByDescending(g => g.CountOfOrders)
+                                .Take(10)
+                            )
+                            {
+                                <tr>
+                                    <td>@genre.Name</td>
+                                    <td>@genre.CountOfOrders</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>Books per Publisher</h4>
-                <canvas id="publisherChart"></canvas>
-            </div>
-            <div class="col-md-6">
-                <h4>Book Copies (Total Per Book)</h4>
-                <canvas id="bookChart"></canvas>
-            </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-            // Authors
-            var authorLabels = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
-                Model.Authors?.Select(a => a.Name) ?? new List<string>()
-            ));
-            var authorData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
-                Model.Authors?.Select(a => Model.Books.Count(b => b.AuthorId == a.Id)) ?? new List<int>()
-            ));
-
-            // Genres
-            var genreLabels = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
-                Model.Books?.Select(a => a.Name) ?? new List<string>()
-            ));
-            var genreData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
-                Model.Books?.Select(a => Model.Books.Count(b => b.Genre == a.Genre)) ?? new List<int>()
-            ));
-
-            // Publishers
-            var publisherLabels = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
-                Model.Publishers?.Select(p => p.Name) ?? new List<string>()
-            ));
-            var publisherData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
-                Model.Publishers?.Select(p => Model.Books.Count(b => b.PublisherId == p.Id)) ?? new List<int>()
-            ));
-
-            // Books (show total copies if available, else 1)
-            var bookLabels = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
-                Model.Books?.Select(b => b.Title) ?? new List<string>()
-            ));
-            var bookData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
-                 Model.Books?.Select(p => Model.Books.Count(b => b.ISBN == p.ISBN)) ?? new List<int>()
-            ));
-
-            function makeBarChart(ctx, labels, data, label) {
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: label,
-                            data: data,
-                            backgroundColor: 'rgba(54, 162, 235, 0.6)'
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        indexAxis: 'y',
-                        scales: { x: { beginAtZero: true } }
-                    }
-                });
-            }
-
-            document.addEventListener('DOMContentLoaded', function() {
-                makeBarChart(document.getElementById('authorChart').getContext('2d'), authorLabels, authorData, 'Books per Author');
-                makeBarChart(document.getElementById('genreChart').getContext('2d'), genreLabels, genreData, 'Books per Genre');
-                makeBarChart(document.getElementById('publisherChart').getContext('2d'), publisherLabels, publisherData, 'Books per Publisher');
-                makeBarChart(document.getElementById('bookChart').getContext('2d'), bookLabels, bookData, 'Book Copies');
-            });
-        </script>
     </div>
 </section>

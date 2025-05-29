@@ -8,7 +8,7 @@ namespace BookShopProject.Models
         
         public List<Author> Authors { get; set; }
         
-        public List<GenreList> Genres { get; set; }
+        public List<Genre> Genre { get; set; }
         
         public List<Publisher> Publishers { get; set; }
     }

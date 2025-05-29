@@ -48,7 +48,7 @@ namespace BookShopProject.Controllers
             var authorMapper = authorConfig.CreateMapper();
 
             var genreConfig = new AutoMapper.MapperConfiguration(cfg =>
-                cfg.CreateMap<Domain.Entities.Genre.GenreDbTable, GenreList>());
+                cfg.CreateMap<Domain.Entities.Genre.GenreDbTable, Genre>());
             var genreMapper = genreConfig.CreateMapper();
 
             var publisherConfig = new AutoMapper.MapperConfiguration(cfg =>
@@ -59,9 +59,9 @@ namespace BookShopProject.Controllers
             foreach (var b in booksStatsDb)
                 booksStats.Add(bookMapper.Map<Book>(b));
 
-            var genreStats = new List<GenreList>();
+            var genreStats = new List<Genre>();
             foreach (var g in genreStatsDb)
-                genreStats.Add(genreMapper.Map<GenreList>(g));
+                genreStats.Add(genreMapper.Map<Genre>(g));
 
             var authorStats = new List<Author>();
             foreach (var a in authorStatsDb)
@@ -74,7 +74,7 @@ namespace BookShopProject.Controllers
             var stats = new Stats
             {
                 Books = booksStats,
-                Genres = genreStats,
+                Genre = genreStats,
                 Authors = authorStats,
                 Publishers = publisherStats
             };
