@@ -57,7 +57,7 @@
                         <p><b>Age:</b>
                             @{
                                 var age = DateTime.Now.Year - Model.BirthDate.Year;
-                                if (Model.DeathDate.Year != 1)
+                                if (Model.DeathDate.Year > Model.BirthDate.Year)
                                 {
                                     age = Model.DeathDate.Year - Model.BirthDate.Year;
                                 }
