@@ -62,8 +62,8 @@ namespace BookShopProject.Controllers
                 cfg.CreateMap<Domain.Entities.Book.OrderDbTable, Models.Order>());
             var mapper = config.CreateMapper();
             var order = mapper.Map<Models.Order>(orderFromBL);
-
-            return View(order);
+            
+            return View(order.Book); 
         }
 
         public ActionResult AuthorList()

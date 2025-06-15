@@ -1,95 +1,53 @@
-﻿@{
+﻿@model BookShopProject.Models.Book
+
+@{
     Layout = "../Shared/_AdminLayout.cshtml";
 }
 
 <div class="admin-orders-container">
     <div class="admin-orders-header">
-        <h1 class="admin-orders-title">Order #12345 Details</h1>
-        <div class="admin-orders-status-container">
-            <span class="admin-orders-status admin-orders-status--processing">Processing</span>
-        </div>
+        <h1 class="admin-orders-title">Book Ordered Details</h1>
     </div>
 
     <div class="admin-orders-details-container">
         <div class="admin-orders-details-section">
-            <h3 class="admin-orders-section-title">Customer Information</h3>
-            <div class="admin-orders-details-grid">
-                <div class="admin-orders-detail-item">
-                    <span class="admin-orders-detail-label">Name:</span>
-                    <span class="admin-orders-detail-value">John Doe</span>
-                </div>
-                <div class="admin-orders-detail-item">
-                    <span class="admin-orders-detail-label">Email:</span>
-                    <span class="admin-orders-detail-value">john.doe@example.com</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="admin-orders-details-section">
             <h3 class="admin-orders-section-title">Order Items</h3>
             <table class="admin-orders-table">
                 <thead>
-                    <tr>
-                        <th style="padding-left: 20px;">Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                    </tr>
+                <tr>
+                    <th style="padding-left: 20px;">Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td style="padding-left: 20px;">
-                            <div class="admin-orders-product-item">
-                                <img src="~/Images/book-cover.jpg" class="admin-orders-product-image">
-                                <div class="admin-orders-product-info">
-                                    <div class="admin-orders-product-title">The Great Novel</div>
-                                    <div class="admin-orders-product-author">by Author Name</div>
-                                    <div class="admin-orders-product-isbn">ISBN: 123-4567890123</div>
-                                </div>
+                <tr>
+                    <td style="padding-left: 20px;">
+                        <div class="admin-orders-product-item">
+                            <img src="@Url.Content(Model.Image ?? "~/Images/default-book.jpg")" class="admin-orders-product-image">
+                            <div class="admin-orders-product-info">
+                                <div class="admin-orders-product-title">@Model.Title</div>
+                                <div class="admin-orders-product-author">by @Model.AuthorFirstName @Model.AuthorLastName</div>
+                                <div class="admin-orders-product-isbn">ISBN: @Model.ISBN</div>
                             </div>
-                        </td>
-                        <td>$29.99</td>
-                        <td>1</td>
-                        <td>$29.99</td>
-                    </tr>
+                        </div>
+                    </td>
+                    <td>
+                        @String.Format("{0:C}", Model.Price)
+                    </td>
+                    <td>1</td>
+                    <td>
+                        @String.Format("{0:C}", Model.Price)
+                    </td>
+                </tr>
                 </tbody>
             </table>
-        </div>
-
-        <div class="admin-orders-summary-section">
-            <div class="admin-orders-summary-row">
-                <span class="admin-orders-summary-label">Subtotal:</span>
-                <span class="admin-orders-summary-value">$29.99</span>
-            </div>
-            <div class="admin-orders-summary-row">
-                <span class="admin-orders-summary-label">Shipping:</span>
-                <span class="admin-orders-summary-value">$5.00</span>
-            </div>
-            <div class="admin-orders-summary-row admin-orders-summary-total">
-                <span class="admin-orders-summary-label">Total:</span>
-                <span class="admin-orders-summary-value">$34.99</span>
-            </div>
-        </div>
-
-        <div class="admin-orders-update-section">
-            <h3 class="admin-orders-section-title">Update Status</h3>
-            <div class="admin-orders-status-controls">
-                <select class="admin-orders-status-select">
-                    <option>Processing</option>
-                    <option>Shipped</option>
-                    <option>Delivered</option>
-                    <option>Cancelled</option>
-                </select>
-                <button class="admin-orders-action-btn admin-orders-action-btn--primary">
-                    Update Status
-                </button>
-            </div>
         </div>
     </div>
 </div>
 
 <style>
-    /* Additional Styles for Order Details */
     .admin-orders-details-container {
         background: white;
         border-radius: 12px;

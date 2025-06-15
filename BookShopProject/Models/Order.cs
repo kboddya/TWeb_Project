@@ -16,6 +16,8 @@ namespace BookShopProject.Models
         public DateTime LastUpdateTime { get; set; }
         public decimal Price { get; set; }
         public Book Book { get; set; }
+        
+        public bool IsBought { get; set; }
     }
 
     public class OrderList: UserMinimal

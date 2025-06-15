@@ -2,7 +2,7 @@
     ViewBag.Title = "Index";
     Layout = "/Views/Shared/_LoginLayout.cshtml";
 }
-@model BookShopProject.Models.UserMinimal
+@model BookShopProject.Models.OrderList
 
 <div class="d-flex justify-content-center align-items-center min-vh-100 py-5">
     <div class="card p-5" style="width: 100%; max-width: 1200px; background-color: #f8f9fa; border-radius: 15px;">
@@ -32,9 +32,9 @@
 
             <hr/>
 
-            <!-- Cart Items -->
+            <!-- Cart Items-->
             <div class="d-flex align-items-center mb-4">
-                <h4 class="mb-0 me-2">Cart Items</h4>
+                <h4 class="mb-0 me-2">Recent Orders</h4>
                 <small>
                     <a href="@Url.Action("Index", "Cart")" class="text-decoration-none link-danger fs-5"
                        style="vertical-align: middle;">
@@ -43,35 +43,69 @@
                 </small>
             </div>
             <div class="d-flex flex-column gap-3 mb-4">
-                <!-- Cart Item -->
-                <div class="d-flex align-items-center justify-content-between p-3 bg-white rounded">
-                    <div class="d-flex align-items-center gap-3">
-                        <img src="https://via.placeholder.com/80"
-                             class="rounded"
-                             style="width: 60px; height: 60px; object-fit: cover;">
-                        <div>
-                            <p class="mb-0" style="font-size: 15px; font-weight: 500;">Product Name</p>
-                            <p class="mb-0 text-muted" style="font-size: 14px;">$49.99</p>
+                @{
+                    var cartOrders = Model.Orders
+                        .Where(order => order.Book != null && order.IsBought == false)
+                        .Take(3)
+                        .ToList();
+                }
+                @if (cartOrders.Any())
+                {
+                    foreach (var order in cartOrders)
+                    {
+                        <div class="d-flex align-items-center justify-content-between p-3 bg-white rounded">
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="@Url.Content(order.Book?.Image ?? "~/Images/default-book.jpg")"
+                                     class="rounded"
+                                     style="width: 60px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <p class="mb-0" style="font-size: 15px; font-weight: 500;">@order.Book?.Title</p>
+                                    <p class="mb-0 text-muted" style="font-size: 14px;">@String.Format("{0:C}", order.Book?.Price ?? 0)</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Repeat cart items -->
+                    }
+                }
+                else
+                {
+                    <p class="text-muted">No recent cart orders.</p>
+                }
             </div>
 
             <hr/>
 
-            <!-- Purchase History -->
-            <h4 class="mb-4">Purchase History</h4>
+            <!-- Purchase History-->
+            <h4 class="mb-4">Order History</h4>
             <div class="d-flex flex-column gap-3">
-                <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded">
-                    <div>
-                        <p class="mb-0" style="font-size: 15px; font-weight: 500;">Order #12345</p>
-                        <p class="mb-0 text-muted" style="font-size: 14px;">March 15, 2024</p>
-                    </div>
-                    <span class="badge bg-success">Delivered</span>
-                </div>
+                @{
+                    var boughtOrders = Model.Orders
+                        .Where(order => order.Book != null && order.IsBought == true)
+                        .ToList();
+                }
+                @if (boughtOrders.Any())
+                {
+                    foreach (var order in boughtOrders)
+                    {
+                        <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded">
+                            <div>
+                                <p class="mb-0" style="font-size: 15px; font-weight: 500;">
+                                    @order.Book?.Title
+                                </p>
+                                <p class="mb-0 text-muted" style="font-size: 14px;">
+                                    @order.CreateTime.ToString("MMMM dd, yyyy")
+                                </p>
+                                <p class="mb-0 text-muted" style="font-size: 14px;">
+                                    Order #@order.Id
+                                </p>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p class="text-muted">No orders found.</p>
+                }
             </div>
-
         </div>
     </div>
 </div>
