@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BookShopProject.BusinessLogic.Interfaces;
 using BookShopProject.Models;
 
 namespace BookShopProject.Controllers
 {
     public class AuthController : Controller
     {
+        private readonly ISession _sessionBL;
+        public AuthController()
+        {
+            var bl = new BusinessLogic.BusinessLogic();
+            _sessionBL = bl.GetSessionBL();
+        }
         public ActionResult Register()
         {
             return View();
@@ -27,10 +34,7 @@ namespace BookShopProject.Controllers
                 Password = user.Password
             };
 
-            var bl = new BusinessLogic.BusinessLogic();
-            var sessionBL = bl.GetSessionBL();
-
-            var result = sessionBL.UserRegister(userData);
+            var result = _sessionBL.UserRegister(userData);
 
             if (result.Status) return RedirectToAction("WelcomeToFamily");
 
@@ -58,14 +62,11 @@ namespace BookShopProject.Controllers
                 Password = user.Password
             };
 
-            var bl = new BusinessLogic.BusinessLogic();
-            var sessionBL = bl.GetSessionBL();
-
-            var result = sessionBL.UserLogin(userData);
+            var result = _sessionBL.UserLogin(userData);
 
             if (result.Status)
             {
-                var cookie = sessionBL.GenCookie(userData.Email);
+                var cookie = _sessionBL.GenCookie(userData.Email);
                 Response.Cookies.Add(cookie);
                 
                 return RedirectToAction("Index", "Home");

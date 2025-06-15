@@ -7,13 +7,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <div class="rating disabled star5" style="margin-bottom: 0px;">
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                    <a href="#">★</a>
-                </div>
                 <div class="book-image">
                     <img src="@Model.Image" alt="book" class="img-fluid">
                 </div>
@@ -42,7 +35,8 @@
                 <div class="row">
                     <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Age</p>
-                        <a href="@Url.Action("BookList", "Book")?Age=@Model.age" class="tags-of-parameters rounded-corners">@((int)(Model.age))+</a>
+                        <a href="@Url.Action("BookList", "Book")?Age=@Model.age"
+                           class="tags-of-parameters rounded-corners">@((int)(Model.age))+</a>
                     </div>
                     <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Genre</p>
@@ -51,21 +45,26 @@
                     </div>
                     <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Language</p>
-                        <a href="@Url.Action("BookList", "Book")?Lang=@Model.Language" class="tags-of-parameters rounded-corners">@Model.Language</a>
+                        <a href="@Url.Action("BookList", "Book")?Lang=@Model.Language"
+                           class="tags-of-parameters rounded-corners">@Model.Language</a>
                     </div>
 
                     <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Year</p>
-                        <a href="@Url.Action("BookList", "Book")?Year=@Model.PublishDate.Year" class="tags-of-parameters rounded-corners">@Model.PublishDate.Year</a>
+                        <a href="@Url.Action("BookList", "Book")?Year=@Model.PublishDate.Year"
+                           class="tags-of-parameters rounded-corners">@Model.PublishDate.Year</a>
                     </div>
                     <div class="col-md-2 book-parameters">
                         <p class="margin-button-10">Publisher</p>
-                        <a href="@Url.Action("Index", "Publisher")?Id=@Model.PublisherId" class="tags-of-parameters rounded-corners">@Model.Publisher</a>
+                        <a href="@Url.Action("Index", "Publisher")?Id=@Model.PublisherId"
+                           class="tags-of-parameters rounded-corners">@Model.Publisher</a>
                     </div>
 
 
                 </div>
-                <button class="rounded-corners"><a style="color: black" href="@Url.Action("AddToCart", "Cart")?ISBN=@Model.ISBN">Add to cart</a></button>
+                <button class="rounded-corners"><a style="color: black"
+                                                   href="@Url.Action("AddToCart", "Cart")?ISBN=@Model.ISBN">Add to
+                        cart</a></button>
                 <span>@Model.Count available</span>
 
             </div>
@@ -73,7 +72,7 @@
                 <p class="book-description">
                     @foreach (var c in Model.Description)
                     {
-                        if(c == '\n')
+                        if (c == '\n')
                         {
                             <br>
                         }
@@ -83,14 +82,38 @@
                         }
                     }
                 </p>
-
-                <form id="review-form">
-                    <div class="form-group">
-                        <label for="review-text">Your review:</label>
-                        <textarea id="review-text" class="form-control" rows="4" required></textarea>
+                @foreach (var review in Model.Reviews.Reviews)
+                {
+                    <div class="review">
+                        <p> @foreach (var c in review.Text)
+                            {
+                                if (c == '\n')
+                                {
+                                    <br>
+                                }
+                                else
+                                {
+                                    @c
+                                }
+                            }</p>
+                        <span class="review-date">@review.Date.ToString("dd.MM.yyyy")</span>
                     </div>
-                    <button type="submit" class="rounded-corners">Send</button>
-                </form>
+                }
+                @if (Model.IsAuthenticated)
+                {
+                    using (Html.BeginForm("BookInfo", "Book", FormMethod.Post, new { @class = "form-group" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        ;
+                        <label for="review-text">Your review:</label>
+                        @Html.HiddenFor(m => m.ISBN)
+                        ;
+                        @Html.TextAreaFor(m => m.Review.Text, new { @class = "form-control", @id = "review-text", placeholder = "Write your review here..." })
+
+                        <button type="submit" class="rounded-corners">Send</button>
+                    }
+                }
+
 
             </div>
         </div>

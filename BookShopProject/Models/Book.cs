@@ -49,5 +49,9 @@ namespace BookShopProject.Models
         public int CountOfOrders { get; set; } = 0;
         
         public AgeCategories age { get; set; }
+        
+        public ReviewList Reviews { get; set; } 
+        
+        public Review Review { get; set; }
     }
 }

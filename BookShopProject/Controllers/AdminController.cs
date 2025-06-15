@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using BookShopProject.Attributes;
 using BookShopProject.BusinessLogic.Interfaces;
+using BookShopProject.Domain.Entities.Book;
 using BookShopProject.Domain.Enums.Book;
 using BookShopProject.Domain.Enums.User;
 using BookShopProject.Domain.Entities.User;
@@ -20,6 +22,7 @@ namespace BookShopProject.Controllers
         private readonly IArticleAdmin _articleAdmin;
         private readonly IUserPanel _userPanel;
         private readonly IOrderAdmin _orderAdmin;
+        private readonly IMessageAdmin _messageAdmin;
 
         public AdminController()
         {
@@ -30,11 +33,57 @@ namespace BookShopProject.Controllers
             _articleAdmin = bl.GetArticleAdminBL();
             _userPanel = bl.GetUserPanelBL();
             _orderAdmin = bl.GetOrderAdminBL();
+            _messageAdmin = bl.GetMessageAdminBL();
         }
 
         public ActionResult Index()
         {
-            return View();
+            var booksStatsDb = _bookAdmin.BookStats();
+            var genreStatsDb = _bookAdmin.GenreStats();
+            var authorStatsDb = _authorAdmin.AuthorStats();
+            var publisherStatsDb = _publisherAdmin.PublisherStats();
+            
+            var bookConfig = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Book.BookDbTable, Book>());
+            var bookMapper = bookConfig.CreateMapper();
+
+            var authorConfig = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Author.AuthorDbTable, Author>());
+            var authorMapper = authorConfig.CreateMapper();
+
+            var genreConfig = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Genre.GenreDbTable, Genre>());
+            var genreMapper = genreConfig.CreateMapper();
+
+            var publisherConfig = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.Publisher.PublisherDbTable, Publisher>());
+            var publisherMapper = publisherConfig.CreateMapper();
+            
+            var booksStats = new List<Book>();
+            foreach (var b in booksStatsDb)
+                booksStats.Add(bookMapper.Map<Book>(b));
+
+            var genreStats = new List<Genre>();
+            foreach (var g in genreStatsDb)
+                genreStats.Add(genreMapper.Map<Genre>(g));
+
+            var authorStats = new List<Author>();
+            foreach (var a in authorStatsDb)
+                authorStats.Add(authorMapper.Map<Author>(a));
+
+            var publisherStats = new List<Publisher>();
+            foreach (var p in publisherStatsDb)
+                publisherStats.Add(publisherMapper.Map<Publisher>(p));
+            
+            var stats = new Stats
+            {
+                Books = booksStats,
+                Genre = genreStats,
+                Authors = authorStats,
+                Publishers = publisherStats
+            };
+
+            return View(stats);
         }
 
         public ActionResult Order()
@@ -177,6 +226,19 @@ namespace BookShopProject.Controllers
 
             var book = new Book();
             book = mapper.Map<Models.Book>(bookFromBL.Books[0]);
+
+            book.Reviews = new ReviewList();
+            var reviews = _bookAdmin.GetReviews(book.ISBN);
+            
+            if (reviews != null)
+            {
+                var configReviews = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<ReviewDbTable, Review>());
+                var mapperReviews = configReviews.CreateMapper();
+                foreach (var v in reviews)
+                {
+                    book.Reviews.Reviews.Add(mapperReviews.Map<Review>(v));
+                }
+            }
 
             return View(book);
         }
@@ -480,6 +542,45 @@ namespace BookShopProject.Controllers
             var id = Request.QueryString["id"];
             _userPanel.Delete(int.Parse(id));
             return RedirectToAction("UserControlPanel");
+        }
+        
+        public ActionResult Messages()
+        {
+            var messages = _messageAdmin.GetMessages();
+
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.User.MessageDbTable, MessageForAdmin>());
+            var mapper = config.CreateMapper();
+
+            var messageListModel = messages.Select(v => mapper.Map<MessageForAdmin>(v)).ToList();
+
+            return View(messageListModel);
+        }
+
+        public ActionResult MessageDetails()
+        {
+            var id = Request.QueryString["Id"];
+            if (id == null) return RedirectToAction("er404", "Errors");
+
+            var messageFromBL = _messageAdmin.GetMessageById(int.Parse(id));
+            if (messageFromBL == null) return RedirectToAction("er404", "Errors");
+
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+                cfg.CreateMap<Domain.Entities.User.MessageDbTable, MessageForAdmin>());
+            var mapper = config.CreateMapper();
+
+            var messageModel = mapper.Map<MessageForAdmin>(messageFromBL);
+            return View(messageModel);
+        }
+
+        public ActionResult DeleteReview()
+        {
+            var id = Request.QueryString["Id"];
+            if (id == null) return RedirectToAction("er404", "Errors");
+
+            return _bookAdmin.DeleteReview(int.Parse(id))
+                ? RedirectToAction("BookList")
+                : RedirectToAction("err404", "Errors");
         }
     }
 }

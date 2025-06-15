@@ -127,6 +127,7 @@
     <Content Include="Content\images\default.png" />
     <Content Include="Content\images\device.png" />
     <Content Include="Content\images\google-play.jpg" />
+    <Content Include="Content\images\team-image2.jpg" />
     <Content Include="Content\images\item.png" />
     <Content Include="Content\images\item1.png" />
     <Content Include="Content\images\item3.png" />
@@ -161,7 +162,6 @@
     <Content Include="Content\images\tab-item8.jpg" />
     <Content Include="Content\images\team-image1.jpg" />
     <Content Include="Content\images\team-image3.jpg" />
-    <Content Include="Content\images\team-image2.jpg" />
     <Content Include="Content\Styles\about.css" />
     <Content Include="Content\Styles\ajax-loader.gif" />
     <Content Include="Content\Styles\bootstrap.min.css" />
@@ -209,6 +209,8 @@
     <Content Include="Views\Admin\BookDetails.cshtml" />
     <Content Include="Views\Admin\BookList.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\MessageDetails.cshtml" />
+    <Content Include="Views\Admin\Messages.cshtml" />
     <Content Include="Views\Admin\PublisherDetails.cshtml" />
     <Content Include="Views\Admin\PublishersList.cshtml" />
     <Content Include="Views\Articles\ArticleDetails.cshtml" />
@@ -250,9 +252,7 @@
     <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\PublisherController.cs" />
-    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Extension\HttpContextExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -260,11 +260,15 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\HomePage.cs" />
+    <Compile Include="Models\MessageForAdmin.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\GenreList.cs" />
     <Compile Include="Models\Publisher.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\ReviewList.cs" />
+    <Compile Include="Models\Stats.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserListModel.cs" />
     <Compile Include="Models\BookList.cs" />
@@ -280,8 +284,6 @@
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
-    <Content Include="Views\Review\Index.cshtml" />
-    <Content Include="Views\Offer\Index.cshtml" />
     <Content Include="Views\Admin\UserControlPanel.cshtml" />
     <Content Include="Views\Home\AccessDenied.cshtml" />
     <Content Include="Views\Admin\Userdetails.cshtml" />

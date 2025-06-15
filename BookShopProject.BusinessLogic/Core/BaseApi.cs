@@ -63,8 +63,9 @@ namespace BookShopProject.BusinessLogic.Core
                 {
                     using (var db = new BookContext())
                     {
-                        b.Books = db.Books.Where(x => x.CountOfOrders > 15).ToList();
+                        b.Books = db.Books.ToList();
                     }
+                    b.Books.Sort((x,y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
 
                     break;
                 }
@@ -113,6 +114,16 @@ namespace BookShopProject.BusinessLogic.Core
                     using (var db = new BookContext())
                     {
                         b.Books = db.Books.Where(x => x.age == age).ToList();
+                    }
+                    
+                    break;
+                }
+
+                case BSearchParameter.Offers:
+                {
+                    using (var db = new BookContext())
+                    {
+                        b.Books = db.Books.Where(x => x.DiscountedPrice != decimal.MinusOne).ToList();
                     }
                     
                     break;
@@ -236,6 +247,35 @@ namespace BookShopProject.BusinessLogic.Core
             }
             
             return article;
+        }
+        
+        internal List<ReviewDbTable> GetReviewsByISBNAction(long isbn)
+        {
+            using (var db = new ReviewContext())
+            {
+                return db.Reviews.Where(x => x.ISBN == isbn).ToList();
+            }
+        }
+        
+        internal List<AuthorDbTable> GetAuthorsByPopularityAction()
+        {
+            var u = AuthorsListAction().Authors;
+            u.Sort((x, y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
+            return u;
+        }
+
+        internal List<PublisherDbTable> GetPublishersByPopularityAction()
+        {
+            var u = PublishersListAction().Publishers;
+            u.Sort((x,y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
+            return u;
+        }
+
+        internal List<GenreDbTable> GetGenresByPopularityAction()
+        {
+            var u = GenresListAction();
+            u.Sort((x,y) => x.CountOfOrders.CompareTo(y.CountOfOrders));
+            return u;
         }
     }
 }

@@ -356,5 +356,39 @@ namespace BookShopProject.BusinessLogic.Core
         }
 
         // TODO: Static logic and if available (another UsingDb, Book context, return new type) 
+
+        internal bool SendMessageToAdminAction(Domain.Entities.User.MessageDbTable message)
+        {
+            if (string.IsNullOrEmpty(message.Message))
+            {
+                return false;
+            }
+            
+            message.CreateTime = DateTime.Now;
+
+            using (var db = new MessageContext())
+            {
+                db.Messages.Add(message);
+                db.SaveChanges();
+                return true;
+            }
+        }
+        
+        internal bool AddReviewAction(ReviewDbTable review)
+        {
+            if (string.IsNullOrEmpty(review.Text) || string.IsNullOrEmpty(review.Email) || BookByIdAction(review.ISBN) == null)
+            {
+                return false;
+            }
+
+            review.Date = DateTime.Now;
+
+            using (var db = new ReviewContext())
+            {
+                db.Reviews.Add(review);
+                db.SaveChanges();
+                return true;
+            }
+        }
     }
 }

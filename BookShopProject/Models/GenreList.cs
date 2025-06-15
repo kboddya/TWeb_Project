@@ -11,5 +11,6 @@ namespace BookShopProject.Models
         }
         
         public List<string> Genres { get; set; }
+   
     }
 }

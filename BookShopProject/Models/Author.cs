@@ -28,6 +28,8 @@ namespace BookShopProject.Models
         public List<string> Genres { get; set; } = new List<string>();
 
         public List<Book> Books { get; set; } = new List<Book>();
+        
+        public int CountOfOrders { get; set; } = 0;
     }
     
     public class AuthorList: UserMinimal

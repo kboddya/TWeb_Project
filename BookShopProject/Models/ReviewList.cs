@@ -5,8 +5,8 @@ using System.Web;
 
 namespace BookShopProject.Models
 {
-    public class ReviewList: UserMinimal
+    public class ReviewList
     {
-        public List<Review> Reviews { get; set; }
+        public List<Review> Reviews { get; set; } = new List<Review>();
     }
 }

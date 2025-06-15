@@ -59,6 +59,8 @@
     <Compile Include="BL\AuthorUserBL.cs" />
     <Compile Include="BL\BookAdminBL.cs" />
     <Compile Include="BL\BookUserBL.cs" />
+    <Compile Include="BL\MessageAdminBL.cs" />
+    <Compile Include="BL\MessageUserBL.cs" />
     <Compile Include="BL\OrderUserBL.cs" />
     <Compile Include="BL\PublisherAdminBL.cs" />
     <Compile Include="BL\PublisherPublisherBL.cs" />
@@ -70,6 +72,10 @@
     <Compile Include="Core\PublisherApi.cs" />
     <Compile Include="Core\UserApi.cs" />
     <Compile Include="DBModel\ArticleContext.cs" />
+    <Compile Include="DBModel\MessageContext.cs" />
+    <Compile Include="DBModel\ReviewContext.cs" />
+    <Compile Include="Interfaces\IMessageAdmin.cs" />
+    <Compile Include="Interfaces\IMessageUser.cs" />
     <Compile Include="Interfaces\IOrderAdmin.cs" />
     <Compile Include="DBModel\AuthorContext.cs" />
     <Compile Include="DBModel\BookContext.cs" />
