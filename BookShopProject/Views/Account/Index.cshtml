@@ -29,9 +29,7 @@
                     </div>
                 </div>
             </div>
-
-            <hr/>
-
+            
             <!-- Cart Items-->
             <div class="d-flex align-items-center mb-4">
                 <h4 class="mb-0 me-2">Recent Orders</h4>
@@ -42,38 +40,7 @@
                     </a>
                 </small>
             </div>
-            <div class="d-flex flex-column gap-3 mb-4">
-                @{
-                    var cartOrders = Model.Orders
-                        .Where(order => order.Book != null && order.IsBought == false)
-                        .Take(3)
-                        .ToList();
-                }
-                @if (cartOrders.Any())
-                {
-                    foreach (var order in cartOrders)
-                    {
-                        <div class="d-flex align-items-center justify-content-between p-3 bg-white rounded">
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="@Url.Content(order.Book?.Image ?? "~/Images/default-book.jpg")"
-                                     class="rounded"
-                                     style="width: 60px; height: 60px; object-fit: cover;">
-                                <div>
-                                    <p class="mb-0" style="font-size: 15px; font-weight: 500;">@order.Book?.Title</p>
-                                    <p class="mb-0 text-muted" style="font-size: 14px;">@String.Format("{0:C}", order.Book?.Price ?? 0)</p>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                }
-                else
-                {
-                    <p class="text-muted">No recent cart orders.</p>
-                }
-            </div>
-
-            <hr/>
-
+            
             <!-- Purchase History-->
             <h4 class="mb-4">Order History</h4>
             <div class="d-flex flex-column gap-3">
@@ -87,17 +54,19 @@
                     foreach (var order in boughtOrders)
                     {
                         <div class="d-flex justify-content-between align-items-center p-3 bg-white rounded">
+                            <a href="@Url.Action("BookInfo", "Book")?ISBN=@order.Book.ISBN">
                             <div>
                                 <p class="mb-0" style="font-size: 15px; font-weight: 500;">
-                                    @order.Book?.Title
+                                    @order.Book.Title
                                 </p>
                                 <p class="mb-0 text-muted" style="font-size: 14px;">
-                                    @order.CreateTime.ToString("MMMM dd, yyyy")
+                                    @order.Book.AuthorFirstName @order.Book.AuthorLastName
                                 </p>
                                 <p class="mb-0 text-muted" style="font-size: 14px;">
-                                    Order #@order.Id
+                                    @order.Book.Price.ToString("C")
                                 </p>
                             </div>
+                            </a>
                         </div>
                     }
                 }

@@ -30,7 +30,7 @@
                 {
                     <tr>
                         <td>@order.Id</td>
-                        <td>@order.UserId</td>
+                        <td><a href="@Url.Action("UserDetails")?id=@order.UserId">@order.UserId</a></td>
                         <td>@order.Price</td>
                         <td>@order.CreateTime</td>
                         <td><a href="@Url.Action("OrderDetails")?Id=@order.Id">Details</a></td>

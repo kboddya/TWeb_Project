@@ -219,7 +219,7 @@ namespace BookShopProject.BusinessLogic.Core
         {
             using (var db = new OrderContext())
             {
-                if (db.Orders.FirstOrDefault(x => x.Id == cart.Id) != null) return false;
+                if (db.Orders.FirstOrDefault(x => x.ISBN == cart.ISBN && x.UserId == cart.UserId) != null) return false;
                 db.Orders.Add(cart);
                 db.SaveChanges();
                 return true;
@@ -355,7 +355,16 @@ namespace BookShopProject.BusinessLogic.Core
             return a;
         }
 
-        // TODO: Static logic and if available (another UsingDb, Book context, return new type) 
+        internal OrdersList PurchaseListAction(int userId)
+        {
+            var a = new OrdersList();
+            using (var db = new OrderContext())
+            {
+                a.Orders = db.Orders.Where(x => x.UserId == userId && x.IsBought).ToList();
+            }
+
+            return a;
+        }
 
         internal bool SendMessageToAdminAction(Domain.Entities.User.MessageDbTable message)
         {

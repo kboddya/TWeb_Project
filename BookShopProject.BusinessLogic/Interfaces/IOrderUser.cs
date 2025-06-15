@@ -6,6 +6,7 @@ namespace BookShopProject.BusinessLogic.Interfaces
     public interface IOrderUser
     {
         OrdersList GetOrders(int userId);
+        OrdersList GetPurchased(int userId);
         OrderDbTable GetOrderById(int id);
         bool AddCart(OrderDbTable cart);
         bool DeleteCart(OrderDbTable order);

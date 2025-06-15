@@ -28,7 +28,7 @@ namespace BookShopProject.Controllers
             var user = System.Web.HttpContext.Current.GetMySessionObject();
             if (user == null) return RedirectToAction("Login", "Auth");
 
-            var ordersList = _orderUser.GetOrders(user.Id);
+            var ordersList = _orderUser.GetPurchased(user.Id);
 
             var config = new AutoMapper.MapperConfiguration(cfg =>
                 cfg.CreateMap<OrderDbTable, Order>());

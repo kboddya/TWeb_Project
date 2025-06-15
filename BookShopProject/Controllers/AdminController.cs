@@ -105,14 +105,13 @@ namespace BookShopProject.Controllers
         public ActionResult OrderDetails()
         {
             var b = Request.QueryString["Id"];
-            var orderFromBL = _orderAdmin.GetOrderById(int.Parse(b));
-            if (orderFromBL == null) return RedirectToAction("er404", "Errors");
+            var book = _bookAdmin.GetBookById(_orderAdmin.GetOrderById(int.Parse(b)).ISBN);  
             var config = new AutoMapper.MapperConfiguration(cfg =>
-                cfg.CreateMap<Domain.Entities.Book.OrderDbTable, Models.Order>());
+                cfg.CreateMap<Domain.Entities.Book.BookDbTable, Models.Book>());
             var mapper = config.CreateMapper();
-            var order = mapper.Map<Models.Order>(orderFromBL);
+            var order = mapper.Map<Models.Book>(book);
             
-            return View(order.Book); 
+            return View(order); 
         }
 
         public ActionResult AuthorList()

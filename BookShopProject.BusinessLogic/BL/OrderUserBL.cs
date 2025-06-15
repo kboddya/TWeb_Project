@@ -12,6 +12,11 @@ namespace BookShopProject.BusinessLogic
             return OrdersListAction(userId);
         }
 
+        public OrdersList GetPurchased(int userId)
+        {
+            return PurchaseListAction(userId);
+        }
+
         public OrderDbTable GetOrderById(int id)
         {
             return OrderByIdAction(id);
